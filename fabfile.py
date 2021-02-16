@@ -1,13 +1,12 @@
 from fabric.api import *
 import os
 
-env.hosts = ['staging.starthere.com']
-env.user = 'starthereuser'
-env.path = '~/Path/to/site'
-env.remotepath = '/path/to/site'
-env.git_branch = 'staging'
+env.hosts = ['stage.firebelly.co']
+env.user = 'firebelly'
+env.remotepath = '/home/firebelly/apps/blacktelehealth-staging'
+env.git_branch = 'main'
 env.warn_only = True
-env.remote_protocol = 'http'
+env.forward_agent = True
 
 def production():
   env.hosts = ['starthere.com']
