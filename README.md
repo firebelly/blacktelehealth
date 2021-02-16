@@ -1,6 +1,6 @@
-# Start here.
+# Black Telehealth Landing Page
 
-## A boilerplate I use for starting new static projects. 
+## Based on [Start here](https://github.com/poopsplat/starthere) boilerplate. 
 
 The boilerplate runs on the following resources:  
 * [SASS (SCSS syntax)](http://sass-lang.com/)

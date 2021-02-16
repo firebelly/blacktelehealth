@@ -10,7 +10,7 @@ const src = path => `assets/${path}`;
 mix.setPublicPath('dist/assets');
 
 // Browsersync
-mix.browserSync('starthere.static');
+mix.browserSync('blacktelehealth.static');
 
 // Styles
 mix.sass(src`styles/main.scss`, 'styles');
