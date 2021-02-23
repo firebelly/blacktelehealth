@@ -1,0 +1,21 @@
+// Forms
+
+:root {
+  --form-color: #{color('white')};
+}
+
+form {
+  input {
+    @extend .input-reset;
+    @include p-akkurat;
+    padding: 15px 0;
+    color: color('white');
+    color: var(--form-color);
+    border-bottom: 2px solid color('white');
+    border-bottom: 2px solid var(--form-color);
+
+    &:focus {
+      border-bottom-width: 6px;
+    }
+  }
+}

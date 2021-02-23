@@ -14,6 +14,7 @@ mix.browserSync('blacktelehealth.static');
 
 // Styles
 mix.sass(src`styles/main.scss`, 'styles');
+mix.sass(src`styles/fonts.scss`, 'styles');
 
 // JavaScript
 mix.js(src`scripts/main.js`, 'scripts')
@@ -22,7 +23,7 @@ mix.js(src`scripts/main.js`, 'scripts')
 // Assets
 mix.copyDirectory(src`images`, publicPath`images`)
    // If you have font files
-   // .copyDirectory(src`fonts`, publicPath`fonts`)
+   .copyDirectory(src`fonts`, publicPath`fonts`)
    .copyDirectory(src`svgs`, publicPath`svgs`);
 
 // Autoload

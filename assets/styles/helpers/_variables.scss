@@ -3,7 +3,26 @@
 // Colors
 $colors: (
   'white': #ffffff,
-  'black': #333333
+  'black': #000000,
+  'green-01': #083622,
+  'green-02': #508059,
+  'green-03': #97b88f,
+  'green-04': #d4deda,
+  'yellow-01': #e5c350,
+  'yellow-02': #edd589,
+  'yellow-03': #f4e7c2,
+  'orange-01': #ce7955,
+  'orange-02': #f4a388,
+  'orange-03': #fac9bc,
+  'blue-01': #81aebb,
+  'blue-02': #a9c7cf,
+  'blue-03': #d1e0e6,
+  'mauve-01': #deb7b8,
+  'mauve-02': #ead0d0,
+  'mauve-03': #f5e9ea,
+  'sand-01': #ede7de,
+  'sand-02': #f5f2e9,
+  'gray': #d9d9d9
 );
 
 @function color($color-name) {
@@ -18,10 +37,15 @@ $breakpoint-nav: 1100px;
 $breakpoint-xl: 1200px;
 
 // Site Wrapper
-$sitewrapper: 1180px;
+$sitewrapper: 1210px;
 
 // Padding/spacing
 $beat: 10px;
-$padding-sm: $beat * 2;
-$padding-md: $beat * 3;
-$padding-lg: $beat * 6;
+$padding-sm: 30px;
+$padding-md: 60px;
+$padding-lg: 115px;
+
+// Misc
+@mixin box-shadow {
+  box-shadow: 0 2px 20px rgba(0,0,0,0.3);
+}

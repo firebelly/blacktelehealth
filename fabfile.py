@@ -3,7 +3,7 @@ import os
 
 env.hosts = ['stage.firebelly.co']
 env.user = 'firebelly'
-env.remotepath = '/home/firebelly/apps/blacktelehealth-staging'
+env.remotepath = '/home/firebelly/apps/blacktelehealth_staging'
 env.git_branch = 'main'
 env.warn_only = True
 env.forward_agent = True
@@ -15,11 +15,11 @@ def production():
   env.git_branch = 'master'
   env.remote_protocol = 'https'
 
-def build():
-  local('npx gulp --production')
-
 def deploy():
   update()
+  local('rm -rf dist')
+  local('yarn build:production')
+  put('dist', env.remotepath)
 
 def update():
   with cd(env.remotepath):

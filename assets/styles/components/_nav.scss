@@ -1,0 +1,20 @@
+// Navigation
+
+.site-nav {
+  ul {
+    @extend .semantic-list;
+    color: color('white');
+  }
+
+  @include media-nav {
+    ul {
+      display: flex;
+
+      li {
+        + li {
+          margin-left: $beat * 2;
+        }
+      }
+    }
+  }
+}

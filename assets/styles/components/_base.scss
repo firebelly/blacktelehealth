@@ -8,7 +8,7 @@ html {
 }
 
 body {
-  font-size: 16px;
+  @include p-tiempos;
   color: color('black');
 	background: color('white');
 }
@@ -32,4 +32,11 @@ img {
   @include media-md {
     padding: 0 $padding-md;
   }
+  @include media-lg {
+    padding: 0 $padding-lg;
+  }
+}
+
+.site-main {
+  background-color: color('white');
 }

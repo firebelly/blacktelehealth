@@ -1,5 +1,40 @@
 // Footer
 
 .site-footer {
-  
+  color: color('sand-02');
+  padding-top: $padding-md;
+  padding-bottom: $padding-md;
+  background-color: color('black');
+  @include media-md {
+    padding-top: $padding-lg;
+    padding-bottom: $padding-lg;
+  }
+
+  a {
+    color: color('yellow-01');
+  }
+
+  .newsletter-signup {
+    --button-primary: #{color('yellow-01')};
+    --button-secondary: #{color('black')};
+  }
+
+  .social {
+    @extend .semantic-list;
+    display: flex;
+
+    li + li {
+      margin-left: $beat * 2;
+    }
+
+    a {
+      display: block;
+    }
+
+    svg {
+      width: 30px;
+      height: 30px;
+      fill: color('yellow-01');
+    }
+  }
 }

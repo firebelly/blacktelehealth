@@ -1,14 +1,13 @@
 // Typography
 
-// @font-face
-
 // Font-family mixins
-/// example:
-/// @mixin font-display {
-///   font-style: normal;
-///   font-weight: normal;
-///   font-family: 'Custom Font Family';
-/// }
+@mixin font-tiempos {
+  font-family: 'Tiempos Text', serif;
+}
+
+@mixin font-akkurat {
+  font-family: 'Akkurat', sans-serif;
+}
 
 /// Mixin to allow us to concisely define all aspects of a paragraph style (except for family.)
 /// @param {number} $size - Font size specified in pixels (without 'px')
@@ -41,3 +40,99 @@
 /// .h1 {
 ///   @include h1;
 /// }
+
+@mixin p-tiempos {
+  @include font-tiempos;
+  @include paragraph-style(20, 30, 0.005em);
+}
+.p-tiempos {
+  @include p-tiempos;
+}
+
+@mixin h1-tiempos {
+  @include font-tiempos;
+  @include paragraph-style(120, 110, -0.015em, 500, uppercase);
+}
+.h1-tiempos {
+  @include h1-tiempos;
+}
+
+@mixin h2-tiempos {
+  @include font-tiempos;
+  @include paragraph-style(50, 55, -0.02em);
+}
+.h2-tiempos {
+  @include h2-tiempos;
+}
+
+@mixin h3-tiempos {
+  @include font-tiempos;
+  @include paragraph-style(27, 30, 0.01em);
+}
+.h3-tiempos {
+  @include h3-tiempos;
+}
+
+@mixin type-subtitle-tiempos {
+  @include font-tiempos;
+  @include paragraph-style(25, 35);
+}
+.type-subtitle-tiempos {
+  @include type-subtitle-tiempos;
+}
+
+@mixin type-cta {
+  @include font-akkurat;
+  @include paragraph-style(15, 20, 0.1em, 700, uppercase);
+}
+.type-cta {
+  @include type-cta;
+}
+
+@mixin type-detail-akkurat {
+  @include font-akkurat;
+  @include paragraph-style(12, 20);
+}
+.type-detail-akkurat {
+  @include type-detail-akkurat;
+}
+
+@mixin h1-akkurat {
+  @include font-akkurat;
+  @include paragraph-style(120, 110, -0.02em, 700);
+}
+.h1-akkurat {
+  @include h1-akkurat;
+}
+
+@mixin h2-akkurat {
+  @include font-akkurat;
+  @include paragraph-style(50, 55, 0, 700);
+}
+.h2-akkurat {
+  @include h2-akkurat;
+}
+
+@mixin h3-akkurat {
+  @include font-akkurat;
+  @include paragraph-style(20, 30, 0.1em, 700, uppercase);
+}
+.h3-akkurat {
+  @include h3-akkurat;
+}
+
+@mixin type-subtitle-akkurat {
+  @include font-akkurat;
+  @include paragraph-style(25, 35);
+}
+.type-subtitle-akkurat {
+  @include type-subtitle-akkurat;
+}
+
+@mixin p-akkurat {
+  @include font-akkurat;
+  @include paragraph-style(20, 30);
+}
+.p-akkurat {
+  @include p-akkurat;
+}

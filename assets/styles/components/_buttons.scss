@@ -1,0 +1,50 @@
+// Button Styles
+
+:root {
+  --button-primary: #{color('black')};
+  --button-secondary: #{color('white')};
+}
+
+.button {
+  @extend .button-reset;
+  @include type-cta;
+  cursor: pointer;
+  padding: 13px 30px;
+  align-items: center;
+  border-radius: 666px;
+  display: inline-flex;
+  justify-content: center;
+  color: var(--button-primary);
+  border: 2px solid var(--button-primary);
+
+  &:hover,
+  &:focus {
+    color: color('white');
+    color: var(--button-secondary);
+    background-color: color('black');
+    background-color: var(--button-primary);
+
+    svg {
+      fill: color('white');
+      fill: var(--button-secondary);
+    }
+  }
+
+  svg {
+    margin-left: 17px;
+    fill: color('black');
+    fill: var(--button-primary);
+  }
+
+  // Circular
+  &.circular {
+    padding: 0;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+
+    svg {
+      margin-left: 0;
+    }
+  }
+}

@@ -1,0 +1,28 @@
+// Common Styles
+
+// Sections
+.section {
+  padding-top: $padding-md;
+  padding-bottom: $padding-md;
+
+  @include media-md {
+    padding-top: $padding-lg;
+    padding-bottom: $padding-lg;
+  }
+}
+
+// Icons
+.icon {
+  width: 30px;
+  height: 30px;
+}
+
+// Shape Masks
+.arch {
+  overflow: hidden;
+  border-radius: 666px 666px 0 0;
+}
+.pill {
+  overflow: hidden;
+  border-radius: 999px;
+}

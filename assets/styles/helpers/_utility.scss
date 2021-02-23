@@ -54,6 +54,18 @@
   }
 }
 
+// Input reset
+.input-reset {
+  padding: 0;
+  border: none;
+  appearance: none;
+  background: none;
+
+  &:focus {
+    outline: none;
+  }
+}
+
 // Alignment
 .align-center {
   text-align: center;

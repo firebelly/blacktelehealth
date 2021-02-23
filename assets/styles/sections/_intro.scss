@@ -1,0 +1,7 @@
+// Intro Section
+
+.intro-section {
+  @include media-md {
+    padding-top: $padding-lg * 2;
+  }
+}
