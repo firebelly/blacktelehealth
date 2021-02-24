@@ -15,14 +15,51 @@
 .icon {
   width: 30px;
   height: 30px;
+  fill: currentColor;
+}
+// Large Icons
+.icon-lg {
+  width: 50px;
+  height: 50px;
 }
 
 // Shape Masks
 .arch {
   overflow: hidden;
   border-radius: 666px 666px 0 0;
+
+  &.-flipped {
+    border-radius: 0 0 666px 666px;
+  }
 }
 .pill {
   overflow: hidden;
   border-radius: 999px;
+}
+.circle {
+  overflow: hidden;
+  border-radius: 50%;
+}
+
+// Overlapping Section Images
+.overlapping-image {
+  position: relative;
+
+  .overlap-background {
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 50%;
+    position: absolute;
+
+    &.-bottom {
+      top: auto;
+      bottom: 0;
+    }
+  }
+
+  img {
+    z-index: 1;
+    position: relative;
+  }
 }

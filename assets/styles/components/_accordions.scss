@@ -1,0 +1,19 @@
+// Accordion Styles
+
+summary {
+  @include type-cta;
+  display: flex;
+  text-align: left;
+  align-items: center;
+  &::-webkit-details-marker {
+    display: none;
+  }
+
+  .icon {
+    margin-left: 20px;
+  }
+}
+
+.accordion-content {
+  text-align: left;
+}

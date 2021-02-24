@@ -9,8 +9,8 @@ html {
 
 body {
   @include p-tiempos;
-  color: color('black');
-	background: color('white');
+  color: color('green-01');
+	background-color: color('sand-01');
 }
 
 a {
@@ -26,7 +26,6 @@ img {
   width: 100%;
   margin: 0 auto;
   position: relative;
-  @include clearfix();
   padding: 0 $padding-sm;
   max-width: $sitewrapper;
   @include media-md {
@@ -38,5 +37,5 @@ img {
 }
 
 .site-main {
-  background-color: color('white');
+  background-color: color('sand-01');
 }

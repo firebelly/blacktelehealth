@@ -1,4 +1,6 @@
 // Import external dependencies
+// polyfill for the details element to work in IE11
+require('details-polyfill');
 
 // Import local dependencies
 import Router from './util/Router';

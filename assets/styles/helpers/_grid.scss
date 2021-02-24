@@ -24,12 +24,52 @@ $column-width: 100% / $columns;
     flex-basis: 100%;
   }
 
+  // Alignment
   &.align-right {
     flex-direction: row-reverse;
   }
-
   &.align-left {
-    align-items: flex-start;
+    flex-direction: row;
+  }
+  @include media-sm {
+    &.sm-align-right {
+      flex-direction: row-reverse;
+    }
+    &.sm-align-left {
+      flex-direction: row;
+    }
+  }
+  @include media-md {
+    &.md-align-right {
+      flex-direction: row-reverse;
+    }
+    &.md-align-left {
+      flex-direction: row;
+    }
+  }
+  @include media-lg {
+    &.lg-align-right {
+      flex-direction: row-reverse;
+    }
+    &.lg-align-left {
+      flex-direction: row;
+    }
+  }
+  @include media-nav {
+    &.nav-align-right {
+      flex-direction: row-reverse;
+    }
+    &.nav-align-left {
+      flex-direction: row;
+    }
+  }
+  @include media-xl {
+    &.xl-align-right {
+      flex-direction: row-reverse;
+    }
+    &.xl-align-left {
+      flex-direction: row;
+    }
   }
 
   // SPACING:
