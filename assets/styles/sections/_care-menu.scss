@@ -1,0 +1,16 @@
+// Care Menu Section
+
+.care-menu {
+  @extend .semantic-list;
+
+  li {
+    + li {
+      border-top: 1px solid;
+    }
+  }
+
+  .button {
+    --button-primary: #{color('orange-01')};
+    --button-secondary: #{color('green-01')};
+  }
+}

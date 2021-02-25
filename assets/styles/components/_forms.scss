@@ -5,9 +5,10 @@
 }
 
 form {
+  @include p-akkurat;
+
   input {
     @extend .input-reset;
-    @include p-akkurat;
     padding: 15px 0;
     color: color('white');
     color: var(--form-color);

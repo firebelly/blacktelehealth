@@ -1,9 +1,13 @@
 // Navigation
 
 .site-nav {
+  a {
+    text-decoration: none;
+  }
+
   ul {
     @extend .semantic-list;
-    color: color('white');
+    color: color('green-01');
   }
 
   @include media-nav {

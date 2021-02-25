@@ -1,7 +1,47 @@
 // Intro Section
 
 .intro-section {
-  @include media-md {
-    padding-top: $padding-lg * 2;
+  .big-b {
+    height: 0;
+    width: 100%;
+    position: relative;
+    padding-bottom: 100%;
+
+    > div {
+      left: 0;
+      height: 50%;
+      width: 100%;
+      position: absolute;
+      background-blend-mode: normal, multiply, normal;
+
+      img {
+        width: auto;
+        max-width: none;
+        position: absolute;
+      }
+
+      &.-top {
+        top: 0;
+        clip-path: url(#b-top-clip);
+        background: linear-gradient(334.24deg, rgba(232, 134, 88, 0.35) 36.33%, rgba(255, 255, 255, 0) 90.15%), #E88658;
+
+        img {
+          right: 2%;
+          top: -40%;
+          height: 200%;
+        }
+      }
+      &.-bottom {
+        bottom: 0;
+        clip-path: url(#b-bottom-clip);
+        background: linear-gradient(360deg, rgba(237, 213, 137, 0.35) 49.84%, rgba(255, 255, 255, 0) 117.54%), color('yellow-02');
+
+        img {
+          top: -20%;
+          right: -44%;
+          height: 215%;
+        }
+      }
+    }
   }
 }

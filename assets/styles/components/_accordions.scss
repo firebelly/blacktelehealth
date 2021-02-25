@@ -1,12 +1,20 @@
 // Accordion Styles
 
 summary {
-  @include type-cta;
+  @include h2-tiempos;
   display: flex;
+  cursor: pointer;
   text-align: left;
   align-items: center;
+  padding: $padding-sm 0;
+  justify-content: space-between;
   &::-webkit-details-marker {
     display: none;
+  }
+
+  &.simple-summary {
+    @include type-cta;
+    justify-content: unset;
   }
 
   .icon {

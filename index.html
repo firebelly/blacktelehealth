@@ -49,7 +49,17 @@
       }
     </script>
   </head>
-  <body>
+  <body class="page-home">
+    <svg width="0" height="0">
+      <defs>
+        <clipPath id="b-top-clip" clipPathUnits="objectBoundingBox" transform="scale(0.001639344, 0.003278689)">
+          <path d="M457.5,0H0v251.9h71.2v-91.5h108.4v91.5h91.5V305h186.4c84.2,0,152.5-68.3,152.5-152.5 C610,68.3,541.7,0,457.5,0z" />
+        </clipPath>
+        <clipPath id="b-bottom-clip" clipPathUnits="objectBoundingBox" transform="scale(0.001639344, 0.003278689)">
+          <path d="M457.5,0H271.1v53.1h-91.5v91.5H71.2V53.1H0V305h457.5c84.2,0,152.5-68.3,152.5-152.5C610,68.3,541.7,0,457.5,0 z" />
+        </clipPath>
+      </defs>
+    </svg>
     <div id="breakpoint-indicator"></div>
 
     <header class="site-header" role="banner">
@@ -77,16 +87,23 @@
 
     <main class="site-main" role="main">
 
-      <div id="intro-section" class="section intro-section background-sand-01 color-green-01">
+      <div id="intro-section" class="section intro-section parallax-container background-sand-01 color-green-01">
         <div class="sitewrapper">
-          <div class="grid">
+          <div class="grid spaced">
             <div class="col-md-1-2">
-              <h2 class="h2-akkurat">Claim your right to good health.</h2>
-              <p>If you’re Black in America, you know that good health—and the high quality healthcare that makes it possible—has been out of reach for way too long.  We at Black Telehealth believe that you have a right to the highest level of care, in every sense of the word.</p>
+              <div class="big-b">
+                <div class="-top">
+                  <img class="parallax" src="/dist/assets/images/top-b-person_01.png" alt="">
+                </div>
+                <div class="-bottom">
+                  <img class="parallax -reverse" src="/dist/assets/images/bottom-b-person_01.png" alt="">
+                </div>
+              </div>
             </div>
 
             <div class="col-md-1-2">
-              <div>"B"</div>
+              <h2 class="h2-akkurat">Claim your right to good health.</h2>
+              <p>If you’re Black in America, you know that good health—and the high quality healthcare that makes it possible—has been out of reach for way too long.  We at Black Telehealth believe that you have a right to the highest level of care, in every sense of the word.</p>
             </div>
           </div>
         </div>
@@ -148,7 +165,7 @@
               <p>Lorem ipsum dolor sit amet consectetur adipisicing elit...</p>
 
               <details>
-                <summary>
+                <summary class="simple-summary">
                   Full Bio <svg class='icon icon-plus' aria-hidden='true' role='presentation'><use xlink:href='#icon-plus'/></svg>
                 </summary>
                 <div class="accordion-content">
@@ -165,7 +182,7 @@
               <p>Lorem ipsum dolor sit amet consectetur adipisicing elit...</p>
 
               <details>
-                <summary>
+                <summary class="simple-summary">
                   Full Bio <svg class='icon icon-plus' aria-hidden='true' role='presentation'><use xlink:href='#icon-plus'/></svg>
                 </summary>
                 <div class="accordion-content">
@@ -182,7 +199,7 @@
               <p>Lorem ipsum dolor sit amet consectetur adipisicing elit...</p>
 
               <details>
-                <summary>
+                <summary class="simple-summary">
                   Full Bio <svg class='icon icon-plus' aria-hidden='true' role='presentation'><use xlink:href='#icon-plus'/></svg>
                 </summary>
                 <div class="accordion-content">
@@ -268,31 +285,41 @@
               <ul class="care-menu">
                 <li>
                   <details>
-                    <summary>Virtual Visits <svg class='icon icon-plus' aria-hidden='true' role='presentation'><use xlink:href='#icon-plus'/></svg></summary>
+                    <summary>Virtual Visits <div class="button circular">
+                      <svg class='icon icon-plus' aria-hidden='true' role='presentation'><use xlink:href='#icon-plus'/></svg>
+                    </div></summary>
                     <div class="accordion-content">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sunt aperiam cupiditate neque vitae deleniti a ut mollitia dignissimos nisi! Veniam cum, labore repellendus neque dolor quos hic suscipit deserunt quibusdam?</div>
                   </details>
                 </li>
                 <li>
                   <details>
-                    <summary>Care Coordinaion <svg class='icon icon-plus' aria-hidden='true' role='presentation'><use xlink:href='#icon-plus'/></svg></summary>
+                    <summary>Care Coordinaion <div class="button circular">
+                      <svg class='icon icon-plus' aria-hidden='true' role='presentation'><use xlink:href='#icon-plus'/></svg>
+                    </div></summary>
                     <div class="accordion-content">Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias vero doloribus porro magnam unde, quis, deserunt ad assumenda tempore quae perspiciatis recusandae odio iure provident cum impedit ratione fugit tempora.</div>
                   </details>
                 </li>
                 <li>
                   <details>
-                    <summary>Remote Patient Monitoring <svg class='icon icon-plus' aria-hidden='true' role='presentation'><use xlink:href='#icon-plus'/></svg></summary>
+                    <summary>Remote Patient Monitoring <div class="button circular">
+                      <svg class='icon icon-plus' aria-hidden='true' role='presentation'><use xlink:href='#icon-plus'/></svg>
+                    </div></summary>
                     <div class="accordion-content">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Temporibus delectus quo exercitationem animi atque, corporis sed sint eligendi porro in nemo consequatur et qui magni, minima repudiandae vel quaerat illum.</div>
                   </details>
                 </li>
                 <li>
                   <details>
-                    <summary>Prevention Education <svg class='icon icon-plus' aria-hidden='true' role='presentation'><use xlink:href='#icon-plus'/></svg></summary>
+                    <summary>Prevention Education <div class="button circular">
+                      <svg class='icon icon-plus' aria-hidden='true' role='presentation'><use xlink:href='#icon-plus'/></svg>
+                    </div></summary>
                     <div class="accordion-content">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iste quaerat nostrum, sunt veniam odit voluptas perferendis corrupti, distinctio ducimus ratione harum reiciendis iure veritatis aperiam architecto quas amet ex! Totam!</div>
                   </details>
                 </li>
                 <li>
                   <details>
-                    <summary>Community Support <svg class='icon icon-plus' aria-hidden='true' role='presentation'><use xlink:href='#icon-plus'/></svg></summary>
+                    <summary>Community Support <div class="button circular">
+                      <svg class='icon icon-plus' aria-hidden='true' role='presentation'><use xlink:href='#icon-plus'/></svg>
+                    </div></summary>
                     <div class="accordion-content">Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis a soluta ea. Eius obcaecati saepe autem, voluptate mollitia illo ea minus laboriosam architecto modi deleniti nemo esse! Molestiae, quisquam dignissimos.</div>
                   </details>
                 </li>

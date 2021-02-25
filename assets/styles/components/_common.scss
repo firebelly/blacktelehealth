@@ -39,6 +39,12 @@
 .circle {
   overflow: hidden;
   border-radius: 50%;
+  transition: border-radius 0.25s ease-out;
+
+  &:hover,
+  &:focus {
+    border-radius: 50% 50% 0 0;
+  }
 }
 
 // Overlapping Section Images
@@ -62,4 +68,9 @@
     z-index: 1;
     position: relative;
   }
+}
+
+// Parallax movement
+.parallax {
+  transition: transform 0.3s ease-out;
 }

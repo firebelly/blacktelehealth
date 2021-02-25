@@ -4,10 +4,7 @@
   top: 0;
   left: 0;
   z-index: 10;
-  width: 100%;
-  position: fixed;
   padding-top: $padding-md;
-  mix-blend-mode: difference;
 
   h1 {
     margin: 0;
@@ -17,11 +14,13 @@
     display: flex;
 
     svg {
-      fill: color('white');
+      fill: color('green-01');
 
       &.bt-lettermark {
+        z-index: 10;
         width: 60px;
         height: 60px;
+        position: fixed;
       }
 
       &.bt-wordmark {
@@ -33,6 +32,10 @@
 
     @include media-md {
       margin-left: -70px;
+
+      svg.bt-wordmark {
+        margin-left: 80px;
+      }
     }
   }
 }
