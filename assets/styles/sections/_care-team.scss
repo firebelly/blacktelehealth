@@ -1,0 +1,27 @@
+// Care Team Section
+
+.care-team-section {
+  .section-title {
+    @include h1-tiempos;
+
+    @include media-md {
+      max-width: 50%;
+    }
+  }
+}
+
+.care-team-grid {
+  margin-top: $padding-md;
+}
+
+.care-team-member {
+  margin-bottom: $padding-sm;
+
+  h6 {
+    @include h3-tiempos;
+  }
+
+  p {
+    @include type-cta;
+  }
+}

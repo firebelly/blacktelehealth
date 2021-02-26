@@ -8,9 +8,13 @@ html {
 }
 
 body {
-  @include p-tiempos;
+  @include p-akkurat;
   color: color('green-01');
 	background-color: color('sand-01');
+}
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 0;
 }
 
 a {
@@ -31,11 +35,14 @@ img {
   @include media-md {
     padding: 0 $padding-md;
   }
-  @include media-lg {
-    padding: 0 $padding-lg;
-  }
 }
 
 .site-main {
   background-color: color('sand-01');
+}
+
+// B Mask svg hidden, but present for masking
+.b-mask {
+  position: absolute;
+  pointer-events: none;
 }

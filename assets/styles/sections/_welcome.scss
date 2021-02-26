@@ -1,0 +1,46 @@
+// Welcom Section
+
+.welcome-section {
+  @include media-md {
+    + .section {
+      padding-top: 0;
+    }
+  }
+
+  .overlapping-image {
+    margin-top: $padding-sm;
+  }
+
+  .offset-pill {
+    display: flex;
+
+    > div {
+      flex-basis: 50%;
+    }
+
+    .-left {
+      img {
+        border-radius: 666px 0 0 666px;
+      }
+    }
+    .-right {
+      img {
+        border-radius: 0 666px 666px 0;
+      }
+    }
+
+    @include media-md {
+      padding-bottom: 150px;
+
+      .-left {
+        margin-top: 150px;
+        align-self: flex-end;
+      }
+      .-right {
+        position: sticky;
+        top: calc(50vh - 25%);
+        align-self: flex-start;
+      }
+    }
+  }
+}

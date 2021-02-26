@@ -50,7 +50,7 @@
     </script>
   </head>
   <body class="page-home">
-    <svg width="0" height="0">
+    <svg class="b-mask" width="0" height="0">
       <defs>
         <clipPath id="b-top-clip" clipPathUnits="objectBoundingBox" transform="scale(0.001639344, 0.003278689)">
           <path d="M457.5,0H0v251.9h71.2v-91.5h108.4v91.5h91.5V305h186.4c84.2,0,152.5-68.3,152.5-152.5 C610,68.3,541.7,0,457.5,0z" />
@@ -74,10 +74,9 @@
 
           <nav class="site-nav col-auto" role="navigation">
             <ul>
-              <li><a href="#our-vision">Our Vision</a></li>
-              <li><a href="#what-we-do">What We Do</a></li>
-              <li><a href="#our-community">Our Community</a></li>
-              <li><a href="#who-we-are">Who We Are</a></li>
+              <li><a href="#welcome">Welcome</a></li>
+              <li><a href="#care-menu">Your Care Menu</a></li>
+              <li><a href="#care-team">Your Care Team</a></li>
               <li><a href="#get-in-touch">Get in Touch</a></li>
             </ul>
           </nav>
@@ -90,7 +89,7 @@
       <div id="intro-section" class="section intro-section parallax-container background-sand-01 color-green-01">
         <div class="sitewrapper">
           <div class="grid spaced">
-            <div class="col-md-1-2">
+            <div class="b-container col-">
               <div class="big-b">
                 <div class="-top">
                   <img class="parallax" src="/dist/assets/images/top-b-person_01.png" alt="">
@@ -101,8 +100,8 @@
               </div>
             </div>
 
-            <div class="col-md-1-2">
-              <h2 class="h2-akkurat">Claim your right to good health.</h2>
+            <div class="intro-text col-">
+              <h2 class="headline">Claim your right to good health.</h2>
               <p>If you’re Black in America, you know that good health—and the high quality healthcare that makes it possible—has been out of reach for way too long.  We at Black Telehealth believe that you have a right to the highest level of care, in every sense of the word.</p>
             </div>
           </div>
@@ -113,22 +112,29 @@
         <div class="sitewrapper">
           <h3 class="section-title h1-tiempos align-center">Welcome</h3>
         </div>
-      </div><!-- #welcome -->
 
-      <div class="overlapping-image">
-        <div class="overlap-background -top background-sand-01"></div>
-        <div class="overlap-background -bottom background-sand-03"></div>
-        <div class="sitewrapper">
-          <img class="pill" src="https://source.unsplash.com/collection/12257081/1800x1000" alt="">
-        </div>
-      </div><!-- .overlapping-image -->
+        <div class="overlapping-image">
+          <div class="overlap-background -top background-sand-01"></div>
+          <div class="overlap-background -bottom background-sand-03"></div>
+          <div class="sitewrapper">
+            <div class="offset-pill">
+              <div class="-left">
+                <img src="https://source.unsplash.com/collection/12257081/1100x960" alt="">
+              </div>
+              <div class="-right">
+                <img src="https://source.unsplash.com/collection/12257081/1375x1200" alt="">
+              </div>
+            </div>
+          </div>
+        </div><!-- .overlapping-image -->
+      </div><!-- #welcome -->
 
       <div id="our-calling" class="section our-calling-section background-sand-03 color-green-01">
         <div class="sitewrapper">
 
           <div class="grid spaced">
             <div class="col-md-1-3">
-              <h2 class="section-title">Our Calling</h2>
+              <h2 class="section-title h2-tiempos">Our Calling</h2>
             </div>
 
             <div class="col-md-1-2">
@@ -137,8 +143,8 @@
               it’s too difficult and depressing to figure out. We at Black Telehealth believe that change is possible [...]</p>
 
               <details>
-                <summary>
-                  Call to action <svg class='icon icon-plus' aria-hidden='true' role='presentation'><use xlink:href='#icon-plus'/></svg>
+                <summary class="simple-summary">
+                  Read more <svg class='icon icon-plus' aria-hidden='true' role='presentation'><use xlink:href='#icon-plus'/></svg>
                 </summary>
                 <div class="accordion-content">
                   <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nam nostrum ducimus fuga ab, perferendis maxime, distinctio voluptatibus quas rem eaque et commodi laborum, quae excepturi quisquam quo. Magni, voluptates ducimus!</p>
@@ -151,121 +157,123 @@
         </div>
       </div><!-- #our-calling -->
 
-      <div id="who-we-are" class="section who-we-are-section background-sand-01 color-green-01">
-        <div class="sitewrapper align-center">
+      <div id="leadership" class="section leadership-section background-sand-03 color-green-01">
+        <div class="sitewrapper">
+          <div class="border-top padded-top padded-bottom-lg">
 
-          <h2 class="section-title">Our Leadership</h2>
+            <h2 class="section-title">Our Leadership</h2>
 
-          <div class="grid spaced">
-            <div class="col-md-1-3 person">
-              <img class="arch" src="https://source.unsplash.com/collection/12257081/500x500" alt="">
+            <div class="grid spaced">
+              <div class="person col-md-1-3" data-modal-open>
+                <img class="circle" src="https://source.unsplash.com/collection/12257081/500x500" alt="">
+                <h4>Andre Hughes</h4>
+                <h5>Founder</h5>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit...</p>
+                <button class="modal-open">Full Bio <svg class='icon icon-plus' aria-hidden='true' role='presentation'>
+                  <use xlink:href='#icon-plus' />
+                </svg></button>
 
-              <h4>Andre Hughes</h4>
-              <h5>Founder</h5>
-              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit...</p>
-
-              <details>
-                <summary class="simple-summary">
-                  Full Bio <svg class='icon icon-plus' aria-hidden='true' role='presentation'><use xlink:href='#icon-plus'/></svg>
-                </summary>
-                <div class="accordion-content">
-                  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam, fugiat. Dolore consequuntur nemo earum quas iure vel ut modi facere, id ipsam officiis? Illum, suscipit amet assumenda sunt tenetur quo!</p>
+                <div class="full-bio visuallyhidden">
+                  <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Commodi blanditiis magni, aperiam culpa quasi placeat molestiae dolore iste amet nihil ducimus, quam recusandae molestias accusamus. Expedita atque iusto tenetur esse?</p>
+                  <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quam, neque consequuntur. Provident deleniti, natus cumque, accusamus modi id voluptatem numquam odit maxime tempore ex nesciunt amet corporis maiores! Laborum, aut?</p>
                 </div>
-              </details>
-            </div>
+              </div>
 
-            <div class="col-md-1-3 person">
-              <img class="circle" src="https://source.unsplash.com/collection/12257081/600x600" alt="">
+              <div class="person col-md-1-3" data-modal-open>
+                <img class="circle" src="https://source.unsplash.com/collection/12257081/600x600" alt="">
+                <h4>Dr. William Payne</h4>
+                <h5>Founder</h5>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit...</p>
+                <button class="modal-open">Full Bio <svg class='icon icon-plus' aria-hidden='true' role='presentation'>
+                  <use xlink:href='#icon-plus' />
+                </svg></button>
 
-              <h4>Dr. William Payne</h4>
-              <h5>Founder</h5>
-              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit...</p>
-
-              <details>
-                <summary class="simple-summary">
-                  Full Bio <svg class='icon icon-plus' aria-hidden='true' role='presentation'><use xlink:href='#icon-plus'/></svg>
-                </summary>
-                <div class="accordion-content">
-                  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia alias quas, consequatur dolore totam excepturi assumenda consectetur ad. Accusamus repellat a assumenda ex sed laudantium eligendi iure doloremque? Ab, quibusdam!</p>
+                <div class="full-bio visuallyhidden">
+                  <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Commodi blanditiis magni, aperiam culpa quasi placeat molestiae dolore iste amet nihil ducimus, quam recusandae molestias accusamus. Expedita atque iusto tenetur esse?</p>
+                  <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quam, neque consequuntur. Provident deleniti, natus cumque, accusamus modi id voluptatem numquam odit maxime tempore ex nesciunt amet corporis maiores! Laborum, aut?</p>
                 </div>
-              </details>
-            </div>
+              </div>
 
-            <div class="col-md-1-3 person">
-              <img class="arch -flipped" src="https://source.unsplash.com/collection/12257081/700x700" alt="">
+              <div class="person col-md-1-3" data-modal-open>
+                <img class="circle -flipped" src="https://source.unsplash.com/collection/12257081/700x700" alt="">
+                <h4>Cheryle Robinson Jackson</h4>
+                <h5>CEO</h5>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit...</p>
+                <button class="modal-open">Full Bio <svg class='icon icon-plus' aria-hidden='true' role='presentation'>
+                    <use xlink:href='#icon-plus' />
+                  </svg></button>
 
-              <h4>Cheryle Robinson Jackson</h4>
-              <h5>CEO</h5>
-              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit...</p>
-
-              <details>
-                <summary class="simple-summary">
-                  Full Bio <svg class='icon icon-plus' aria-hidden='true' role='presentation'><use xlink:href='#icon-plus'/></svg>
-                </summary>
-                <div class="accordion-content">
-                  <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Culpa possimus ipsam temporibus dolor assumenda, sint quas reprehenderit illum, explicabo doloribus voluptatem soluta minus beatae praesentium sunt nulla. Nobis, ab facilis.</p>
+                <div class="full-bio visuallyhidden">
+                  <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Commodi blanditiis magni, aperiam culpa quasi placeat
+                    molestiae dolore iste amet nihil ducimus, quam recusandae molestias accusamus. Expedita atque iusto tenetur esse?
+                  </p>
+                  <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quam, neque consequuntur. Provident deleniti, natus
+                    cumque, accusamus modi id voluptatem numquam odit maxime tempore ex nesciunt amet corporis maiores! Laborum, aut?
+                  </p>
                 </div>
-              </details>
-            </div>
-          </div>
+              </div>
+            </div><!-- .grid -->
 
-        </div>
-      </div>
+          </div><!-- border container -->
+        </div><!-- .sitewrapper-->
+      </div><!-- #leadership -->
 
-      <div id="we-believe" class="section we-believe-section background-sand-01 color-green-01">
+      <div id="we-believe" class="section we-believe-section background-sand-03 color-green-01">
         <div class="sitewrapper">
 
-          <h2 class="section-title">We Believe</h2>
+          <div class="border-top padded-top padded-bottom-lg">
+            <h2 class="section-title">We Believe</h2>
 
-          <div class="grid spaced fill-orange-01">
+            <div class="grid spaced fill-orange-01">
 
-            <div class="belief col-md-1-3">
-              <svg class='icon-lg icon-healthcare' aria-hidden='true' role='presentation'><use xlink:href='#icon-healthcare'/></svg>
-              <p>You have a right to good heath.</p>
-            </div>
+              <div class="belief col-md-1-3">
+                <svg class='icon-lg icon-healthcare' aria-hidden='true' role='presentation'><use xlink:href='#icon-healthcare'/></svg>
+                <p>You have a right to good heath.</p>
+              </div>
 
-            <div class="belief col-md-1-3">
-              <svg class='icon-lg icon-doctors-or-medicine' aria-hidden='true' role='presentation'>
-                <use xlink:href='#icon-doctors-or-medicine' />
-              </svg>
-              <p>You should have access to the world’s best doctors.</p>
-            </div>
+              <div class="belief col-md-1-3">
+                <svg class='icon-lg icon-doctors-or-medicine' aria-hidden='true' role='presentation'>
+                  <use xlink:href='#icon-doctors-or-medicine' />
+                </svg>
+                <p>You should have access to the world’s best doctors.</p>
+              </div>
 
-            <div class="belief col-md-1-3">
-              <svg class='icon-lg icon-consumer' aria-hidden='true' role='presentation'>
-                <use xlink:href='#icon-consumer' />
-              </svg>
-              <p>You deserve to be seen as a whole person</p>
-            </div>
+              <div class="belief col-md-1-3">
+                <svg class='icon-lg icon-consumer' aria-hidden='true' role='presentation'>
+                  <use xlink:href='#icon-consumer' />
+                </svg>
+                <p>You deserve to be seen as a whole person</p>
+              </div>
 
-            <div class="belief col-md-1-3">
-              <svg class='icon-lg icon-mobile-device' aria-hidden='true' role='presentation'>
-                <use xlink:href='#icon-mobile-device' />
-              </svg>
-              <p>You can get the help you need, when and how you need it.</p>
-            </div>
+              <div class="belief col-md-1-3">
+                <svg class='icon-lg icon-mobile-device' aria-hidden='true' role='presentation'>
+                  <use xlink:href='#icon-mobile-device' />
+                </svg>
+                <p>You can get the help you need, when and how you need it.</p>
+              </div>
 
-            <div class="belief col-md-1-3">
-              <svg class='icon-lg icon-community' aria-hidden='true' role='presentation'>
-                <use xlink:href='#icon-community' />
-              </svg>
-              <p>You are capable of living a life free of illness.</p>
-            </div>
+              <div class="belief col-md-1-3">
+                <svg class='icon-lg icon-community' aria-hidden='true' role='presentation'>
+                  <use xlink:href='#icon-community' />
+                </svg>
+                <p>You are capable of living a life free of illness.</p>
+              </div>
 
-            <div class="belief col-md-1-3">
-              <svg class='icon-lg icon-family' aria-hidden='true' role='presentation'>
-                <use xlink:href='#icon-family' />
-              </svg>
-              <p>You are worthy of care that tends to your heart and soul, not just your body.</p>
-            </div>
+              <div class="belief col-md-1-3">
+                <svg class='icon-lg icon-family' aria-hidden='true' role='presentation'>
+                  <use xlink:href='#icon-family' />
+                </svg>
+                <p>You are worthy of care that tends to your heart and soul, not just your body.</p>
+              </div>
 
-          </div>
+            </div><!-- .grid -->
 
-        </div>
+          </div><!-- border container -->
+        </div><!-- .sitewrapper-->
       </div><!-- #we-believe -->
 
       <div class="overlapping-image">
-        <div class="overlap-background -top background-sand-01"></div>
+        <div class="overlap-background -top background-sand-03"></div>
         <div class="overlap-background -bottom background-green-01"></div>
         <div class="sitewrapper">
           <div class="grid">
@@ -278,108 +286,117 @@
 
       <div id="care-menu" class="section care-menu-section background-green-01 color-sand-01">
         <div class="sitewrapper">
-          <div class="grid spaced">
+          <div class="grid spaced direction-right">
             <div class="col-md-2-3 md-order-1">
               <h2 class="section-title">Your Care Menu</h2>
 
-              <ul class="care-menu">
-                <li>
-                  <details>
-                    <summary>Virtual Visits <div class="button circular">
-                      <svg class='icon icon-plus' aria-hidden='true' role='presentation'><use xlink:href='#icon-plus'/></svg>
-                    </div></summary>
-                    <div class="accordion-content">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sunt aperiam cupiditate neque vitae deleniti a ut mollitia dignissimos nisi! Veniam cum, labore repellendus neque dolor quos hic suscipit deserunt quibusdam?</div>
-                  </details>
-                </li>
-                <li>
-                  <details>
-                    <summary>Care Coordinaion <div class="button circular">
-                      <svg class='icon icon-plus' aria-hidden='true' role='presentation'><use xlink:href='#icon-plus'/></svg>
-                    </div></summary>
-                    <div class="accordion-content">Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias vero doloribus porro magnam unde, quis, deserunt ad assumenda tempore quae perspiciatis recusandae odio iure provident cum impedit ratione fugit tempora.</div>
-                  </details>
-                </li>
-                <li>
-                  <details>
-                    <summary>Remote Patient Monitoring <div class="button circular">
-                      <svg class='icon icon-plus' aria-hidden='true' role='presentation'><use xlink:href='#icon-plus'/></svg>
-                    </div></summary>
-                    <div class="accordion-content">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Temporibus delectus quo exercitationem animi atque, corporis sed sint eligendi porro in nemo consequatur et qui magni, minima repudiandae vel quaerat illum.</div>
-                  </details>
-                </li>
-                <li>
-                  <details>
-                    <summary>Prevention Education <div class="button circular">
-                      <svg class='icon icon-plus' aria-hidden='true' role='presentation'><use xlink:href='#icon-plus'/></svg>
-                    </div></summary>
-                    <div class="accordion-content">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iste quaerat nostrum, sunt veniam odit voluptas perferendis corrupti, distinctio ducimus ratione harum reiciendis iure veritatis aperiam architecto quas amet ex! Totam!</div>
-                  </details>
-                </li>
-                <li>
-                  <details>
-                    <summary>Community Support <div class="button circular">
-                      <svg class='icon icon-plus' aria-hidden='true' role='presentation'><use xlink:href='#icon-plus'/></svg>
-                    </div></summary>
-                    <div class="accordion-content">Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis a soluta ea. Eius obcaecati saepe autem, voluptate mollitia illo ea minus laboriosam architecto modi deleniti nemo esse! Molestiae, quisquam dignissimos.</div>
-                  </details>
-                </li>
-              </ul>
-            </div>
+              <div class="care-menu-container">
+                <div class="care-description">
+                  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Debitis error voluptatum eveniet aspernatur, rem reiciendis, provident voluptates qui eaque repellendus natus. Consectetur iste mollitia ratione ullam corporis hic! Porro, consequatur.</p>
+                </div>
 
-            <div class="col-md-1-3 md-order-0">
-              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Debitis error voluptatum eveniet aspernatur, rem reiciendis, provident voluptates qui eaque repellendus natus. Consectetur iste mollitia ratione ullam corporis hic! Porro, consequatur.</p>
+                <ul class="care-menu">
+                  <li>
+                    <details>
+                      <summary>Virtual Visits <div class="button circular">
+                        <svg class='icon icon-plus' aria-hidden='true' role='presentation'><use xlink:href='#icon-plus'/></svg>
+                      </div></summary>
+                      <div class="accordion-content">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sunt aperiam cupiditate neque vitae deleniti a ut mollitia dignissimos nisi! Veniam cum, labore repellendus neque dolor quos hic suscipit deserunt quibusdam?</div>
+                    </details>
+                  </li>
+                  <li>
+                    <details>
+                      <summary>Care Coordinaion <div class="button circular">
+                        <svg class='icon icon-plus' aria-hidden='true' role='presentation'><use xlink:href='#icon-plus'/></svg>
+                      </div></summary>
+                      <div class="accordion-content">Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias vero doloribus porro magnam unde, quis, deserunt ad assumenda tempore quae perspiciatis recusandae odio iure provident cum impedit ratione fugit tempora.</div>
+                    </details>
+                  </li>
+                  <li>
+                    <details>
+                      <summary>Remote Patient Monitoring <div class="button circular">
+                        <svg class='icon icon-plus' aria-hidden='true' role='presentation'><use xlink:href='#icon-plus'/></svg>
+                      </div></summary>
+                      <div class="accordion-content">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Temporibus delectus quo exercitationem animi atque, corporis sed sint eligendi porro in nemo consequatur et qui magni, minima repudiandae vel quaerat illum.</div>
+                    </details>
+                  </li>
+                  <li>
+                    <details>
+                      <summary>Prevention Education <div class="button circular">
+                        <svg class='icon icon-plus' aria-hidden='true' role='presentation'><use xlink:href='#icon-plus'/></svg>
+                      </div></summary>
+                      <div class="accordion-content">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iste quaerat nostrum, sunt veniam odit voluptas perferendis corrupti, distinctio ducimus ratione harum reiciendis iure veritatis aperiam architecto quas amet ex! Totam!</div>
+                    </details>
+                  </li>
+                  <li>
+                    <details>
+                      <summary>Community Support <div class="button circular">
+                        <svg class='icon icon-plus' aria-hidden='true' role='presentation'><use xlink:href='#icon-plus'/></svg>
+                      </div></summary>
+                      <div class="accordion-content">Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis a soluta ea. Eius obcaecati saepe autem, voluptate mollitia illo ea minus laboriosam architecto modi deleniti nemo esse! Molestiae, quisquam dignissimos.</div>
+                    </details>
+                  </li>
+                </ul>
+              </div>
             </div>
+          </div><!-- .grid-->
+
+          <div class="image-break">
+            <img src="https://source.unsplash.com/collection/12257081/880x550" alt="" class="pill">
           </div>
-        </div>
+        </div><!-- .sitewrapper -->
       </div><!-- #care-menu -->
 
-      <div id="our-community" class="section our-community-section background-green-01 color-sand-01">
+      <div id="care-team" class="care-team-section section background-green-01 color-sand-01 padded-bottom-lg">
         <div class="sitewrapper">
-          <h2 class="section-title">Our Community</h2>
+          <h2 class="section-title">Your Care Team</h2>
 
-          <div class="grid spaced md-align-right">
+          <div class="grid spaced md-direction-right">
             <div class="col-md-2-3">
-              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam similique quo numquam quos adipisci debitis? Et reprehenderit soluta perspiciatis quae accusamus, libero quo eaque sint itaque fugit dolore officiis aut?</p>
+              <p>Led by a group of premier Black physicians who understand the Black experience, our network of Black care providers take
+              the time to earn your trust and are committed to helping you get just what you need. They can help provide referrals,
+              connect you to local resources, or help you follow your health plan. We are here for all of your medical, mental, and
+              behavioral health needs.</p>
             </div>
           </div>
 
-          <div class="community-grid grid spaced align-center">
-            <div class="community-member col-md-1-3">
+          <div class="care-team-grid grid spaced align-center">
+            <div class="care-team-member col-md-1-3">
               <div class="-inner">
                 <img class="circle" src="https://source.unsplash.com/collection/12257081/700x700" alt="">
                 <h6>Dr. Richard Watson</h6>
                 <p>CEO, BTH Medical Group</p>
               </div>
             </div>
-            <div class="community-member col-md-1-3">
+            <div class="care-team-member col-md-1-3">
               <div class="-inner">
                 <img class="circle" src="https://source.unsplash.com/collection/12257081/800x800" alt="">
                 <h6>Dr. Linda Goler Blount</h6>
                 <p>ceo, BTH Education Health</p>
               </div>
             </div>
-            <div class="community-member col-md-1-3">
+            <div class="care-team-member col-md-1-3">
               <div class="-inner">
                 <img class="circle" src="https://source.unsplash.com/collection/12257081/900x900" alt="">
                 <h6>Dr. Paul Jones</h6>
                 <p>Lead Cardiology Physician</p>
               </div>
             </div>
-            <div class="community-member col-md-1-3">
+            <div class="care-team-member col-md-1-3">
               <div class="-inner">
                 <img class="circle" src="https://source.unsplash.com/collection/12257081/600x600" alt="">
                 <h6>Dr. David Mcfadden</h6>
                 <p>Lead Nephrology Physician</p>
               </div>
             </div>
-            <div class="community-member col-md-1-3">
+            <div class="care-team-member col-md-1-3">
               <div class="-inner">
                 <img class="circle" src="https://source.unsplash.com/collection/12257081/500x500" alt="">
                 <h6>Dr. Jay Weems</h6>
                 <p>Lead Mental & Behavioral Health Physician</p>
               </div>
             </div>
-            <div class="community-member col-md-1-3">
+            <div class="care-team-member col-md-1-3">
               <div class="-inner">
                 <img class="circle" src="https://source.unsplash.com/collection/12257081/400x400" alt="">
                 <h6>Dr. Angela Wright Marshall</h6>
@@ -389,20 +406,20 @@
           </div>
 
         </div>
-      </div><!-- #our-community -->
+      </div><!-- #your-care-team-section -->
 
     </main><!-- .site-main -->
 
     <footer class="site-footer" role="contentinfo">
       <div class="sitewrapper">
-        <div class="grid">
+        <div class="grid spaced">
 
           <div class="col-md-1-2">
-            <h3>Get in Touch</h3>
-            <p>Community partners, insurers, providers and consumers: join us and join a movement.</p>
+            <h3 class="h1-tiempos">Get in Touch</h3>
           </div>
 
           <div class="col-md-1-2">
+            <p class="h4-akkurat">Community partners, insurers, providers and consumers: join us and join a movement.</p>
             <p>Subscribe to our newsletter to get the latest news</p>
             <form action="" class="newsletter-signup">
               <div class="input-wrapper">

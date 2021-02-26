@@ -1,0 +1,28 @@
+// Leadership Section
+
+.leadership-section {
+  .circle {
+    &:hover,
+    &:focus {
+      border-radius: 50% 50% 0 0;
+    }
+  }
+
+  .person {
+    img {
+      margin-bottom: 20px;
+    }
+
+    h4 {
+      @include h3-tiempos
+    }
+
+    h5 {
+      @include h3-akkurat;
+    }
+
+    .modal-open {
+      color: color('orange-01');
+    }
+  }
+}

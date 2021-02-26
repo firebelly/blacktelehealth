@@ -11,6 +11,8 @@
   }
 
   @include media-nav {
+    display: none;
+
     ul {
       display: flex;
 

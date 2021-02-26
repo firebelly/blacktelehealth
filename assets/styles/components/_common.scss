@@ -2,12 +2,17 @@
 
 // Sections
 .section {
-  padding-top: $padding-md;
-  padding-bottom: $padding-md;
+  // padding-top: $padding-md;
+  // padding-bottom: $padding-md;
+
+  .section-title {
+    @include h2-tiempos;
+    margin-bottom: $padding-sm;
+  }
 
   @include media-md {
-    padding-top: $padding-lg;
-    padding-bottom: $padding-lg;
+    // padding-top: $padding-lg;
+    // padding-bottom: $padding-lg;
   }
 }
 
@@ -40,11 +45,6 @@
   overflow: hidden;
   border-radius: 50%;
   transition: border-radius 0.25s ease-out;
-
-  &:hover,
-  &:focus {
-    border-radius: 50% 50% 0 0;
-  }
 }
 
 // Overlapping Section Images
@@ -73,4 +73,88 @@
 // Parallax movement
 .parallax {
   transition: transform 0.3s ease-out;
+}
+
+// Borders
+.border {
+  &-top {
+    border-top: 1px solid;
+  }
+  &-right {
+    border-right: 1px solid;
+  }
+  &-bottom {
+    border-bottom: 1px solid;
+  }
+  &-left {
+    border-left: 1px solid;
+  }
+  &-ends {
+    border-top: 1px solid;
+    border-bottom: 1px solid;
+  }
+  &-sides {
+    border-left: 1px solid;
+    border-right: 1px solid;
+  }
+}
+
+// Padding
+.padded {
+  &-both {
+    &,
+    &-md,
+    &-lg {
+      padding-top: $padding-sm;
+      padding-bottom: $padding-sm;
+    }
+    &-md,
+    &-lg {
+      @include media-md {
+        padding-top: $padding-md;
+        padding-bottom: $padding-md;
+      }
+    }
+    &-lg {
+      @include media-lg {
+        padding-top: $padding-lg;
+        padding-bottom: $padding-lg;
+      }
+    }
+  }
+  &-top {
+    &,
+    &-md,
+    &-lg {
+      padding-top: $padding-sm;
+    }
+    &-md,
+    &-lg {
+      @include media-md {
+        padding-top: $padding-md;
+      }
+    }
+    &-lg {
+      @include media-lg {
+        padding-top: $padding-lg;
+      }
+    }
+  }
+  &-bottom {
+    &,
+    &-md {
+      padding-bottom: $padding-sm;
+    }
+    &-md,
+    &-lg {
+      @include media-md {
+        padding-bottom: $padding-md;
+      }
+    }
+    &-lg {
+      @include media-lg {
+        padding-bottom: $padding-lg;
+      }
+    }
+  }
 }

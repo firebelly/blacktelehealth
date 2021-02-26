@@ -88,7 +88,6 @@
        url('../fonts/tiempos-text-web-regular.woff') format('woff');
   font-weight: 500;
   font-style: normal;
-  font-display: swap;
 }
 
 @font-face {
@@ -97,5 +96,11 @@
        url('../fonts/tiempos-text-web-regular-italic.woff') format('woff');
   font-weight: 500;
   font-style: italic;
-  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Tiempos Headline';
+  src: url('../fonts/TiemposHeadlineTest-Light.woff') format('woff2');
+  font-weight: 500;
+  font-style: normal;
 }

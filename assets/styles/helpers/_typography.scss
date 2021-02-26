@@ -1,25 +1,20 @@
 // Typography
 
 // Font-family mixins
-@mixin font-tiempos {
+@mixin font-tiempos-text {
   font-family: 'Tiempos Text', serif;
+}
+@mixin font-tiempos-headline {
+  font-family: 'Tiempos Headline', serif;
 }
 
 @mixin font-akkurat {
   font-family: 'Akkurat', sans-serif;
 }
 
+// Font Weights
+
 /// Mixin to allow us to concisely define all aspects of a paragraph style (except for family.)
-/// @param {number} $size - Font size specified in pixels (without 'px')
-/// @param {number} $lh - Line height specified in pixels (without 'px')
-/// @param {number} $ls [0em] - Letter spacing
-/// @param {number or string} $w [normal] - Font weight
-/// @param {string} $tt [none] - Text transform
-/// @example scss - Used as a shortcut in defining a paragraph style...
-///   @mixin h1 {
-///     @include font-display; // The font face
-///     @include paragraph-style (12, 16, $ls: .075em, $tt: uppercase); // Other properties
-///   }
 @mixin paragraph-style ($size, $lh, $ls: 0em, $w: normal, $tt: none) {
   font-size: #{$size}px;
   line-height: ($lh / $size);
@@ -29,20 +24,8 @@
 }
 
 // Type Style Mixins + Classes
-/// example:
-/// @mixin h1 {
-///   @include font-display;
-///   @include paragraph-style(31, 40, -.010322581em);
-///   @include media-md {
-///     @include paragraph-style(96, 96, -.005208333em);
-///   }
-/// }
-/// .h1 {
-///   @include h1;
-/// }
-
 @mixin p-tiempos {
-  @include font-tiempos;
+  @include font-tiempos-text;
   @include paragraph-style(20, 30, 0.005em);
 }
 .p-tiempos {
@@ -50,15 +33,15 @@
 }
 
 @mixin h1-tiempos {
-  @include font-tiempos;
-  @include paragraph-style(120, 110, -0.015em, 500, uppercase);
+  @include font-tiempos-headline;
+  @include paragraph-style(120, 110, -0.015em, 500);
 }
 .h1-tiempos {
   @include h1-tiempos;
 }
 
 @mixin h2-tiempos {
-  @include font-tiempos;
+  @include font-tiempos-headline;
   @include paragraph-style(50, 55, -0.02em);
 }
 .h2-tiempos {
@@ -66,7 +49,7 @@
 }
 
 @mixin h3-tiempos {
-  @include font-tiempos;
+  @include font-tiempos-headline;
   @include paragraph-style(27, 30, 0.01em);
 }
 .h3-tiempos {
@@ -74,7 +57,7 @@
 }
 
 @mixin type-subtitle-tiempos {
-  @include font-tiempos;
+  @include font-tiempos-text;
   @include paragraph-style(25, 35);
 }
 .type-subtitle-tiempos {
@@ -119,6 +102,14 @@
 }
 .h3-akkurat {
   @include h3-akkurat;
+}
+
+@mixin h4-akkurat {
+  @include font-akkurat;
+  @include paragraph-style(40, 45, 0, 300);
+}
+.h4-akkurat {
+  @include h4-akkurat;
 }
 
 @mixin type-subtitle-akkurat {

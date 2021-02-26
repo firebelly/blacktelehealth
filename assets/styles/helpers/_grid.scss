@@ -25,49 +25,49 @@ $column-width: 100% / $columns;
   }
 
   // Alignment
-  &.align-right {
+  &.direction-right {
     flex-direction: row-reverse;
   }
-  &.align-left {
+  &.direction-left {
     flex-direction: row;
   }
   @include media-sm {
-    &.sm-align-right {
+    &.sm-direction-right {
       flex-direction: row-reverse;
     }
-    &.sm-align-left {
+    &.sm-direction-left {
       flex-direction: row;
     }
   }
   @include media-md {
-    &.md-align-right {
+    &.md-direction-right {
       flex-direction: row-reverse;
     }
-    &.md-align-left {
+    &.md-direction-left {
       flex-direction: row;
     }
   }
   @include media-lg {
-    &.lg-align-right {
+    &.lg-direction-right {
       flex-direction: row-reverse;
     }
-    &.lg-align-left {
+    &.lg-direction-left {
       flex-direction: row;
     }
   }
   @include media-nav {
-    &.nav-align-right {
+    &.nav-direction-right {
       flex-direction: row-reverse;
     }
-    &.nav-align-left {
+    &.nav-direction-left {
       flex-direction: row;
     }
   }
   @include media-xl {
-    &.xl-align-right {
+    &.xl-direction-right {
       flex-direction: row-reverse;
     }
-    &.xl-align-left {
+    &.xl-direction-left {
       flex-direction: row;
     }
   }

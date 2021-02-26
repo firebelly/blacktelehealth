@@ -1,5 +1,44 @@
 // Care Menu Section
 
+.care-menu-section {
+  padding-bottom: $padding-md;
+
+  .section-title {
+    @include h1-tiempos;
+    text-transform: capitalize;
+  }
+
+  .image-break {
+    max-width: 880px;
+    margin: $padding-md auto 0;
+
+    @include media-md {
+      margin-top: $padding-lg;
+    }
+  }
+}
+
+.care-menu-container {
+  .care-description {
+    > p:first-of-type {
+      margin-top: 0;
+    }
+  }
+
+  @include media-md {
+    position: relative;
+
+    .care-description {
+      top: 0;
+      right: 100%;
+      position: absolute;
+      padding-top: $padding-sm;
+      margin-right: $padding-md;
+      width: calc(50% - #{$padding-md});
+    }
+  }
+}
+
 .care-menu {
   @extend .semantic-list;
 

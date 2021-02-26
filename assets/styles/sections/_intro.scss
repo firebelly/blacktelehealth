@@ -1,6 +1,21 @@
 // Intro Section
 
 .intro-section {
+  padding-top: $padding-md;
+  @include media-md {
+    padding: 115px 0 195px;
+  }
+
+  .grid {
+    flex-wrap: nowrap;
+  }
+
+  .b-container {
+    @include media-md {
+      flex-basis: 55%;
+    }
+  }
+
   .big-b {
     height: 0;
     width: 100%;
@@ -44,4 +59,22 @@
       }
     }
   }
+
+  .intro-text {
+    .headline {
+      @include font-tiempos-headline;
+      @include paragraph-style(80, 75, 0, 500, uppercase);
+      margin: 0 0 40px;
+    }
+
+    p {
+      @include p-akkurat;
+      margin: 0;
+    }
+
+    @include media-md {
+      flex-basis: 45%;
+    }
+  }
+
 }

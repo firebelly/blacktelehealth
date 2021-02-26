@@ -1,0 +1,14 @@
+// Modal Styles
+
+.modal-open {
+  @extend .button-reset;
+  @include type-cta;
+  display: flex;
+  line-height: 1;
+  align-items: center;
+
+  .icon {
+    margin-left: 20px;
+    margin-bottom: 2px;
+  }
+}

@@ -22,7 +22,7 @@ $colors: (
   'mauve-03': #f5e9ea,
   'sand-01': #ede7de,
   'sand-02': #f5f2e9,
-  'sand-03': #E5D8C9,
+  'sand-03': #e5d8c9,
   'gray': #d9d9d9
 );
 
@@ -38,13 +38,13 @@ $breakpoint-nav: 1100px;
 $breakpoint-xl: 1200px;
 
 // Site Wrapper
-$sitewrapper: 1210px;
+$sitewrapper: 1220px;
 
 // Padding/spacing
 $beat: 10px;
-$padding-sm: 30px;
-$padding-md: 60px;
-$padding-lg: 115px;
+$padding-sm: 50px;
+$padding-md: 85px;
+$padding-lg: 170px;
 
 // Misc
 @mixin box-shadow {
