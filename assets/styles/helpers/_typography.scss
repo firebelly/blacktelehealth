@@ -120,6 +120,14 @@
   @include type-subtitle-akkurat;
 }
 
+@mixin type-pullquote {
+  @include font-akkurat;
+  @include paragraph-style(60, 60, -0.015em, 300);
+}
+.type-pullquote {
+  @include type-pullquote;
+}
+
 @mixin p-akkurat {
   @include font-akkurat;
   @include paragraph-style(20, 30);
