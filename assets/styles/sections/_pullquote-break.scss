@@ -1,0 +1,65 @@
+// Pullquote Break
+
+.pullquote-break {
+  position: relative;
+
+  @include media-md {
+    padding-top: 150px;
+
+    .background {
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      position: absolute;
+
+      &::before {
+        top: 0;
+        width: 150%;
+        content: '';
+        bottom: 120px;
+        position: absolute;
+        background-color: color('sand-01');
+      }
+
+      &::after {
+        bottom: 0;
+        width: 150%;
+        content: '';
+        height: 120px;
+        position: absolute;
+        background-color: color('green-01');
+      }
+    }
+
+    .-inner {
+      display: flex;
+      position: relative;
+    }
+
+    .pullquote-image {
+      max-width: 55%;
+      flex-basis: 55%;
+      overflow: hidden;
+
+      img {
+        width: 100%;
+        height: 100%;
+        display: block;
+        object-fit: cover;
+        object-position: 50% 50%;
+      }
+    }
+
+    .pullquote-text {
+      max-width: 45%;
+      flex-basis: 45%;
+      padding: 0 100px 150px 90px;
+
+      p {
+        @include type-pullquote;
+        margin: 0;
+      }
+    }
+  }
+}
