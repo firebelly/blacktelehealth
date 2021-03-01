@@ -1,6 +1,7 @@
 // Pullquote Break
 
 .pullquote-break {
+  overflow: hidden;
   position: relative;
 
   @include media-md {
