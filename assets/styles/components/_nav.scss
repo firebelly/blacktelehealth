@@ -24,3 +24,38 @@
     }
   }
 }
+
+// Nav Toggle
+.nav-toggle {
+  @extend .button-reset;
+  width: auto;
+  right: $padding-sm;
+  position: absolute;
+
+  span {
+    display: block;
+  }
+
+  .toggle-icon {
+    @extend .button;
+    @extend .circular;
+    --button-secondary: #{color('black')};
+    --button-primary: #{color('orange-01')};
+  }
+
+  svg {
+    width: 24px;
+    height: 18px;
+    fill: color('orange-01');
+  }
+
+  .toggle-label {
+    @include type-cta;
+    margin-top: 15px;
+    color: color('orange-01');
+  }
+
+  @include media-md {
+    right: $padding-md;
+  }
+}

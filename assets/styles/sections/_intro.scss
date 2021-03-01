@@ -6,13 +6,14 @@
     padding: 115px 0 195px;
   }
 
-  .grid {
-    flex-wrap: nowrap;
+  .-inner {
+    display: flex;
   }
 
   .b-container {
     @include media-md {
-      flex-basis: 55%;
+      margin-right: 90px;
+      flex-basis: 55.4545%;
     }
   }
 
@@ -63,7 +64,8 @@
   .intro-text {
     .headline {
       @include font-tiempos-headline;
-      @include paragraph-style(80, 75, 0, 500, uppercase);
+      @include paragraph-style(80, 75, 0, 500, capitalize);
+      max-width: 7ch;
       margin: 0 0 40px;
     }
 
@@ -72,9 +74,19 @@
       margin: 0;
     }
 
+    .scroll-down {
+      @extend .button-reset;
+      margin-top: 40px;
+
+      svg {
+        width: 30px;
+        height: 30px;
+        fill: color('orange-01');
+      }
+    }
+
     @include media-md {
-      flex-basis: 45%;
+      flex-basis: calc(44.5455% - 90px);
     }
   }
-
 }

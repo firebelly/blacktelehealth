@@ -14,6 +14,7 @@ summary {
 
   &.simple-summary {
     @include type-cta;
+    padding: 0;
     justify-content: unset;
   }
 
