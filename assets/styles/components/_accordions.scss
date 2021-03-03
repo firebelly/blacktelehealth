@@ -8,7 +8,7 @@ details {
   }
 
   &.-is-open {
-    .button {
+    .button .icon {
       transform: rotate(225deg);
       transition: transform 0.3s ease;
     }
@@ -41,11 +41,8 @@ summary {
 
   .icon {
     margin-left: 20px;
-  }
-
-  .button {
     transform-origin: center center;
-    transition: transform 0.5s ease;
+    transition: transform 0.5s ease, fill 0.2s ease-out;
   }
 }
 

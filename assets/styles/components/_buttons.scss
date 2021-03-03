@@ -16,24 +16,18 @@
   justify-content: center;
   color: var(--button-primary);
   border: 2px solid var(--button-primary);
+  @include transition('color, background-color');
 
   &:hover,
   &:focus {
-    color: color('white');
-    color: var(--button-secondary);
-    background-color: color('black');
-    background-color: var(--button-primary);
-
-    svg {
-      fill: color('white');
-      fill: var(--button-secondary);
-    }
+    @extend .button-hover;
   }
 
   svg {
     margin-left: 17px;
     fill: color('black');
     fill: var(--button-primary);
+    @include transition(fill);
   }
 
   // Circular
@@ -48,3 +42,16 @@
     }
   }
 }
+
+  // Hover Style
+  .button-hover {
+    color: color('white');
+    color: var(--button-secondary);
+    background-color: color('black');
+    background-color: var(--button-primary);
+
+    svg {
+      fill: color('white');
+      fill: var(--button-secondary);
+    }
+  }

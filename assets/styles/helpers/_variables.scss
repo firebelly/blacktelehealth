@@ -57,6 +57,6 @@ $padding-md: 85px;
 $padding-lg: 170px;
 
 // Misc
-@mixin box-shadow {
-  box-shadow: 0 2px 20px rgba(0,0,0,0.3);
+@mixin box-shadow($opacity: 0.3) {
+  box-shadow: 0 2px 20px rgba(0,0,0,$opacity);
 }

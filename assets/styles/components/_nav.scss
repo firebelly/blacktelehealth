@@ -74,8 +74,16 @@
 .nav-toggle {
   @extend .button-reset;
   width: auto;
+  cursor: pointer;
   right: $padding-sm;
   position: absolute;
+  &:hover,
+  &:focus {
+    .toggle-icon {
+      @include box-shadow;
+      @extend .button-hover;
+    }
+  }
 
   span {
     display: block;
@@ -84,6 +92,8 @@
   .toggle-icon {
     @extend .button;
     @extend .circular;
+    @include box-shadow(0);
+    @include transition(box-shadow);
   }
 
   svg {

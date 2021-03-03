@@ -48,13 +48,30 @@
     }
   }
 
+  summary {
+    @include transition(color);
+
+    &:hover,
+    &:focus {
+      color: color('orange-01');
+
+      .button {
+        @extend .button-hover;
+      }
+    }
+  }
+
   .button {
     --button-primary: #{color('orange-01')};
     --button-secondary: #{color('green-01')};
+    min-width: 60px;
   }
 
   .accordion-content {
-    padding-right: $padding-lg;
     padding-bottom: $padding-sm;
+
+    @include media-md {
+      padding-right: $padding-lg;
+    }
   }
 }
