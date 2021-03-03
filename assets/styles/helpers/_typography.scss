@@ -64,6 +64,14 @@
   @include type-subtitle-tiempos;
 }
 
+@mixin type-nav {
+  @include font-tiempos-headline;
+  @include paragraph-style(80, 75, -0.0125em, 500, capitalize);
+}
+.type-nav {
+  @include type-nav;
+}
+
 @mixin type-cta {
   @include font-akkurat;
   @include paragraph-style(15, 20, 0.1em, 700, uppercase);

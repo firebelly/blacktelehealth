@@ -5,10 +5,12 @@
 
 html {
   box-sizing: border-box;
+  scroll-behavior: smooth;
 }
 
 body {
   @include p-akkurat;
+  scroll-behavior: smooth;
   color: color('green-01');
 	background-color: color('sand-01');
 }
@@ -45,4 +47,26 @@ img {
 .b-mask {
   position: absolute;
   pointer-events: none;
+}
+
+// Site Overlay
+// shown when nav is open
+.site-overlay {
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  opacity: 0;
+  position: fixed;
+  z-index: z(overlay);
+  pointer-events: none;
+  will-change: opacity;
+  transition: opacity 0.35s;
+  background-color: rgba(color('black'), 0.75);
+}
+body.nav-open {
+  .site-overlay {
+    opacity: 1;
+    pointer-events: auto;
+  }
 }

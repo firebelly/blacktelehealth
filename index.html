@@ -35,6 +35,15 @@
     <meta property="og:url" content="" />
     <meta property="og:description" content="" />
 
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-PN1DTCX9EJ"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-PN1DTCX9EJ');
+    </script>
 
     <!-- Inject SVGs Defs for SVG icon use -->
     <script>
@@ -64,28 +73,31 @@
 
     <header class="site-header" role="banner">
       <div class="sitewrapper">
-        <div class="grid spaced">
-          <h1 class="col-auto">
-            <div class="site-logo">
-              <svg class="bt-lettermark" aria-hidden="true" role="presentation"><use xlink:href="#black-telehealth-lettermark"/></svg>
-              <svg class="bt-wordmark" aria-hidden="true" role="presentation"><use xlink:href="#black-telehealth-wordmark"/></svg>
-            </div>
-          </h1>
+        <h1>
+          <div class="site-logo">
+            <svg class="bt-lettermark" aria-hidden="true" role="presentation"><use xlink:href="#black-telehealth-lettermark"/></svg>
+            <svg class="bt-wordmark" aria-hidden="true" role="presentation"><use xlink:href="#black-telehealth-wordmark"/></svg>
+          </div>
+        </h1>
 
-          <button class="nav-toggle">
-            <span class="toggle-icon"><svg aria-hidden="true" role="presentation"><use xlink:href="#icon-lines"/></svg></span>
-            <span class="toggle-label">Menu</span>
+        <button id="nav-open" class="nav-toggle nav-open">
+          <span class="toggle-icon"><svg aria-hidden="true" role="presentation"><use xlink:href="#icon-lines"/></svg></span>
+          <span class="toggle-label">Menu</span>
+        </button>
+
+        <nav class="site-nav col-auto" role="navigation">
+          <ul>
+            <li><a href="#welcome">Welcome</a></li>
+            <li><a href="#your-care">Your Care</a></li>
+            <li><a href="#care-team">Your Care Team</a></li>
+            <li><a href="#get-in-touch">Get in Touch</a></li>
+          </ul>
+
+          <button id="nav-close" class="nav-toggle nav-close">
+            <span class="toggle-icon"><svg aria-hidden="true" role="presentation"><use xlink:href="#icon-x" /></svg></span>
+            <span class="toggle-label">Close</span>
           </button>
-
-          <nav class="site-nav col-auto" role="navigation">
-            <ul>
-              <li><a href="#welcome">Welcome</a></li>
-              <li><a href="#care-menu">Your Care Menu</a></li>
-              <li><a href="#care-team">Your Care Team</a></li>
-              <li><a href="#get-in-touch">Get in Touch</a></li>
-            </ul>
-          </nav>
-        </div>
+        </nav>
       </div>
     </header>
 
@@ -107,8 +119,7 @@
 
             <div class="intro-text">
               <h2 class="headline">Claim your right to good health</h2>
-              <p>We are the first telehealth practice that connects Black patients and Black doctors, with the goal of transforming Black
-              health in America.</p>
+              <p>We are the first telehealth practice that connects Black patients and Black doctors, with the goal of transforming Black health in America.</p>
               <button class="scroll-down"><svg aria-hidden="true" role="presentation"><use xlink:href="#icon-arrow-down"/></svg></button>
             </div>
           </div>
@@ -291,11 +302,11 @@
         </div>
       </div><!-- .pullquote-break -->
 
-      <div id="care-menu" class="section care-menu-section background-green-01 color-sand-01 padded-top-lg">
+      <div id="your-care" class="section your-care-section background-green-01 color-sand-01 padded-top-lg">
         <div class="sitewrapper">
           <div class="grid spaced direction-right">
             <div class="col-md-2-3 md-order-1">
-              <h2 class="section-title"><svg class="-before" aria-hidden="true" role="presentation"><use xlink:href="#icon-healthcare"/></svg><span>Your Care Menu</span></h2>
+              <h2 class="section-title"><svg class="-before" aria-hidden="true" role="presentation"><use xlink:href="#icon-healthcare"/></svg><span>Your Care</span></h2>
 
               <div class="care-menu-container">
                 <div class="care-description">
@@ -455,19 +466,10 @@
         </div>
       </div>
     </footer>
+    <div class="site-overlay"></div>
 
     <script src="dist/assets/scripts/manifest.js"></script>
     <script src="dist/assets/scripts/vendor.js"></script>
     <script src="dist/assets/scripts/main.js"></script>
-    <script type="text/javascript">// Google Analytics
-      var _gaq = _gaq || [];
-      _gaq.push(['_setAccount', 'UA-XXXXX-X']); // Replace "XXXXX-X" with your account code
-      _gaq.push(['_trackPageview']);
-      (function() {
-        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-      })();
-    </script>
   </body>
 </html>

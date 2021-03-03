@@ -1,6 +1,6 @@
 // Care Menu Section
 
-.care-menu-section {
+.your-care-section {
   padding-bottom: $padding-md;
 
   .section-title {
@@ -51,5 +51,10 @@
   .button {
     --button-primary: #{color('orange-01')};
     --button-secondary: #{color('green-01')};
+  }
+
+  .accordion-content {
+    padding-right: $padding-lg;
+    padding-bottom: $padding-sm;
   }
 }

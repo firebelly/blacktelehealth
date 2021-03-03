@@ -1,4 +1,25 @@
-// Accordion Styles
+details {
+  :focus:not(:focus-visible) {
+    outline: none
+  }
+
+  .button {
+    will-change: transform;
+  }
+
+  &.-is-open {
+    .button {
+      transform: rotate(225deg);
+      transition: transform 0.3s ease;
+    }
+
+    .accordion-content {
+      opacity: 1;
+      transform: translateY(0);
+      transition: opacity 0.35s 0.15s ease-out, transform 0.35s 0.15s ease-out;
+    }
+  }
+}
 
 summary {
   @include h2-tiempos;
@@ -21,8 +42,18 @@ summary {
   .icon {
     margin-left: 20px;
   }
+
+  .button {
+    transform-origin: center center;
+    transition: transform 0.5s ease;
+  }
 }
 
 .accordion-content {
+  opacity: 0;
   text-align: left;
+  overflow: hidden;
+  transform: translateY(10%);
+  will-change: opacity, transform;
+  transition: opacity 0.35s ease, transform 0.35s ease;
 }

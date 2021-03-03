@@ -30,6 +30,16 @@ $colors: (
   @return map-get($colors, $color-name);
 }
 
+// Z-index maps
+$z-layers: (
+  header: 80,
+  overlay: 90,
+  nav: 100
+);
+@function z($key) {
+  @return map-get($z-layers, $key);
+}
+
 // Breakpoints
 $breakpoint-sm: 520px;
 $breakpoint-md: 768px;

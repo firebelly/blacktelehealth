@@ -1,27 +1,72 @@
 // Navigation
 
 .site-nav {
+  top: 0;
+  bottom: 0;
+  left: 100%;
+  z-index: z(nav);
+  position: fixed;
+  text-align: right;
+  padding: $padding-md;
+  will-change: transform;
+  background-color: color('black');
+  transition: transform 0.4s ease-in;
+
+  &.-active {
+    transform: translateX(-100%);
+    transition: transform 0.4s ease-out;
+  }
+
   a {
+    @include type-nav;
     text-decoration: none;
+    color: color('sand-01');
   }
 
   ul {
     @extend .semantic-list;
+    counter-reset: nav;
     color: color('green-01');
   }
 
-  @include media-nav {
-    display: none;
+  li {
+    position: relative;
 
-    ul {
-      display: flex;
+    &::before {
+      @include h3-akkurat;
+      top: 0.4em;
+      position: relative;
+      margin-right: 0.4em;
+      vertical-align: top;
+      content: counter(nav);
+      counter-increment: nav;
+      color: color('orange-01');
+    }
 
-      li {
-        + li {
-          margin-left: $beat * 2;
-        }
+    & + li {
+      margin-top: 41px;
+      &::after {
+        right: 0;
+        top: -12px;
+        content: '';
+        width: 10px;
+        height: 1px;
+        position: absolute;
+        background-color: color('sand-01');
       }
     }
+  }
+
+  @include media-md {
+    padding: 214px $padding-md $padding-md;
+
+    a {
+      white-space: nowrap;
+    }
+  }
+
+  @include media-lg {
+    padding: 214px $padding-lg $padding-md;
   }
 }
 
@@ -39,23 +84,50 @@
   .toggle-icon {
     @extend .button;
     @extend .circular;
-    --button-secondary: #{color('black')};
-    --button-primary: #{color('orange-01')};
   }
 
   svg {
     width: 24px;
     height: 18px;
-    fill: color('orange-01');
   }
 
   .toggle-label {
     @include type-cta;
     margin-top: 15px;
-    color: color('orange-01');
   }
 
   @include media-md {
     right: $padding-md;
+  }
+
+  // Open
+  &.nav-open {
+    top: 0;
+    color: color('orange-01');
+
+    .toggle-icon {
+      --button-secondary: #{color('black')};
+      --button-primary: #{color('orange-01')};
+    }
+  }
+
+  // Close
+  &.nav-close {
+    top: $padding-sm;
+    color: color('sand-01');
+
+    .toggle-icon {
+      --button-secondary: #{color('black')};
+      --button-primary: #{color('sand-01')};
+    }
+
+    @include media-md {
+      top: 60px;
+      right: $padding-md;
+    }
+
+    @include media-lg {
+      right: $padding-lg
+    }
   }
 }
