@@ -34,6 +34,8 @@ export default {
       $('.site-nav.-active').keydown(function(event) {
         trapTabKey($(this), event);
       });
+
+      $siteNav.on('click', 'a', _closeNav);
     }
 
     function _openNav() {
