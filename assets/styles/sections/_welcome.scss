@@ -13,33 +13,26 @@
 
   .offset-pill {
     display: flex;
+    padding-bottom: 150px;
 
     > div {
       flex-basis: 50%;
     }
 
     .-left {
+      margin-top: 150px;
+      align-self: flex-end;
+
       img {
         border-radius: 666px 0 0 666px;
       }
     }
     .-right {
+      position: sticky;
+      top: calc(50vh - 25%);
+      align-self: flex-start;
       img {
         border-radius: 0 666px 666px 0;
-      }
-    }
-
-    @include media-md {
-      padding-bottom: 150px;
-
-      .-left {
-        margin-top: 150px;
-        align-self: flex-end;
-      }
-      .-right {
-        position: sticky;
-        top: calc(50vh - 25%);
-        align-self: flex-start;
       }
     }
   }
