@@ -43,6 +43,10 @@
     @include media-md {
       cursor: pointer;
 
+      summary {
+        pointer-events: none;
+      }
+
       + .person {
         margin-top: 0;
       }

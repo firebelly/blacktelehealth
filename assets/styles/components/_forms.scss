@@ -5,7 +5,7 @@
 }
 
 form {
-  @include p-akkurat;
+  @include p;
 
   input {
     @extend .input-reset;

@@ -6,8 +6,9 @@
   left: 100%;
   z-index: z(nav);
   position: fixed;
-  padding: $padding-md;
+  min-width: 320px;
   will-change: transform;
+  padding: 100px 30px 30px;
   background-color: color('black');
   transition: transform 0.4s ease-in;
 
@@ -36,13 +37,13 @@
   li {
     text-align: center;
     position: relative;
-
     &::before {
       @include h5;
       top: 0.4em;
+      display: block;
       position: relative;
-      margin-right: 0.4em;
       vertical-align: top;
+      margin-bottom: 0.4em;
       content: counter(nav);
       counter-increment: nav;
       color: color('orange-01');
@@ -51,12 +52,13 @@
     & + li {
       margin-top: 41px;
       &::after {
-        right: 0;
-        top: -12px;
+        left: 50%;
+        top: -16px;
         content: '';
         width: 10px;
         height: 1px;
         position: absolute;
+        transform: translateX(-50%);
         background-color: color('taupe-01');
       }
     }
@@ -70,7 +72,20 @@
     }
 
     li {
-      text-align: right;;
+      text-align: right;
+      &::before {
+        display: inline;
+        margin-right: 0.4em;
+      }
+
+      & + li {
+        &::after {
+          right: 0;
+          left: auto;
+          top: -12px;
+          transform: none;
+        }
+      }
     }
   }
 
@@ -82,25 +97,17 @@
 // Nav Toggle
 .nav-toggle {
   @extend .button-reset;
+  top: 30px;
   width: auto;
+  right: 30px;
   cursor: pointer;
-  right: $padding-sm;
   position: absolute;
-  &:hover,
-  &:focus {
-    .toggle-icon {
-      @include box-shadow;
-      @extend .button-hover;
-    }
-  }
 
   span {
     display: block;
   }
 
   .toggle-icon {
-    @extend .button;
-    @extend .circular;
     @include box-shadow(0);
     @include transition(box-shadow);
   }
@@ -116,12 +123,23 @@
   }
 
   @include media-md {
+    top: 60px;
     right: $padding-md;
+    &:hover,
+    &:focus {
+      .toggle-icon {
+        @include box-shadow;
+        @include button-hover;
+      }
+    }
+
+    .toggle-icon {
+      @include button(circular);
+    }
   }
 
   // Open
   &.nav-open {
-    top: 60px;
     position: fixed;
     z-index: z(navToggle);
     color: color('orange-01');
@@ -129,21 +147,18 @@
     .toggle-icon {
       --button-secondary: #{color('black')};
       --button-primary: #{color('orange-01')};
+      fill: color('orange-01')
     }
   }
 
   // Close
   &.nav-close {
-    top: $padding-sm;
     color: color('taupe-01');
 
     .toggle-icon {
       --button-secondary: #{color('black')};
       --button-primary: #{color('taupe-01')};
-    }
-
-    @include media-md {
-      top: 60px;
+      fill: color('taupe-01')
     }
   }
 }

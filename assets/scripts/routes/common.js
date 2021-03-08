@@ -129,7 +129,9 @@ export default {
       peopleWithBios.forEach(function(person, i) {
         let html = person.innerHTML;
         person.setAttribute('data-modal-index', i);
-        person.addEventListener('click', function() {
+
+        person.addEventListener('click', function(e) {
+          e.stopImmediatePropagation();
 
           if (appState.breakpoints.md) {
             modal.setAttribute('data-modal-index', i);

@@ -26,6 +26,7 @@
     width: 100%;
     position: relative;
     padding-bottom: 100%;
+    margin-bottom: $beat * 2;
 
     > div {
       left: 0;
@@ -63,6 +64,10 @@
         }
       }
     }
+
+    @include media-md {
+      margin-bottom: 0;
+    }
   }
 
   .intro-text {
@@ -73,7 +78,7 @@
     }
 
     p {
-      @include p-akkurat;
+      @include p;
       margin: 0;
     }
 

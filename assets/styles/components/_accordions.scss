@@ -34,13 +34,17 @@ summary {
   &,
   button {
     @extend .button-reset;
-    @include h2;
+    @include h3;
     display: flex;
     cursor: pointer;
     text-align: left;
     align-items: center;
-    padding: $padding-sm 0;
+    padding: #{$beat * 2} 0;
     justify-content: space-between;
+
+    @include media-md {
+      padding: $padding-sm 0;
+    }
   }
 
   &.simple-summary {
@@ -50,10 +54,13 @@ summary {
       padding: 0;
       justify-content: unset;
     }
+
+    .icon {
+      margin-left: 20px;
+    }
   }
 
   .icon {
-    margin-left: 20px;
     transform-origin: center center;
     transition: transform 0.5s ease, fill 0.2s ease-out;
   }

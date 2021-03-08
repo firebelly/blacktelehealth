@@ -4,7 +4,41 @@
   overflow: hidden;
   position: relative;
 
+  > .-inner {
+    display: flex;
+    padding: 0 $beat;
+    flex-direction: column-reverse;
+  }
+
+  .pullquote-image {
+    position: relative;
+    &::before {
+      top: 50%;
+      bottom: 0;
+      content: '';
+      left: -$beat * 2;
+      right: -$beat * 2;
+      position: absolute;
+      background-color: color('green-01');
+    }
+
+    img {
+      display: block;
+      position: relative;
+    }
+  }
+
+  .pullquote-text {
+    padding: 30px;
+    background-color: color('taupe-02');
+
+    p {
+      @include type-pullquote(large);
+    }
+  }
+
   @include media-md {
+    display: block;
     padding-top: 150px;
 
     .background {
@@ -20,7 +54,7 @@
         content: '';
         bottom: 120px;
         position: absolute;
-        background-color: color('taupe-01');
+        background-color: color('taupe-02');
       }
 
       &::after {
@@ -34,19 +68,22 @@
     }
 
     .-inner {
-      display: flex;
+      padding: 0;
       position: relative;
+      flex-direction: row;
     }
 
     .pullquote-image {
       max-width: 55%;
       flex-basis: 55%;
       overflow: hidden;
+      &::before {
+        display: none;
+      }
 
       img {
         width: 100%;
         height: 100%;
-        display: block;
         object-fit: cover;
         object-position: 50% 50%;
       }
@@ -56,9 +93,9 @@
       max-width: 45%;
       flex-basis: 45%;
       padding: 0 100px 150px 90px;
+      background-color: transparent;
 
       p {
-        @include type-pullquote;
         margin: 0;
       }
     }

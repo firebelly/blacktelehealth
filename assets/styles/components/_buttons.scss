@@ -5,65 +5,12 @@
   --button-secondary: #{color('white')};
 }
 
-.button {
-  @extend .button-reset;
-  @include type-cta;
-  @include transition('color, background-color, box-shadow');
-  @include box-shadow(0);
-  cursor: pointer;
-  padding: 13px 30px;
-  align-items: center;
-  border-radius: 666px;
-  display: inline-flex;
-  justify-content: center;
-  color: var(--button-primary);
-  border: 2px solid var(--button-primary);
-
-  &:hover,
-  &:focus {
-    @extend .button-hover;
-  }
-
-  svg {
-    margin-left: 17px;
-    fill: color('black');
-    fill: var(--button-primary);
-    @include transition(fill);
-  }
-
-  // Circular
-  &.circular {
-    padding: 0;
-    width: 60px;
-    height: 60px;
-    border-radius: 50%;
-
-    svg {
-      margin-left: 0;
-    }
-  }
-
-  &.simple {
-    @include type-cta;
-    padding: 0;
-    border: none;
-    display: flex;
-    border-radius: 0;
-    text-align: left;
-    align-items: center;
-  }
+.button:not(.circular, .simple) {
+  @include button;
 }
-
-// Hover Style
-.button-hover {
-  @include box-shadow(0.3);
-  color: color('white');
-  color: var(--button-secondary);
-  background-color: color('black');
-  background-color: var(--button-primary);
-
-  svg {
-    fill: color('white');
-    fill: var(--button-secondary);
-  }
+.circular {
+  @include button(circular);
+}
+.simple {
+  @include button(simple);
 }

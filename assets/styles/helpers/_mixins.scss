@@ -70,3 +70,75 @@
     @content;
   }
 }
+
+// Hover Style
+@mixin button-hover($primaryColor: var(--button-primary), $secondaryColor: var(--button-secondary)) {
+  @include box-shadow(0.3);
+  color: color('white');
+  color: $secondaryColor;
+  background-color: $primaryColor;
+
+  svg {
+    fill: $secondaryColor;
+  }
+}
+
+@mixin button($style: default, $primaryColor: var(--button-primary), $secondaryColor: var(--button-secondary)) {
+  @include type-cta;
+  @include transition('color, background-color, box-shadow');
+  @include box-shadow(0);
+  cursor: pointer;
+  appearance: none;
+  background: none;
+  padding: 13px 30px;
+  align-items: center;
+  border-radius: 666px;
+  display: inline-flex;
+  color: $primaryColor;
+  justify-content: center;
+  border: 2px solid $primaryColor;
+
+  &:hover,
+  &:focus {
+    @include button-hover($primaryColor, $secondaryColor);
+  }
+
+  // No outline for non-keyboard inputs
+  &:focus:not(:focus-visible) {
+    outline: none
+  }
+
+  svg {
+    @include transition(fill);
+    margin-left: 17px;
+    fill: $primaryColor;
+  }
+
+  // Circular Button Style
+  @if $style == 'circular' {
+    padding: 0;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+
+    svg {
+      margin-left: 0;
+    }
+
+    @include media-md {
+      width: 60px;
+      height: 60px;
+    }
+  }
+
+  // Simple Button Style
+  @if $style == 'simple' {
+    @include type-cta;
+    padding: 0;
+    border: none;
+    display: flex;
+    border-radius: 0;
+    text-align: left;
+    align-items: center;
+  }
+}

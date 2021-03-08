@@ -9,10 +9,10 @@ html {
 }
 
 body {
-  @include p-akkurat;
+  @include p;
   scroll-behavior: smooth;
   color: color('green-01');
-	background-color: color('taupe-01');
+	background-color: color('taupe-02');
 }
 
 h1, h2, h3, h4, h5, h6 {

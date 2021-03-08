@@ -21,23 +21,32 @@
 
       &.bt-lettermark {
         z-index: 10;
-        width: 60px;
-        height: 60px;
+        width: 30px;
+        height: 30px;
         position: fixed;
       }
 
       &.bt-wordmark {
-        width: 182px;
-        height: 60px;
-        margin-left: 10px;
+        width: 91px;
+        height: 30px;
+        margin-left: 35px;
       }
     }
 
     @include media-md {
       margin-left: -70px;
 
-      svg.bt-wordmark {
-        margin-left: 80px;
+      svg {
+        &.bt-lettermark {
+          width: 60px;
+          height: 60px;
+        }
+
+        &.bt-wordmark {
+          width: 182px;
+          height: 60px;
+          margin-left: 80px;
+        }
       }
     }
   }

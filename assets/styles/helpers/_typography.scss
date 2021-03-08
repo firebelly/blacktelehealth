@@ -24,14 +24,6 @@
 }
 
 // Type Style Mixins + Classes
-@mixin p-tiempos {
-  @include font-tiempos-text;
-  @include paragraph-style(20, 30, 0.005em);
-}
-.p-tiempos {
-  @include p-tiempos;
-}
-
 @mixin type-intro {
   @include font-tiempos-headline;
   @include paragraph-style(40, 40, 0, 500, capitalize);
@@ -46,7 +38,11 @@
 
 @mixin h1 {
   @include font-tiempos-headline;
-  @include paragraph-style(120, 110, -0.015em, 500);
+  @include paragraph-style(60, 55);
+
+  @include media-md {
+    @include paragraph-style(110, 100);
+  }
 }
 .h1 {
   @include h1;
@@ -57,7 +53,7 @@
   @include paragraph-style(25, 25, -0.0125em);
 
   @include media-md {
-    @include paragraph-style(50, 55, -0.02em);
+    @include paragraph-style(50, 50, -0.0125em);
   }
 }
 .h2 {
@@ -66,7 +62,11 @@
 
 @mixin h3 {
   @include font-tiempos-headline;
-  @include paragraph-style(27, 30, 0.01em);
+  @include paragraph-style(25, 25, -0.0125em);
+
+  @include media-md {
+    @include paragraph-style(40, 50, -0.005em)
+  }
 }
 .h3 {
   @include h3;
@@ -96,14 +96,6 @@
   @include h5;
 }
 
-@mixin type-subtitle-tiempos {
-  @include font-tiempos-text;
-  @include paragraph-style(25, 35);
-}
-.type-subtitle-tiempos {
-  @include type-subtitle-tiempos;
-}
-
 @mixin type-nav {
   @include font-tiempos-headline;
   @include paragraph-style(25, 25, -0.0125em);
@@ -118,40 +110,62 @@
 
 @mixin type-cta {
   @include font-akkurat;
-  @include paragraph-style(15, 20, 0.1em, 700, uppercase);
+  @include paragraph-style(12, 16, 0.1em, 700, uppercase);
+
+  @include media-md {
+    @include paragraph-style(15, 20, 0.1em, 700, uppercase);
+  }
 }
 .type-cta {
   @include type-cta;
 }
 
-@mixin type-detail-akkurat {
+@mixin type-detail{
   @include font-akkurat;
   @include paragraph-style(12, 20);
 }
-.type-detail-akkurat {
-  @include type-detail-akkurat;
+.type-detail{
+  @include type-detail;
 }
 
-@mixin type-subtitle-akkurat {
+@mixin type-subtitle{
   @include font-akkurat;
   @include paragraph-style(25, 35);
 }
-.type-subtitle-akkurat {
-  @include type-subtitle-akkurat;
+.type-subtitle{
+  @include type-subtitle;
 }
 
-@mixin type-pullquote {
+@mixin type-pullquote($size: small) {
   @include font-akkurat;
-  @include paragraph-style(60, 60, -0.015em, 300);
+
+  @if $size == 'small' {
+    @include paragraph-style(25, 30, 0, 300);
+
+    @include media-md {
+      @include paragraph-style(40, 45, 0, 300);
+    }
+  } @else {
+    @include paragraph-style(30, 30, -0.015em, 300);
+
+    @include media-md {
+      @include paragraph-style(60, 60, -0.015em, 300);
+    }
+  }
+
 }
-.type-pullquote {
+.type-pullquote-large {
   @include type-pullquote;
 }
 
-@mixin p-akkurat {
+@mixin p {
   @include font-akkurat;
-  @include paragraph-style(20, 30);
+  @include paragraph-style(14, 20);
+
+  @include media-md {
+    @include paragraph-style(20, 30);
+  }
 }
-.p-akkurat {
-  @include p-akkurat;
+.type-p {
+  @include p;
 }
