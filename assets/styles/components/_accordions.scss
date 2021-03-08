@@ -1,5 +1,7 @@
 details {
-  :focus:not(:focus-visible) {
+  overflow: hidden;
+
+  &:focus:not(:focus-visible) {
     outline: none
   }
 
@@ -8,7 +10,7 @@ details {
   }
 
   &.-is-open {
-    .button .icon {
+    .button:not(.close-accordion) .icon {
       transform: rotate(225deg);
       transition: transform 0.3s ease;
     }
@@ -22,21 +24,32 @@ details {
 }
 
 summary {
-  @include h2-tiempos;
-  display: flex;
-  cursor: pointer;
-  text-align: left;
-  align-items: center;
-  padding: $padding-sm 0;
-  justify-content: space-between;
-  &::-webkit-details-marker {
+  &::before {
+    display: none!important;
+  }
+  &::marker {
     display: none;
   }
 
+  &,
+  button {
+    @extend .button-reset;
+    @include h2;
+    display: flex;
+    cursor: pointer;
+    text-align: left;
+    align-items: center;
+    padding: $padding-sm 0;
+    justify-content: space-between;
+  }
+
   &.simple-summary {
-    @include type-cta;
-    padding: 0;
-    justify-content: unset;
+    &,
+    button {
+      @include type-cta;
+      padding: 0;
+      justify-content: unset;
+    }
   }
 
   .icon {
@@ -50,7 +63,7 @@ summary {
   opacity: 0;
   text-align: left;
   overflow: hidden;
-  transform: translateY(10%);
+  transform: translateY(-10%);
   will-change: opacity, transform;
   transition: opacity 0.35s ease, transform 0.35s ease;
 }

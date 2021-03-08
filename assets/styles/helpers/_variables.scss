@@ -20,9 +20,9 @@ $colors: (
   'mauve-01': #deb7b8,
   'mauve-02': #ead0d0,
   'mauve-03': #f5e9ea,
-  'sand-01': #ede7de,
-  'sand-02': #f5f2e9,
-  'sand-03': #e5d8c9,
+  'taupe-01': #e5d8c9,
+  'taupe-02': #ede7de,
+  'taupe-03': #f5f2e9,
   'gray': #d9d9d9
 );
 
@@ -32,9 +32,11 @@ $colors: (
 
 // Z-index maps
 $z-layers: (
-  header: 80,
+  header: 70,
+  navToggle: 80,
   overlay: 90,
-  nav: 100
+  nav: 100,
+  modal: 150
 );
 @function z($key) {
   @return map-get($z-layers, $key);

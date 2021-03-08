@@ -10,6 +10,11 @@ import appState from './util/appState';
 import common from './routes/common';
 import home from './routes/home';
 
+// missing forEach on NodeList for IE11
+if (window.NodeList && !NodeList.prototype.forEach) {
+  NodeList.prototype.forEach = Array.prototype.forEach;
+}
+
 // Populate Router instance with DOM routes
 const routes = new Router({
   common,

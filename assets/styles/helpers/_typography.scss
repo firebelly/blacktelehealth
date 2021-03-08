@@ -32,28 +32,68 @@
   @include p-tiempos;
 }
 
-@mixin h1-tiempos {
+@mixin type-intro {
+  @include font-tiempos-headline;
+  @include paragraph-style(40, 40, 0, 500, capitalize);
+
+  @include media-md {
+    @include paragraph-style(80, 75, 0, 500, capitalize);
+  }
+}
+.type-intro {
+  @include type-intro;
+}
+
+@mixin h1 {
   @include font-tiempos-headline;
   @include paragraph-style(120, 110, -0.015em, 500);
 }
-.h1-tiempos {
-  @include h1-tiempos;
+.h1 {
+  @include h1;
 }
 
-@mixin h2-tiempos {
+@mixin h2 {
   @include font-tiempos-headline;
-  @include paragraph-style(50, 55, -0.02em);
+  @include paragraph-style(25, 25, -0.0125em);
+
+  @include media-md {
+    @include paragraph-style(50, 55, -0.02em);
+  }
 }
-.h2-tiempos {
-  @include h2-tiempos;
+.h2 {
+  @include h2;
 }
 
-@mixin h3-tiempos {
+@mixin h3 {
   @include font-tiempos-headline;
   @include paragraph-style(27, 30, 0.01em);
 }
-.h3-tiempos {
-  @include h3-tiempos;
+.h3 {
+  @include h3;
+}
+
+@mixin h4 {
+  @include font-tiempos-text;
+  @include paragraph-style(20, 20, 0.01em);
+
+  @include media-md {
+    @include paragraph-style(27, 30, 0.01em);
+  }
+}
+.type-h4 {
+  @include h4;
+}
+
+@mixin h5 {
+  @include font-akkurat;
+  @include paragraph-style(16, 25, 0.1em, 700, uppercase);
+
+  @include media-md {
+    @include paragraph-style(20, 30, 0.1em, 700, uppercase);
+  }
+}
+.type-h5 {
+  @include h5;
 }
 
 @mixin type-subtitle-tiempos {
@@ -66,7 +106,11 @@
 
 @mixin type-nav {
   @include font-tiempos-headline;
-  @include paragraph-style(80, 75, -0.0125em, 500, capitalize);
+  @include paragraph-style(25, 25, -0.0125em);
+
+  @include media-md {
+    @include paragraph-style(80, 75, -0.0125em, 500, capitalize);
+  }
 }
 .type-nav {
   @include type-nav;
@@ -86,38 +130,6 @@
 }
 .type-detail-akkurat {
   @include type-detail-akkurat;
-}
-
-@mixin h1-akkurat {
-  @include font-akkurat;
-  @include paragraph-style(120, 110, -0.02em, 700);
-}
-.h1-akkurat {
-  @include h1-akkurat;
-}
-
-@mixin h2-akkurat {
-  @include font-akkurat;
-  @include paragraph-style(50, 55, 0, 700);
-}
-.h2-akkurat {
-  @include h2-akkurat;
-}
-
-@mixin h3-akkurat {
-  @include font-akkurat;
-  @include paragraph-style(20, 30, 0.1em, 700, uppercase);
-}
-.h3-akkurat {
-  @include h3-akkurat;
-}
-
-@mixin h4-akkurat {
-  @include font-akkurat;
-  @include paragraph-style(40, 45, 0, 300);
-}
-.h4-akkurat {
-  @include h4-akkurat;
 }
 
 @mixin type-subtitle-akkurat {

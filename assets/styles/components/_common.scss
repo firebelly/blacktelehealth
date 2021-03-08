@@ -6,19 +6,19 @@
   // padding-bottom: $padding-md;
 
   .section-title {
-    @include h2-tiempos;
+    @include h2;
     position: relative;
     margin-bottom: $padding-sm;
 
-    svg {
+    span {
+      position: relative;
+    }
+
+    .title-icon {
       top: 0;
       left: 0;
-      width: 100px;
-      height: 100px;;
       position: absolute;
-      fill: color('orange-01');
       transform: translate(-50%, -35%);
-
       &.-after {
         right: 0;
         bottom: 0;
@@ -26,10 +26,12 @@
         left: auto;
         transform: translate(55%, 40%);
       }
-    }
 
-    span {
-      position: relative;
+      svg {
+        width: 100px;
+        height: 100px;;
+        fill: color('orange-01');
+      }
     }
   }
 }

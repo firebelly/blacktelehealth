@@ -6,7 +6,6 @@
   left: 100%;
   z-index: z(nav);
   position: fixed;
-  text-align: right;
   padding: $padding-md;
   will-change: transform;
   background-color: color('black');
@@ -19,8 +18,13 @@
 
   a {
     @include type-nav;
+    @include transition(color);
     text-decoration: none;
-    color: color('sand-01');
+    color: color('taupe-01');
+    &:hover,
+    &:focus {
+      color: color('orange-01');
+    }
   }
 
   ul {
@@ -30,10 +34,11 @@
   }
 
   li {
+    text-align: center;
     position: relative;
 
     &::before {
-      @include h3-akkurat;
+      @include h5;
       top: 0.4em;
       position: relative;
       margin-right: 0.4em;
@@ -52,7 +57,7 @@
         width: 10px;
         height: 1px;
         position: absolute;
-        background-color: color('sand-01');
+        background-color: color('taupe-01');
       }
     }
   }
@@ -62,6 +67,10 @@
 
     a {
       white-space: nowrap;
+    }
+
+    li {
+      text-align: right;;
     }
   }
 
@@ -112,7 +121,9 @@
 
   // Open
   &.nav-open {
-    top: 0;
+    top: 60px;
+    position: fixed;
+    z-index: z(navToggle);
     color: color('orange-01');
 
     .toggle-icon {
@@ -124,20 +135,15 @@
   // Close
   &.nav-close {
     top: $padding-sm;
-    color: color('sand-01');
+    color: color('taupe-01');
 
     .toggle-icon {
       --button-secondary: #{color('black')};
-      --button-primary: #{color('sand-01')};
+      --button-primary: #{color('taupe-01')};
     }
 
     @include media-md {
       top: 60px;
-      right: $padding-md;
-    }
-
-    @include media-lg {
-      right: $padding-lg
     }
   }
 }

@@ -3,7 +3,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="X-UA-Compatible" content="IE=Edge">
-    <title>Black Telehealth</title>
+    <title>Black Telehealth - Claim Your Right to Good Health</title>
 
     <link rel="stylesheet" href="dist/assets/styles/main.css" media="print" onload="this.media='all'; this.onload=null; document.querySelector('body').setAttribute('style', 'opacity:1;');">
     <style>
@@ -28,12 +28,15 @@
 
     <link rel="shortcut icon" type="image/ico" href="dist/assets/images/favicon.png">
 
-    <link rel="canonical" href="">
-    <meta name="description" content="">
-    <meta property="og:title" content="" />
+    <link rel="canonical" href="https://www.blacktelehealthnetwork.com">
+    <meta name="description" content="We are the first telehealth practice that connects Black patients and Black doctors, with the goal of transforming Black health in America.">
+    <meta property="og:title" content="Black Telehealth - Claim Your Right to Good Health" />
     <meta property="og:image" content="" />
-    <meta property="og:url" content="" />
-    <meta property="og:description" content="" />
+    <meta property="og:url" content="https://www.blacktelehealthnetwork.com" />
+    <meta property="og:description" content="We are the first telehealth practice that connects Black patients and Black doctors, with the goal of transforming Black health in America." />
+
+    <!-- IE polyfill for CSS variables -->
+    <script>window.MSInputMethodContext && document.documentMode && document.write('<script src="https://cdn.jsdelivr.net/gh/nuxodin/ie11CustomProperties@4.1.0/ie11CustomProperties.min.js"><\/script>');</script>
 
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-PN1DTCX9EJ"></script>
@@ -58,7 +61,8 @@
       }
     </script>
   </head>
-  <body class="page-home">
+  <body class="page-home" id="top">
+    <div id="breakpoint-indicator"></div>
     <svg class="b-mask" width="0" height="0">
       <defs>
         <clipPath id="b-top-clip" clipPathUnits="objectBoundingBox" transform="scale(0.001639344, 0.003278689)">
@@ -69,13 +73,14 @@
         </clipPath>
       </defs>
     </svg>
-    <div id="breakpoint-indicator"></div>
 
     <header class="site-header" role="banner">
       <div class="sitewrapper">
         <h1>
           <div class="site-logo">
-            <svg class="bt-lettermark" aria-hidden="true" role="presentation"><use xlink:href="#black-telehealth-lettermark"/></svg>
+            <a href="#top"><svg class="bt-lettermark" aria-hidden="true" role="presentation">
+              <use xlink:href="#black-telehealth-lettermark" />
+            </svg></a>
             <svg class="bt-wordmark" aria-hidden="true" role="presentation"><use xlink:href="#black-telehealth-wordmark"/></svg>
           </div>
         </h1>
@@ -103,7 +108,7 @@
 
     <main class="site-main" role="main">
 
-      <div id="intro-section" class="section intro-section parallax-container background-sand-01 color-green-01">
+      <div id="intro-section" class="section intro-section parallax-container background-taupe-01 color-green-01">
         <div class="sitewrapper">
           <div class="-inner">
             <div class="b-container">
@@ -126,14 +131,14 @@
         </div>
       </div><!-- #intro-section -->
 
-      <div id="welcome" class="welcome-section background-sand-01 color-green-01">
+      <div id="welcome" class="welcome-section background-taupe-01 color-green-01">
         <div class="sitewrapper">
-          <h3 class="section-title h1-tiempos align-center">Welcome</h3>
+          <h3 class="section-title h1 align-center">Welcome</h3>
         </div>
 
         <div class="overlapping-image">
-          <div class="overlap-background -top background-sand-01"></div>
-          <div class="overlap-background -bottom background-sand-03"></div>
+          <div class="overlap-background -top background-taupe-01"></div>
+          <div class="overlap-background -bottom background-taupe-03"></div>
           <div class="sitewrapper">
             <div class="offset-pill">
               <div class="-left">
@@ -147,12 +152,12 @@
         </div><!-- .overlapping-image -->
       </div><!-- #welcome -->
 
-      <div id="our-calling" class="section our-calling-section background-sand-03 color-green-01 padded-bottom-lg">
+      <div id="our-calling" class="section our-calling-section background-taupe-03 color-green-01 padded-bottom-lg">
         <div class="sitewrapper">
 
           <div class="grid spaced">
             <div class="col-md-1-3">
-              <h2 class="section-title h2-tiempos">Our Calling</h2>
+              <h2 class="section-title h2">Our Calling</h2>
             </div>
 
             <div class="col-md-1-2">
@@ -160,7 +165,7 @@
               be bothered to do anything about it. Some call it a failure of the system and a problem without a solution. Many think
               it’s too difficult and depressing to figure out. We at Black Telehealth believe that change is possible [...]</p>
 
-              <details>
+              <details class="accordion">
                 <summary class="simple-summary color-orange-01">
                   Read more <svg class="icon icon-plus" aria-hidden="true" role="presentation"><use xlink:href="#icon-plus"/></svg>
                 </summary>
@@ -175,59 +180,105 @@
         </div>
       </div><!-- #our-calling -->
 
-      <div id="leadership" class="section leadership-section background-sand-03 color-green-01">
+      <div id="leadership" class="section leadership-section background-taupe-03 color-green-01">
         <div class="sitewrapper">
           <div class="border-top padded-top padded-bottom-lg">
 
             <h2 class="section-title">Our Leadership</h2>
 
             <div class="grid spaced">
-              <div class="person col-md-1-3" data-modal-open>
-                <img class="circle" src="https://source.unsplash.com/collection/12257081/500x500" alt="">
-                <h4>Andre Hughes</h4>
-                <h5>Founder</h5>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit...</p>
-                <button class="modal-open">Full Bio <svg class="icon icon-plus" aria-hidden="true" role="presentation">
-                  <use xlink:href="#icon-plus" />
-                </svg></button>
+              <div class="person person-with-bio col-md-1-3">
+                <div class="person-image">
+                  <img class="circle" src="https://source.unsplash.com/collection/12257081/500x500" alt="">
+                </div>
+                <div class="person-content">
+                  <h4>Andre Hughes</h4>
+                  <p>A founding member and former Global Managing Partner of Accenture, and angel investor for BTH</p>
 
-                <div class="full-bio visuallyhidden">
-                  <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Commodi blanditiis magni, aperiam culpa quasi placeat molestiae dolore iste amet nihil ducimus, quam recusandae molestias accusamus. Expedita atque iusto tenetur esse?</p>
-                  <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quam, neque consequuntur. Provident deleniti, natus cumque, accusamus modi id voluptatem numquam odit maxime tempore ex nesciunt amet corporis maiores! Laborum, aut?</p>
+                  <details class="accordion long-accordion">
+                    <summary class="simple-summary">
+                      <button aria-hidden="true">Full Bio <svg class="icon icon-plus" aria-hidden="true" role="presentation"><use xlink:href="#icon-plus" /></svg></button>
+                    </summary>
+                    <div class="accordion-content full-bio">
+                      <p>Andre Hughes spent his corporate career building global strategic partnerships and applying technology innovations to
+                        power results.</p>
+
+                      <p>A member of the founding partner group at Accenture from 1988-2011, Andre helped transform the telecommunications
+                        market from voice to data. Andre is also the founder and chairman of Powered by Action (PbA), an innovative (and
+                        affordable) platform that accelerates nonprofit scalability.</p>
+
+                      <p>Andre is the founder and chairman of Big Heart Ventures and is the angel investor for Black Telehealth, Myowndoctor,
+                        Ilume Health and BigMarker. Andre brings both his knowledge, a career of results, community work and leadership
+                        expertise to his portfolio of companies and his foundation.</p>
+
+                      <p>Andre has an MBA in finance from the University of Chicago and a BS in Engineering from Purdue University.</p>
+                      <button class="close-accordion button simple" aria-hidden="true">Close Bio <svg class="icon icon-x" aria-hidden="true" role="presentation"><use xlink:href="#icon-x"/></svg></button>
+                    </div>
+                  </details>
                 </div>
               </div>
 
-              <div class="person col-md-1-3" data-modal-open>
-                <img class="circle" src="https://source.unsplash.com/collection/12257081/600x600" alt="">
-                <h4>Dr. William Payne</h4>
-                <h5>Founder</h5>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit...</p>
-                <button class="modal-open">Full Bio <svg class='icon icon-plus' aria-hidden='true' role='presentation'>
-                  <use xlink:href='#icon-plus' />
-                </svg></button>
+              <div class="person person-with-bio col-md-1-3">
+                <div class="person-image">
+                  <img class="circle" src="https://source.unsplash.com/collection/12257081/600x600" alt="">
+                </div>
+                <div class="person-content">
+                  <h4>Dr. William Payne</h4>
+                  <p>An orthopedic surgeon, healthcare executive, entrepreneur and community servant</p>
 
-                <div class="full-bio visuallyhidden">
-                  <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Commodi blanditiis magni, aperiam culpa quasi placeat molestiae dolore iste amet nihil ducimus, quam recusandae molestias accusamus. Expedita atque iusto tenetur esse?</p>
-                  <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quam, neque consequuntur. Provident deleniti, natus cumque, accusamus modi id voluptatem numquam odit maxime tempore ex nesciunt amet corporis maiores! Laborum, aut?</p>
+                  <details class="accordion long-accordion">
+                    <summary class="simple-summary">
+                      <button aria-hidden="true">Full Bio <svg class="icon icon-plus" aria-hidden="true" role="presentation">
+                          <use xlink:href="#icon-plus" />
+                        </svg></button>
+                    </summary>
+                    <div class="accordion-content full-bio">
+                      <p>Dr. William K Payne is an orthopedic surgeon, healthcare executive, entrepreneur and community servant.</p>
+
+                      <p>Dr. Payne served as the Vice President of a multispeciality group in Chicago, eventually becoming the President of
+                        the group, a role in which he grew the company from 40 full-time-employees (FTEs) to 90 FTEs and from $30 million in
+                        revenue to $65 million in revenues. He was instrumental in all phases of the business including finance, contracting,
+                        pension and benefits, compensation, strategy, quality and peer review. Dr. Payne also served on the Corporate
+                        Presidents Council for Franciscan Alliance and is the current Medical Staff President. Dr. Payne is an educator and
+                        program director for Orthopedic Surgery and has improved the program ranking from the 25th percentile to the 70th in
+                        18 months by redesigning the educational experience and leveraging technology such as BigMarker.</p>
+
+                      <p>Dr. Payne has a medical doctorate from UCLA and trained at an inner city hospital in Los Angeles. He has an MPH from
+                        University of Minnesota, where he also completed a Spine Fellowship. Dr. Payne also completed the American Academy of
+                        Orthopedic Surgeons Health Services and Outcomes Research Fellowship. Dr. Payne is a founding member of Black Health
+                        Directors Equity Agenda.</p>
+                      <button class="close-accordion button simple" aria-hidden="true">Close Bio <svg class="icon icon-x" aria-hidden="true" role="presentation"><use xlink:href="#icon-x"/></svg></button>
+                    </div>
+                  </details>
                 </div>
               </div>
 
-              <div class="person col-md-1-3" data-modal-open>
-                <img class="circle -flipped" src="https://source.unsplash.com/collection/12257081/700x700" alt="">
-                <h4>Cheryle Robinson Jackson</h4>
-                <h5>CEO</h5>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit...</p>
-                <button class="modal-open">Full Bio <svg class="icon icon-plus" aria-hidden="true" role="presentation">
-                    <use xlink:href="#icon-plus" />
-                  </svg></button>
+              <div class="person person-with-bio col-md-1-3">
+                <div class="person-image">
+                  <img class="circle" src="https://source.unsplash.com/collection/12257081/700x700" alt="">
+                </div>
+                <div class="person-content">
+                  <h4>Cheryle Robinson Jackson</h4>
+                  <p>A founding member and former Global Managing Partner of Accenture, and angel investor for BTH</p>
 
-                <div class="full-bio visuallyhidden">
-                  <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Commodi blanditiis magni, aperiam culpa quasi placeat
-                    molestiae dolore iste amet nihil ducimus, quam recusandae molestias accusamus. Expedita atque iusto tenetur esse?
-                  </p>
-                  <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quam, neque consequuntur. Provident deleniti, natus
-                    cumque, accusamus modi id voluptatem numquam odit maxime tempore ex nesciunt amet corporis maiores! Laborum, aut?
-                  </p>
+                  <details class="accordion long-accordion">
+                    <summary class="simple-summary">
+                      <button aria-hidden="true">Full Bio <svg class="icon icon-plus" aria-hidden="true" role="presentation">
+                          <use xlink:href="#icon-plus" />
+                        </svg></button>
+                    </summary>
+                    <div class="accordion-content full-bio">
+                      <p>Cheryle Robinson Jackson’s career has been marked by many firsts, spanning healthcare, international business, civil rights, politics, government, not-for-profit, and the media.</p>
+
+                      <p>In 2020, Cheryle became CEO of Black Telehealth and Myowndoctor, dedicating herself to helping people claim their right to good health through care, content, and community. Until 2019, she served as Senior Vice President of Global Business Development and President of AAR Africa for AAR, a global aviation services company.</p>
+
+                      <p>Prior to AAR, Cheryle was a candidate for President Obama’s once‐vacant U.S. Senate seat in 2010 and was the first female president and CEO of the Chicago Urban League. She also served as communications director for the Governor of Illinois. Her professional experience also includes senior level positions at Amtrak and NPR (National Public Radio).</p>
+                      <p>In 2018, Cheryle founded Grit and Grace, The Movement, a women’s empowerment, coaching and media company. In her intimate TEDx Talk “Grit and Grace,” Cheryle validates the career trajectories of go-getters like herself but also implores women to self-advocate and practice grace, love in action toward self, as a sustainable model of success.</p>
+
+                      <p>Cheryle has a B.A. from Northwestern University and resides in Chicago, IL.</p>
+                      <button class="close-accordion button simple" aria-hidden="true">Close Bio <svg class="icon icon-x" aria-hidden="true" role="presentation"><use xlink:href="#icon-x"/></svg></button>
+                    </div>
+                  </details>
                 </div>
               </div>
             </div><!-- .grid -->
@@ -236,7 +287,7 @@
         </div><!-- .sitewrapper-->
       </div><!-- #leadership -->
 
-      <div id="we-believe" class="section we-believe-section background-sand-03 color-green-01">
+      <div id="we-believe" class="section we-believe-section background-taupe-03 color-green-01">
         <div class="sitewrapper">
 
           <div class="border-top padded-top padded-bottom-lg">
@@ -290,7 +341,7 @@
         </div><!-- .sitewrapper-->
       </div><!-- #we-believe -->
 
-      <div class="pullquote-break background-sand-03">
+      <div class="pullquote-break background-taupe-03">
         <div class="background sitewrapper"></div>
         <div class="-inner">
           <div class="pullquote-image">
@@ -302,20 +353,22 @@
         </div>
       </div><!-- .pullquote-break -->
 
-      <div id="your-care" class="section your-care-section background-green-01 color-sand-01 padded-top-lg">
+      <div id="your-care" class="section your-care-section background-green-01 color-taupe-01 padded-top-lg">
         <div class="sitewrapper">
           <div class="grid spaced direction-right">
             <div class="col-md-2-3 md-order-1">
-              <h2 class="section-title"><svg class="-before" aria-hidden="true" role="presentation"><use xlink:href="#icon-healthcare"/></svg><span>Your Care</span></h2>
+              <h2 class="section-title"><span class="title-icon">
+                <svg aria-hidden="true" role="presentation"><use xlink:href="#icon-healthcare"/></svg>
+              </span><span>Your Care</span></h2>
 
               <div class="care-menu-container">
                 <div class="care-description">
-                  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Debitis error voluptatum eveniet aspernatur, rem reiciendis, provident voluptates qui eaque repellendus natus. Consectetur iste mollitia ratione ullam corporis hic! Porro, consequatur.</p>
+                  <p>From prevention education to community support, we offer a full suite of holistic, high quality care services that treat the whole person. Our health care providers, coaches, care navigators, and community partners are here for all of your medical, mental, behavioral health and wellness needs.</p>
                 </div>
 
                 <ul class="care-menu">
                   <li>
-                    <details>
+                    <details class="accordion">
                       <summary>Virtual Visits <div class="button circular">
                         <svg class='icon icon-plus' aria-hidden='true' role='presentation'><use xlink:href='#icon-plus'/></svg>
                       </div></summary>
@@ -323,15 +376,15 @@
                     </details>
                   </li>
                   <li>
-                    <details>
+                    <details class="accordion">
                       <summary>Care Coordinaion <div class="button circular">
                         <svg class='icon icon-plus' aria-hidden='true' role='presentation'><use xlink:href='#icon-plus'/></svg>
                       </div></summary>
-                      <div class="accordion-content">Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias vero doloribus porro magnam unde, quis, deserunt ad assumenda tempore quae perspiciatis recusandae odio iure provident cum impedit ratione fugit tempora.</div>
+                      <div class="accordion-content">Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias vero doloribus porro magnam unde, quis, deserunt ad assumenda tempore quae perspiciatis recutaupeae odio iure provident cum impedit ratione fugit tempora.</div>
                     </details>
                   </li>
                   <li>
-                    <details>
+                    <details class="accordion">
                       <summary>Remote Patient Monitoring <div class="button circular">
                         <svg class='icon icon-plus' aria-hidden='true' role='presentation'><use xlink:href='#icon-plus'/></svg>
                       </div></summary>
@@ -339,7 +392,7 @@
                     </details>
                   </li>
                   <li>
-                    <details>
+                    <details class="accordion">
                       <summary>Prevention Education <div class="button circular">
                         <svg class='icon icon-plus' aria-hidden='true' role='presentation'><use xlink:href='#icon-plus'/></svg>
                       </div></summary>
@@ -347,7 +400,7 @@
                     </details>
                   </li>
                   <li>
-                    <details>
+                    <details class="accordion">
                       <summary>Community Support <div class="button circular">
                         <svg class='icon icon-plus' aria-hidden='true' role='presentation'><use xlink:href='#icon-plus'/></svg>
                       </div></summary>
@@ -365,9 +418,11 @@
         </div><!-- .sitewrapper -->
       </div><!-- #care-menu -->
 
-      <div id="care-team" class="care-team-section section background-green-01 color-sand-01 padded-bottom-lg">
+      <div id="care-team" class="care-team-section section background-green-01 color-taupe-01 padded-bottom-lg">
         <div class="sitewrapper">
-          <h2 class="section-title"><span><svg class="-after" aria-hidden="true" role="presentation"><use xlink:href="#icon-family"/></svg><span>Your Care Team</span></span></h2>
+          <h2 class="section-title"><span><span class="title-icon -after">
+            <svg class="-after" aria-hidden="true" role="presentation"><use xlink:href="#icon-family"/></svg>
+          </span><span>Your Care Team</span></span></h2>
 
           <div class="grid spaced md-direction-right">
             <div class="col-md-2-3">
@@ -433,7 +488,7 @@
         <div class="grid spaced">
 
           <div class="col-md-1-2">
-            <h3 class="h1-tiempos">Get in Touch</h3>
+            <h3 class="h1">Get in Touch</h3>
           </div>
 
           <div class="col-md-1-2">
@@ -457,9 +512,9 @@
 
             <p>Join our community</p>
             <ul class="social">
-              <li><a href="https://facebook.com/myblacktelehealth"><svg class="icon icon-facebook"><use xlink:href="#icon-facebook"/></svg></a></li>
-              <li><a href="https://twitter.com/myblacktelehealth"><svg class="icon icon-twitter" ><use xlink:href="#icon-twitter"/></svg></a></li>
-              <li><a href="https://linkedin.com/myblacktelehealth"><svg class="icon icon-linkedin"><use xlink:href="#icon-linkedin"/></svg></a></li>
+              <li><a href="https://www.instagram.com/blacktelehealth/"><svg class="icon icon-facebook"><use xlink:href="#icon-facebook"/></svg></a></li>
+              <li><a href="https://twitter.com/BlackTelehealth"><svg class="icon icon-twitter" ><use xlink:href="#icon-twitter"/></svg></a></li>
+              <li><a href="https://www.linkedin.com/company/black-telehealth-llc"><svg class="icon icon-linkedin"><use xlink:href="#icon-linkedin"/></svg></a></li>
             </ul>
           </div>
 

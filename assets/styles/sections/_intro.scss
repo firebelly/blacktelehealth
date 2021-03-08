@@ -4,13 +4,16 @@
   padding-top: $padding-md;
   @include media-md {
     padding: 115px 0 195px;
-  }
 
-  .-inner {
-    display: flex;
+    .-inner {
+      display: flex;
+    }
   }
 
   .b-container {
+    width: 100%;
+    padding-right: 30%;
+
     @include media-md {
       margin-right: 90px;
       flex-basis: 55.4545%;
@@ -63,8 +66,7 @@
 
   .intro-text {
     .headline {
-      @include font-tiempos-headline;
-      @include paragraph-style(80, 75, 0, 500, capitalize);
+      @include type-intro;
       max-width: 7ch;
       margin: 0 0 40px;
     }
@@ -77,6 +79,7 @@
     .scroll-down {
       @extend .button-reset;
       margin-top: 40px;
+      display: inline-block;
 
       svg {
         width: 30px;

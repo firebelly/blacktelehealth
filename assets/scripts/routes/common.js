@@ -1,6 +1,7 @@
 // Common js
 import appState from '../util/appState';
 import Accordion from '../util/accordions';
+import modals from '../util/modals';
 
 // Shared vars
 let $window = $(window),
@@ -26,10 +27,12 @@ export default {
     // Init Functions
     _initSiteNav();
     _initAccordions();
+    _initBios();
 
     function _initSiteNav() {
       $document.on('click.siteNavOpen', '#nav-open', _openNav);
       $document.on('click.siteNavClose', '#nav-close', _closeNav);
+      $document.on('click.siteNavClose', '.site-overlay', _closeNav);
 
       $('.site-nav.-active').keydown(function(event) {
         trapTabKey($(this), event);
@@ -112,8 +115,76 @@ export default {
     }
 
     function _initAccordions() {
-      document.querySelectorAll('details').forEach((el) => {
+      document.querySelectorAll('.accordion').forEach((el) => {
         let accordion = new Accordion(el);
+      });
+    }
+
+    function _initBios() {
+      modals.init('.modal');
+      const modal = document.querySelector('.modal');
+      const peopleWithBios = document.querySelectorAll('.person-with-bio');
+      const bioCount = peopleWithBios.length;
+
+      peopleWithBios.forEach(function(person, i) {
+        let html = person.innerHTML;
+        person.setAttribute('data-modal-index', i);
+        person.addEventListener('click', function() {
+
+          if (appState.breakpoints.md) {
+            modal.setAttribute('data-modal-index', i);
+            modals.openModal(html, 'bio-modal');
+          }
+        });
+      });
+
+      // Close Modal
+      let modalClose = document.querySelector('.close-modal');
+      let modalOverlay = document.querySelector('.site-overlay');
+      modalClose.addEventListener('click', modals.closeModal);
+      modalOverlay.addEventListener('click', modals.closeModal);
+
+      // Modal Navigation
+      function nextBio(currentBio) {
+        let html;
+        let newIndex = 0;
+        if (currentBio === bioCount - 1) {
+          html = peopleWithBios[newIndex].innerHTML;
+        } else {
+          newIndex = currentBio + 1;
+          html = peopleWithBios[newIndex].innerHTML;
+        }
+        modals.closeModal();
+        modal.setAttribute('data-modal-index', newIndex);
+        modals.openModal(html, 'bio-modal');
+      }
+
+      // Modal Navigation
+      function prevBio(currentBio) {
+        let html;
+        let newIndex;
+        if (currentBio === 0) {
+          newIndex = bioCount - 1;
+          html = peopleWithBios[newIndex].innerHTML;
+        } else {
+          newIndex = currentBio - 1;
+          html = peopleWithBios[newIndex].innerHTML;
+        }
+        modals.closeModal();
+        modal.setAttribute('data-modal-index', newIndex);
+        modals.openModal(html, 'bio-modal');
+      }
+
+      // Modal Navigation Click Handlers
+      let prevModal = document.querySelector('.prev-modal');
+      prevModal.addEventListener('click', function() {
+        let currentBio = parseInt(modal.getAttribute('data-modal-index'));
+        prevBio(currentBio);
+      });
+      let nextModal = document.querySelector('.next-modal');
+      nextModal.addEventListener('click', function () {
+        let currentBio = parseInt(modal.getAttribute('data-modal-index'));
+        nextBio(currentBio);
       });
     }
 

@@ -8,6 +8,8 @@
 .button {
   @extend .button-reset;
   @include type-cta;
+  @include transition('color, background-color, box-shadow');
+  @include box-shadow(0);
   cursor: pointer;
   padding: 13px 30px;
   align-items: center;
@@ -16,7 +18,6 @@
   justify-content: center;
   color: var(--button-primary);
   border: 2px solid var(--button-primary);
-  @include transition('color, background-color');
 
   &:hover,
   &:focus {
@@ -41,17 +42,28 @@
       margin-left: 0;
     }
   }
+
+  &.simple {
+    @include type-cta;
+    padding: 0;
+    border: none;
+    display: flex;
+    border-radius: 0;
+    text-align: left;
+    align-items: center;
+  }
 }
 
-  // Hover Style
-  .button-hover {
-    color: color('white');
-    color: var(--button-secondary);
-    background-color: color('black');
-    background-color: var(--button-primary);
+// Hover Style
+.button-hover {
+  @include box-shadow(0.3);
+  color: color('white');
+  color: var(--button-secondary);
+  background-color: color('black');
+  background-color: var(--button-primary);
 
-    svg {
-      fill: color('white');
-      fill: var(--button-secondary);
-    }
+  svg {
+    fill: color('white');
+    fill: var(--button-secondary);
   }
+}

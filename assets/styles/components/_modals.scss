@@ -1,6 +1,6 @@
 // Modal Styles
 
-.modal-open {
+.open-modal {
   @extend .button-reset;
   @include type-cta;
   display: flex;
@@ -10,5 +10,83 @@
   .icon {
     margin-left: 20px;
     margin-bottom: 2px;
+  }
+}
+
+.modal {
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  display: none;
+  overflow: hidden;
+  position: fixed;
+  z-index: z(modal);
+  padding: $padding-sm;
+  pointer-events: none;
+
+  .modal-nav {
+    --button-primary: #{color('orange-01')};
+    --button-secondary: #{color('black')};
+    gap: 15px 0;
+    display: flex;
+    top: $padding-sm;
+    right: $padding-sm;
+    position: absolute;
+    pointer-events: auto;
+    flex-direction: column;
+
+    .close-modal {
+      position: relative;
+      margin-bottom: 45px;
+      &::after {
+        left: 50%;
+        height: 1px;
+        width: 10px;
+        content: '';
+        bottom: -30px;
+        position: absolute;
+        transform: translateX(-50%);
+        background-color: color('green-01');
+      }
+    }
+  }
+
+  > .-inner {
+    left: 50%;
+    width: 100%;
+    overflow: hidden;
+    top: $padding-sm;
+    position: absolute;
+    bottom: $padding-sm;
+    pointer-events: auto;
+    transform: translateX(-50%);
+    padding: 100px 160px 0 100px;
+    background-color: color('taupe-02');
+    max-width: #{$sitewrapper - ($padding-sm * 2)};
+  }
+
+  .modal-content {
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    position: absolute;
+    padding: 100px 160px 0 100px;
+  }
+
+  .open-modal {
+    display: none;
+  }
+
+  @include media-md {
+    padding: $padding-md;
+
+    > .-inner {
+      top: 100px;
+      bottom: 100px;
+      max-width: #{$sitewrapper - ($padding-md * 2)};
+    }
   }
 }

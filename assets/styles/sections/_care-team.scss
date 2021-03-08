@@ -2,7 +2,7 @@
 
 .care-team-section {
   .section-title {
-    @include h1-tiempos;
+    @include h1;
 
     @include media-md {
       max-width: 50%;
@@ -18,7 +18,7 @@
   margin-bottom: $padding-sm;
 
   h6 {
-    @include h3-tiempos;
+    @include h3;
   }
 
   p {

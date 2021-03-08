@@ -12,7 +12,7 @@ body {
   @include p-akkurat;
   scroll-behavior: smooth;
   color: color('green-01');
-	background-color: color('sand-01');
+	background-color: color('taupe-01');
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -31,8 +31,8 @@ img {
 .sitewrapper {
   width: 100%;
   margin: 0 auto;
+  padding: 0 30px;
   position: relative;
-  padding: 0 $padding-sm;
   max-width: $sitewrapper;
   @include media-md {
     padding: 0 $padding-md;
@@ -40,7 +40,7 @@ img {
 }
 
 .site-main {
-  background-color: color('sand-01');
+  background-color: color('taupe-01');
 }
 
 // B Mask svg hidden, but present for masking
@@ -64,9 +64,23 @@ img {
   transition: opacity 0.35s;
   background-color: rgba(color('black'), 0.75);
 }
-body.nav-open {
+body.nav-open,
+body.modal-open {
   .site-overlay {
     opacity: 1;
     pointer-events: auto;
+  }
+}
+
+// If User Perfers Reduced Motion, Don't animation/transition
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation: none!important;
+    transition: none!important;
+  }
+
+  html,
+  body {
+    scroll-behavior: unset;
   }
 }
