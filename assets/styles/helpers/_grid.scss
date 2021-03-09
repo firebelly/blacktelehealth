@@ -105,25 +105,25 @@ $column-width: 100% / $columns;
 
     @include media-lg {
       &.spaced-lg {
-        margin-left: -#{$padding-lg / 2};
-        width: calc(100% + #{$padding-lg});
+        margin-left: -80px;
+        width: calc(100% + 160px);
 
         > [class*='col-'] {
-          padding: 0 #{$padding-lg / 2};
+          padding: 0 80px;
         }
       }
     }
 
-    @include media-xl {
-      &.spaced-lg {
-        margin-left: -#{$padding-lg};
-        width: calc(100% + #{$padding-lg * 2});
+    // @include media-xl {
+    //   &.spaced-lg {
+    //     margin-left: -#{$padding-lg};
+    //     width: calc(100% + #{$padding-lg * 2});
 
-        > [class*='col-'] {
-          padding: 0 $padding-lg;
-        }
-      }
-    }
+    //     > [class*='col-'] {
+    //       padding: 0 $padding-lg;
+    //     }
+    //   }
+    // }
   }
   // If you need the grid to have a gutter,
   // add 'gutter' as a class to the '.grid' container

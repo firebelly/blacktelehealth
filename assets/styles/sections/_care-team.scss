@@ -24,4 +24,8 @@
   p {
     @include type-cta;
   }
+
+  @include media-md {
+    margin-bottom: $padding-sm * 2;
+  }
 }
