@@ -24,10 +24,13 @@ details {
 }
 
 summary {
+  appearance: none;;
+
   &::before {
     display: none!important;
   }
-  &::marker {
+  &::marker,
+  &::-webkit-details-marker {
     display: none;
   }
 
