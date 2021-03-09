@@ -1,6 +1,62 @@
 // Intro Section
 
+.intro-animation {
+  // opacity: 0.7;
+
+  left: 0;
+  right: 0;
+  bottom: 0;
+  top: -120px;
+  z-index: 1000;
+  padding-top: 235px;
+  position: absolute;
+  color: color('taupe-02');
+
+  .backdrop {
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    position: absolute;
+    background-color: color("green-01");
+  }
+
+  .animation-text {
+    position: relative;
+    transform: translateX(-200px);
+
+    > div {
+      @include type-intro;
+      max-width: 7ch;
+    }
+
+    span {
+      display: block;
+    }
+
+    .-bottom {
+      position: relative;
+
+      .pair {
+        position: absolute;
+      }
+    }
+  }
+
+  @include media-md {
+    .animation-container {
+      display: flex;
+      flex-direction: row-reverse;
+    }
+
+    .animation-text {
+      flex-basis: calc(44.5455% - 90px);
+    }
+  }
+}
+
 .intro-section {
+  position: relative;
   padding-top: $padding-md;
   @include media-md {
     padding: 115px 0 195px;

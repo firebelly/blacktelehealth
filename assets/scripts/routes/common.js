@@ -1,3 +1,6 @@
+// Dependencies
+import { gsap } from "gsap";
+
 // Common js
 import appState from '../util/appState';
 import Accordion from '../util/accordions';
@@ -25,9 +28,27 @@ export default {
     transitionElements = [];
 
     // Init Functions
+    _initIntroAnimation();
     _initSiteNav();
     _initAccordions();
     _initBios();
+
+    function _initIntroAnimation() {
+      let animationText = document.getElementById('animation-text');
+
+      gsap.timeline()
+        .from('#animation-text .-top span', {x:-200, opacity: 0, stagger:0.2, duration: 0.5, ease: 'ease-out'})
+        .from('#pair-one span',{ x:-200, opacity: 0, stagger: 0.2, duration: 0.5, ease: 'ease-out' })
+        .to('#pair-one span', { x:200, opacity: 0, stagger: 0.2, duration: 0.5, ease: 'ease-in', delay:1 })
+        .from('#pair-two span', { x: -200, opacity: 0, stagger: 0.2, duration: 0.5, ease: 'ease-out' })
+        .to('#pair-two span', { x: 200, opacity: 0, stagger: 0.2, duration: 0.5, ease: 'ease-in', delay:1 })
+        .from('#pair-three span', { x: -200, opacity: 0, stagger: 0.2, duration: 0.5, ease: 'ease-out' })
+        .to('#pair-three span', { x: 200, opacity: 0, stagger: 0.2, duration: 0.5, ease: 'ease-in', delay:1})
+        .from('#pair-four span', { x: -200, opacity: 0, stagger: 0.2, duration: 0.5, ease: 'ease-out' })
+        .to('#intro-animation .backdrop', {opacity: 0, duration: 2, delay: 2})
+        .to('#animation-text', { x: 200, opacity: 0, duration: 2, ease: 'ease-in' }, '-=2')
+        .from('#intro-text', { x: -200, opacity: 0, duration: 2, ease: 'ease-in' }, '-=2')
+    }
 
     function _initSiteNav() {
       $document.on('click.siteNavOpen', '#nav-open', _openNav);
