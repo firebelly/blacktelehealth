@@ -39,15 +39,15 @@ export default {
       gsap.timeline()
         .from('#animation-text .-top span', {x:-200, opacity: 0, stagger:0.2, duration: 0.5, ease: 'ease-out'})
         .from('#pair-one span',{ x:-200, opacity: 0, stagger: 0.2, duration: 0.5, ease: 'ease-out' })
-        .to('#pair-one span', { x:200, opacity: 0, stagger: 0.2, duration: 0.5, ease: 'ease-in', delay:1 })
+        .to('#pair-one span', { x:200, opacity: 0, stagger: 0.2, duration: 0.5, ease: 'ease-in', delay: 0.5 })
         .from('#pair-two span', { x: -200, opacity: 0, stagger: 0.2, duration: 0.5, ease: 'ease-out' })
-        .to('#pair-two span', { x: 200, opacity: 0, stagger: 0.2, duration: 0.5, ease: 'ease-in', delay:1 })
+        .to('#pair-two span', { x: 200, opacity: 0, stagger: 0.2, duration: 0.5, ease: 'ease-in', delay: 0.5 })
         .from('#pair-three span', { x: -200, opacity: 0, stagger: 0.2, duration: 0.5, ease: 'ease-out' })
-        .to('#pair-three span', { x: 200, opacity: 0, stagger: 0.2, duration: 0.5, ease: 'ease-in', delay:1})
+        .to('#pair-three span', { x: 200, opacity: 0, stagger: 0.2, duration: 0.5, ease: 'ease-in', delay: 0.5})
         .from('#pair-four span', { x: -200, opacity: 0, stagger: 0.2, duration: 0.5, ease: 'ease-out' })
-        .to('#intro-animation .backdrop', {opacity: 0, duration: 2, delay: 2})
-        .to('#animation-text', { x: 200, opacity: 0, duration: 2, ease: 'ease-in' }, '-=2')
-        .from('#intro-text', { x: -200, opacity: 0, duration: 2, ease: 'ease-in' }, '-=2')
+        .to('#intro-animation .backdrop', {opacity: 0, duration: 1, delay: 1})
+        .to('#animation-text', { x: 200, opacity: 0, duration: 1, ease: 'ease-in' }, '-=1')
+        .from('#intro-text', { x: -200, opacity: 0, duration: 1, ease: 'ease-in' }, '-=1')
     }
 
     function _initSiteNav() {
