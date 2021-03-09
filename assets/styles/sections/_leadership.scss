@@ -39,7 +39,12 @@
       position: relative;
 
       img {
+        margin: 0 auto;
         display: block;
+      }
+
+      .-inner {
+        background-color: color('orange-01');
       }
     }
 
@@ -183,11 +188,21 @@
   .person-image {
     max-width: columns(1,3);
     flex-basis: columns(1,3);
+
+    > .-inner {
+      @extend .arch;
+      background-color: color('orange-01');
+    }
+
+    > img {
+      @extend .arch;
+    }
+
+    img {
+      display: block;
+    }
   }
 
-  img {
-    @extend .arch;
-  }
 
   .person-content {
     overflow: auto;

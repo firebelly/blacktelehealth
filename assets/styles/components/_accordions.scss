@@ -24,30 +24,37 @@ details {
 }
 
 summary {
-  appearance: none;;
-
+  // All of this is just to hide the default summary arrow across browsers
+  appearance: none;
+  list-style-type: none;
   &::before {
     display: none!important;
   }
-  &::marker,
   &::-webkit-details-marker {
     display: none;
   }
+  &::marker {
+    display: none;
+  }
+  // END hide summary arrow
 
   &,
   button {
     @extend .button-reset;
     @include h3;
-    display: flex;
     cursor: pointer;
     text-align: left;
-    align-items: center;
     padding: #{$beat * 2} 0;
-    justify-content: space-between;
 
     @include media-md {
       padding: $padding-sm 0;
     }
+  }
+
+  > .-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
   }
 
   &.simple-summary {
