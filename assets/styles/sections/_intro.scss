@@ -10,6 +10,7 @@
   z-index: 1000;
   padding-top: 235px;
   position: absolute;
+  pointer-events: none;
   color: color('taupe-02');
 
   .backdrop {
@@ -83,6 +84,23 @@
     position: relative;
     padding-bottom: 100%;
     margin-bottom: $beat * 2;
+
+    .b-outline {
+      top: 0;
+      left: 0;
+      opacity: 0;
+      width: 100%;
+      position: absolute;
+
+      path {
+        fill:none;
+        stroke-width:2;
+        fill-rule:evenodd;
+        clip-rule:evenodd;
+        stroke-miterlimit:10;
+        stroke: color('green-01');
+      }
+    }
 
     > div {
       left: 0;
