@@ -74,10 +74,10 @@
 
 @mixin h4 {
   @include font-tiempos-text;
-  @include paragraph-style(20, 20, 0.01em);
+  @include paragraph-style(20, 20);
 
   @include media-md {
-    @include paragraph-style(27, 30, 0.01em);
+    @include paragraph-style(24, 30);
   }
 }
 .type-h4 {

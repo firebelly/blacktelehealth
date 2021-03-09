@@ -17,12 +17,17 @@
 .care-team-member {
   margin-bottom: $padding-sm;
 
+  img {
+    display: block;
+    margin-bottom: $beat * 2;
+  }
+
   h6 {
-    @include h3;
+    @include h4;
   }
 
   p {
-    @include type-cta;
+    margin: 12px 0 0;
   }
 
   @include media-md {

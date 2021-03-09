@@ -131,8 +131,6 @@ export default {
         person.setAttribute('data-modal-index', i);
 
         person.addEventListener('click', function(e) {
-          e.stopImmediatePropagation();
-
           if (appState.breakpoints.md) {
             modal.setAttribute('data-modal-index', i);
             modals.openModal(html, 'bio-modal');
