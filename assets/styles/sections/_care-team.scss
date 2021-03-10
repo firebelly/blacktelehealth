@@ -17,9 +17,18 @@
 .care-team-member {
   margin-bottom: $padding-sm;
 
-  img {
-    display: block;
+  .person-image {
+    @include transition(border-radius);
+    overflow: hidden;
+    border-radius: 50%;
     margin-bottom: $beat * 2;
+  }
+
+  img {
+    width: 100%;
+    display: block;
+    max-width: none;
+    object-fit: cover;
   }
 
   h6 {

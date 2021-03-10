@@ -1,4 +1,6 @@
 // Import external dependencies
+import { disableBodyScroll, enableBodyScroll, clearAllBodyScrollLocks } from 'body-scroll-lock';
+
 // polyfill for the details element to work in IE11
 require('details-polyfill');
 

@@ -1,13 +1,14 @@
 // Intro Section
 
 .intro-animation {
-  // opacity: 0.7;
+  // opacity: 0;
 
   left: 0;
   right: 0;
   bottom: 0;
   top: -120px;
   z-index: 1000;
+  overflow: hidden;
   padding-top: 235px;
   position: absolute;
   pointer-events: none;
@@ -109,32 +110,22 @@
       background-blend-mode: normal, multiply, normal;
 
       img {
+        top: 0;
+        right: -2%;
         width: auto;
+        height: 100%;
         max-width: none;
         position: absolute;
       }
 
       &.-top {
-        top: 0;
         clip-path: url(#b-top-clip);
         background: linear-gradient(334.24deg, rgba(232, 134, 88, 0.35) 36.33%, rgba(255, 255, 255, 0) 90.15%), #E88658;
-
-        img {
-          right: 2%;
-          top: -40%;
-          height: 200%;
-        }
       }
       &.-bottom {
         bottom: 0;
         clip-path: url(#b-bottom-clip);
         background: linear-gradient(360deg, rgba(237, 213, 137, 0.35) 49.84%, rgba(255, 255, 255, 0) 117.54%), color('yellow-02');
-
-        img {
-          top: -20%;
-          right: -44%;
-          height: 215%;
-        }
       }
     }
 
@@ -161,9 +152,17 @@
       display: inline-block;
 
       svg {
+        @include transition(transform);
         width: 30px;
         height: 30px;
         fill: color('orange-01');
+      }
+
+      &:hover,
+      &:focus {
+        svg {
+          transform: translateY(10px);
+        }
       }
     }
 

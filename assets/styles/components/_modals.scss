@@ -28,13 +28,16 @@
   .modal-nav {
     --button-primary: #{color('orange-01')};
     --button-secondary: #{color('black')};
-    gap: 15px 0;
     display: flex;
     top: $padding-sm;
     right: $padding-sm;
     position: absolute;
     pointer-events: auto;
     flex-direction: column;
+
+    button + button {
+      margin-top: 15px;
+    }
 
     .close-modal {
       position: relative;

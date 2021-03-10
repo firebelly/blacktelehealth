@@ -1,7 +1,6 @@
 // Modals
 
 import appState from '../util/appState';
-import Velocity from 'velocity-animate';
 import { disableBodyScroll, enableBodyScroll, clearAllBodyScrollLocks } from 'body-scroll-lock';
 
 // Shared vars

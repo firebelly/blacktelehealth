@@ -33,7 +33,7 @@
     background-color: color('taupe-02');
 
     p {
-      @include type-pullquote(large);
+      @include type-pullquote();
     }
   }
 
@@ -52,7 +52,7 @@
         top: 0;
         width: 150%;
         content: '';
-        bottom: 120px;
+        bottom: 0;
         position: absolute;
         background-color: color('taupe-02');
       }
@@ -61,7 +61,7 @@
         bottom: 0;
         width: 150%;
         content: '';
-        height: 120px;
+        height: 105px;
         position: absolute;
         background-color: color('green-01');
       }
@@ -74,8 +74,8 @@
     }
 
     .pullquote-image {
-      max-width: 55%;
-      flex-basis: 55%;
+      max-width: 45%;
+      flex-basis: 45%;
       overflow: hidden;
       &::before {
         display: none;
@@ -90,13 +90,37 @@
     }
 
     .pullquote-text {
-      max-width: 45%;
-      flex-basis: 45%;
-      padding: 0 100px 150px 90px;
+      max-width: 55%;
+      flex-basis: 55%;
+      padding: 0 100px 105px 90px;
       background-color: transparent;
 
       p {
-        margin: 0;
+        max-width: 370px;
+        margin: 0 0 $padding-sm;
+      }
+    }
+  }
+
+  @include media-lg {
+    .background {
+      &::after {
+        height: 210px;
+      }
+    }
+
+    .pullquote-image {
+      max-width: 55%;
+      flex-basis: 55%;
+    }
+
+    .pullquote-text {
+      max-width: 45%;
+      flex-basis: 45%;
+      padding: 0 150px 210px 140px;
+
+      p {
+        margin: 0 0 150px;
       }
     }
   }
