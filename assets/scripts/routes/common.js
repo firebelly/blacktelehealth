@@ -56,7 +56,7 @@ export default {
         .from('#intro-text', { x: -200, opacity: 0, duration: 1, ease: 'ease-in' }, '-=1')
         .from('#b-outline path', { drawSVG: '0% 0%', duration: 1.5 }, '-=1')
         .from('.big-b > div', { opacity: 0, duration: 2, ease: 'ease-out'}, '-=0.75')
-        .to('#b-outline', {opacity: 0, duration: 0.5, ease: 'ease-in'}, '-=0.5')
+        .to('#b-outline', {opacity: 0, duration: 0.5, ease: 'ease-in'}, '-=0.75')
     }
 
     function _initParallax() {
