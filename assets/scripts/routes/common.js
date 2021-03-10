@@ -1,5 +1,7 @@
 // Dependencies
 import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger.js";
+gsap.registerPlugin(ScrollTrigger);
 
 // Common js
 import appState from '../util/appState';
@@ -29,6 +31,7 @@ export default {
 
     // Init Functions
     _initIntroAnimation();
+    _initParallax();
     _initSiteNav();
     _initAccordions();
     _initBios();
@@ -48,6 +51,20 @@ export default {
         .to('#intro-animation .backdrop', {opacity: 0, duration: 1, delay: 1})
         .to('#animation-text', { x: 200, opacity: 0, duration: 1, ease: 'ease-in' }, '-=1')
         .from('#intro-text', { x: -200, opacity: 0, duration: 1, ease: 'ease-in' }, '-=1')
+        // .fromTo('.b-outline', {drawSVG: '50% 50%'}, {drawSvg: '100% 100%'}, '-=1')
+    }
+
+    function _initParallax() {
+      gsap.utils.toArray('.title-icon svg').forEach((icon, index) => {
+        const trigger = icon.parentElement;
+        gsap.fromTo(icon, { y: '30%' }, {
+          y: '-20%',
+          scrollTrigger: {
+            trigger: trigger,
+            scrub: 0.2
+          }
+        });
+      });
     }
 
     function _initSiteNav() {

@@ -58,9 +58,9 @@
 
 .intro-section {
   position: relative;
-  padding-top: $padding-md;
+  padding: $padding-md 0;
   @include media-md {
-    padding: 115px 0 195px;
+    padding: 115px 0 #{$padding-sm * 2};
 
     .-inner {
       display: flex;
