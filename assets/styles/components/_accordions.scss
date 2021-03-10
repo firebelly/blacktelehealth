@@ -20,6 +20,14 @@ details {
       transform: translateY(0);
       transition: opacity 0.35s 0.15s ease-out, transform 0.35s 0.15s ease-out;
     }
+
+    &.long-accordion {
+      summary button {
+        height: 0;
+        opacity: 0;
+        point-events: none;
+      }
+    }
   }
 }
 
@@ -60,9 +68,14 @@ summary {
   &.simple-summary {
     &,
     button {
+      --button-primary: #{color('orange-01')};
       @include type-cta;
       padding: 0;
       justify-content: unset;
+    }
+
+    button {
+      @include button(simple);
     }
 
     .icon {
@@ -83,4 +96,8 @@ summary {
   transform: translateY(-10%);
   will-change: opacity, transform;
   transition: opacity 0.35s ease, transform 0.35s ease;
+
+  button {
+    @include button(simple, color('orange-01'));
+  }
 }

@@ -162,6 +162,13 @@
 // Prevent the summary element from openeing the accordion on large screen
 .person-with-bio {
   @include media-md {
+    &:hover,
+    &:focus {
+      summary button::after {
+        transform: scaleX(1);
+      }
+    }
+
     details {
       cursor: pointer;
     }

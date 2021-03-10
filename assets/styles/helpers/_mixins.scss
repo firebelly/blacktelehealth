@@ -72,11 +72,14 @@
 }
 
 // Hover Style
-@mixin button-hover($primaryColor: var(--button-primary), $secondaryColor: var(--button-secondary)) {
-  @include box-shadow(0.3);
+@mixin button-hover($primaryColor: var(--button-primary), $secondaryColor: var(--button-secondary), $boxShadow: false) {
   color: color('white');
   color: $secondaryColor;
   background-color: $primaryColor;
+
+  @if $boxShadow != false {
+    @include box-shadow(0.3);
+  }
 
   svg {
     fill: $secondaryColor;
@@ -98,9 +101,11 @@
   justify-content: center;
   border: 2px solid $primaryColor;
 
-  &:hover,
-  &:focus {
-    @include button-hover($primaryColor, $secondaryColor);
+  @if $style != 'simple' {
+    &:hover,
+    &:focus {
+      @include button-hover($primaryColor, $secondaryColor, true);
+    }
   }
 
   // No outline for non-keyboard inputs
@@ -139,7 +144,29 @@
     display: flex;
     border-radius: 0;
     text-align: left;
+    position: relative;
     align-items: center;
-    border-bottom: 2px solid;
+    &::after {
+      @include transition(transform);
+      left: 0;
+      bottom: 0;
+      height: 2px;
+      right: 50px;
+      content: '';
+      position: absolute;
+      transform: scaleX(0);
+      transform-origin: left;
+      background-color: $primaryColor;
+    }
+
+    &:hover,
+    &:focus {
+      @include button-hover($primaryColor, $primaryColor);
+      color: $primaryColor;
+      background-color: initial;
+      &::after {
+        transform: scaleX(1);
+      }
+    }
   }
 }
