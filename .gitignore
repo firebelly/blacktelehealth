@@ -7,3 +7,4 @@ fabfile.pyc
 dist
 yarn-error.log
 fonts
+assets/scripts/private

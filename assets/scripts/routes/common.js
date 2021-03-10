@@ -1,7 +1,8 @@
 // Dependencies
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger.js";
-gsap.registerPlugin(ScrollTrigger);
+import { DrawSVGPlugin } from "../private/DrawSVGPlugin.js";
+gsap.registerPlugin(ScrollTrigger, DrawSVGPlugin);
 
 // Common js
 import appState from '../util/appState';
@@ -39,6 +40,8 @@ export default {
     function _initIntroAnimation() {
       let animationText = document.getElementById('animation-text');
 
+      gsap.set('.b-outline', { drawSVG: '50% 50%' })
+
       gsap.timeline()
         .from('#animation-text .-top span', {x:-200, opacity: 0, stagger:0.2, duration: 0.5, ease: 'ease-out'})
         .from('#pair-one span',{ x:-200, opacity: 0, stagger: 0.2, duration: 0.5, ease: 'ease-out' })
@@ -51,7 +54,9 @@ export default {
         .to('#intro-animation .backdrop', {opacity: 0, duration: 1, delay: 1})
         .to('#animation-text', { x: 200, opacity: 0, duration: 1, ease: 'ease-in' }, '-=1')
         .from('#intro-text', { x: -200, opacity: 0, duration: 1, ease: 'ease-in' }, '-=1')
-        // .fromTo('.b-outline', {drawSVG: '50% 50%'}, {drawSvg: '100% 100%'}, '-=1')
+        .from('#b-outline path', { drawSVG: '0% 0%', duration: 1.5 }, '-=1')
+        .from('.big-b > div', { opacity: 0, duration: 2, ease: 'ease-out'}, '-=0.75')
+        .to('#b-outline', {opacity: 0, duration: 0.5, ease: 'ease-in'}, '-=0.5')
     }
 
     function _initParallax() {
