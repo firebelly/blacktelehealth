@@ -252,7 +252,7 @@ export default {
       window.cfields = [];
       window._show_thank_you = function (id, message, trackcmp_url, email) {
         var form = document.getElementById('_form_' + id + '_'), thank_you = form.querySelector('._form-thank-you');
-        form.querySelector('._form-content').style.display = 'none';
+        form.querySelector('._form-content').classList.add('_submission-successful');
         thank_you.innerHTML = message;
         thank_you.style.display = 'block';
         const vgoAlias = typeof visitorGlobalObjectAlias === 'undefined' ? 'vgo' : visitorGlobalObjectAlias;
@@ -262,7 +262,7 @@ export default {
           visitorObject('update');
         } else if (typeof (trackcmp_url) != 'undefined' && trackcmp_url) {
           // Site tracking URL to use after inline form submission.
-          // _load_script(trackcmp_url);
+          _load_script(trackcmp_url);
         }
         if (typeof window._form_callback !== 'undefined') window._form_callback(id);
       };
@@ -567,11 +567,14 @@ export default {
           e.preventDefault();
           if (validate_form()) {
             // use this trick to get the submit button & disable it using plain javascript
+            form_to_submit.classList.add('_loading');
             document.querySelector('#_form_1_submit').disabled = true;
             var serialized = _form_serialize(document.getElementById('_form_1_'));
             var err = form_to_submit.querySelector('._form_error');
             err ? err.parentNode.removeChild(err) : false;
-            _load_script('https://blacktelehealth.activehosted.com/proc.php?' + serialized + '&jsonp=true');
+            _load_script('https://blacktelehealth.activehosted.com/proc.php?' + serialized + '&jsonp=true', function(e) {
+              form_to_submit.classList.remove('_loading');
+            });
           }
           return false;
         };

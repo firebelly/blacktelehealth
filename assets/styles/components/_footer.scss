@@ -11,13 +11,29 @@
   }
 
   a {
+    @include transition(color);
     color: color('orange-01');
+
+    &:hover,
+    &:focus {
+      color: color('taupe-03');
+    }
   }
 
   .newsletter-signup {
     --button-primary: #{color('orange-01')};
     --button-secondary: #{color('black')};
     margin: $padding-sm 0;
+
+    // Successful submission
+    ._form-content {
+      @include transition(opacity);
+      opacity: 1;
+
+      &._submission-successful {
+        opacity: 0;
+      }
+    }
   }
 
   .social {

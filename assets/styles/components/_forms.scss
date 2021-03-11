@@ -5,7 +5,14 @@
 }
 
 form {
+  @include transition(opacity);
   @include p;
+  position: relative;
+
+  // Loading State
+  &._loading {
+    opacity: 0.5;
+  }
 
   .input-row {
     + .input-row,
@@ -72,11 +79,10 @@ form {
     padding: 15px 0;
     color: color('white');
     color: var(--form-color);
-    border-bottom: 2px solid color('white');
-    border-bottom: 2px solid var(--form-color);
+    box-shadow: inset 0 -2px 0 0 var(--form-color);
 
     &:focus {
-      border-bottom-width: 6px;
+      box-shadow: inset 0 -6px 0 0 var(--form-color);
     }
 
     // Active Campaign State Classes/Styles
@@ -97,9 +103,19 @@ form {
 
   button[type=submit] {
     margin-top: $beat * 3;
+
+    &:focus {
+      outline: none
+    }
   }
 
-  // ActiveCampaign Error Messages
+  // ActiveCampaign Messages
+  ._form-thank-you {
+    top: 0;
+    width: 100%;
+    position: absolute;
+  }
+
   ._error {
     display: flex;
     padding-top: $beat;
