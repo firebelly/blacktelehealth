@@ -9,7 +9,13 @@
 
   .section-title {
     @include h1;
+    max-width: 8ch;
+    margin-bottom: 40px;
     text-transform: capitalize;
+
+    @include media-md {
+      margin-bottom: 70px;
+    }
   }
 
   .image-break {
@@ -31,15 +37,6 @@
 
   @include media-md {
     position: relative;
-
-    .care-description {
-      top: 0;
-      right: 100%;
-      position: absolute;
-      padding-top: $padding-sm;
-      margin-right: $padding-md;
-      width: calc(50% - #{$padding-md});
-    }
   }
 }
 
