@@ -20,16 +20,14 @@
       fill: color('green-01');
 
       &.bt-lettermark {
-        z-index: 10;
         width: 30px;
         height: 30px;
-        position: fixed;
       }
 
       &.bt-wordmark {
         width: 91px;
         height: 30px;
-        margin-left: 35px;
+        margin-left: 5px;
       }
     }
 
@@ -39,7 +37,9 @@
       svg {
         &.bt-lettermark {
           width: 60px;
+          z-index: 10;
           height: 60px;
+          position: fixed;
         }
 
         &.bt-wordmark {

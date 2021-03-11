@@ -17,6 +17,7 @@
   .newsletter-signup {
     --button-primary: #{color('orange-01')};
     --button-secondary: #{color('black')};
+    margin: $padding-sm 0;
   }
 
   .social {
@@ -29,9 +30,17 @@
 
     a {
       display: block;
+
+      &:hover,
+      &:focus {
+        svg {
+          fill: color('taupe-03');
+        }
+      }
     }
 
     svg {
+      @include transition(fill);
       width: 30px;
       height: 30px;
       fill: color('orange-01');

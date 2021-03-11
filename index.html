@@ -578,19 +578,43 @@
           </div>
 
           <div class="col-md-1-2">
-            <p class="h4-akkurat">Community partners, insurers, providers, and those looking to claim their right to good health: join us and join a movement.</p>
-            <p>Subscribe to our newsletter to get the latest news</p>
-            <form action="" class="newsletter-signup">
-              <div class="input-wrapper">
-                <label for="name">Full Name</label>
-                <input type="text" id="name" name="name" required>
-              </div>
-              <div class="input-wrapper">
-                <label for="email">Email Address</label>
-                <input type="email" id="email" name="email" required>
-              </div>
+            <p class="type-pullquote">Community partners, insurers, providers, and those looking to claim their right to good health: join us and join a movement.</p>
+            <form action="https://blacktelehealth.activehosted.com/proc.php" id="_form_1_" class="newsletter-signup" novalidate>
+              <input type="hidden" name="u" value="1" />
+              <input type="hidden" name="f" value="1" />
+              <input type="hidden" name="s" />
+              <input type="hidden" name="c" value="0" />
+              <input type="hidden" name="m" value="0" />
+              <input type="hidden" name="act" value="sub" />
+              <input type="hidden" name="v" value="2" />
 
-              <button type="submit" class="button">Subscribe <svg class="icon icon-plus" aria-hidden="true" role="presentation"><use xlink:href="#icon-plus"/></svg></button>
+              <div class="_form-content">
+                <p>Subscribe to our newsletter to get the latest news</p>
+                <p class="required-legend">*Required</p>
+
+                <div class="input-row">
+                  <div class="input-wrap">
+                    <label for="firstname">Full Name <span class="required-label">*</span></label>
+                    <input type="text" name="firstname" required>
+                  </div>
+                  <div class="input-wrap">
+                    <label for="lastname">Last Name <span class="required-label">*</span></label>
+                    <input type="text" name="lastname" required>
+                  </div>
+                </div>
+
+                <div class="input-wrap">
+                  <label for="email">Email Address <span class="required-label">*</span></label>
+                  <input type="text" name="email" required />
+                </div>
+
+                <button type="submit" id="_form_1_submit" class="button">Subscribe <svg class="icon icon-plus" aria-hidden="true" role="presentation"><use xlink:href="#icon-plus"/></svg></button>
+
+                <div class="_clear-element"></div>
+
+              </div><!-- ._form-content -->
+
+              <div class="_form-thank-you" style="display:none;"></div>
             </form>
 
             <p>We'd love to hear from you</p>

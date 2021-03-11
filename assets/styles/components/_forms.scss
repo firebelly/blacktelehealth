@@ -7,6 +7,66 @@
 form {
   @include p;
 
+  .input-row {
+    + .input-row,
+    + .input-wrap {
+      margin-top: $beat * 3;
+    }
+
+    .input-wrap + .input-wrap {
+      margin-top: $beat * 3;
+    }
+
+    @include media-md {
+      display: flex;
+
+      .input-wrap {
+        max-width: 50%;
+        flex-basis: 50%;
+        padding-right: $beat;
+
+        &:last-of-type {
+          padding-right: 0;
+          padding-left: $beat;
+        }
+
+        & + .input-wrap {
+          margin-top: 0;
+        }
+      }
+    }
+  }
+
+  .input-wrap {
+    position: relative;
+
+    label {
+      position: absolute;
+      pointer-events: none;
+      transform-origin: bottom left;
+    }
+
+    input {
+      width: 100%;
+    }
+
+    &.-focus {
+      label {
+        transform: translateY(-1em) scale(0.63);
+      }
+    }
+
+    // ActiveCampaign Error Class
+    &._has_error {
+      label {
+        color: color('orange-01');
+      }
+      input {
+        border-color: color('orange-01');
+      }
+    }
+  }
+
   input {
     @extend .input-reset;
     padding: 15px 0;
@@ -17,6 +77,41 @@ form {
 
     &:focus {
       border-bottom-width: 6px;
+    }
+
+    // Active Campaign State Classes/Styles
+    &._has_error {
+      color: color('orange-01');
+    }
+  }
+
+  .required-legend {
+    @include type-detail;
+    margin: #{$beat * 2} 0;
+    color: color('orange-01');
+  }
+
+  .required-label {
+    color: color('orange-01');
+  }
+
+  button[type=submit] {
+    margin-top: $beat * 3;
+  }
+
+  // ActiveCampaign Error Messages
+  ._error {
+    display: flex;
+    padding-top: $beat;
+    color: color('orange-01');
+    justify-content: space-between;
+
+    svg {
+      fill: color('orange-01');
+    }
+
+    > * + * {
+      margin-left: $beat;
     }
   }
 }

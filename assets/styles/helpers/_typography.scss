@@ -154,8 +154,11 @@
   }
 
 }
-.type-pullquote-large {
+.type-pullquote {
   @include type-pullquote;
+}
+.type-pullquote-large {
+  @include type-pullquote(large);
 }
 
 @mixin p {
