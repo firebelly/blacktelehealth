@@ -16,6 +16,10 @@ let $window = $(window),
     $document = $(document),
     $siteNav,
     transitionElements = [],
+    introSection,
+    lettermark,
+    logoGradient,
+    logoBackground,
     resizeTimer;
 
 // Accessibility/tab trap taken from https://github.com/gdkraus/accessible-modal-dialog
@@ -27,6 +31,9 @@ export default {
   init() {
     // Establish Vars
     $siteNav = $('.site-nav');
+    logoBackground = document.getElementById("logo-background");
+    introSection = document.getElementById('intro-section');
+    lettermark = document.getElementById('lettermark');
 
     // Transition elements to enable/disable on resize
     transitionElements = [];
@@ -34,6 +41,7 @@ export default {
     // Init Functions
     _initIntroAnimation();
     _initParallax();
+    _initLettermark();
     _initSiteNav();
     _initAccordions();
     _initBios();
@@ -70,6 +78,11 @@ export default {
         .to('#pair-three span', { x: small, opacity: 0, stagger: stagger, ease: easeIn, delay: short})
         .from('#pair-four span', { x: -small, opacity: 0, stagger: stagger })
         .to('#intro-animation .backdrop', {opacity: 0, delay: medium })
+        .add(function() {
+          introSection.setAttribute('data-lettermark', 'dark');
+          _buildLogoGradient();
+        }, '-=' + short)
+        .fromTo('.bt-wordmark', { fill: '#ede7de' }, { fill: '#0f332a'}, '-=' + short)
         .fromTo('#animation-text', { x: -large, opacity: 1 }, { x: 0, opacity: 0, duration: long }, '-=' + short)
         .from('#intro-text', { x: -large, opacity: 0, duration: long }, '-=' + long)
         .from('#b-outline path', { drawSVG: '0% 0%', duration: 1.25 }, '-=' + long)
@@ -91,6 +104,66 @@ export default {
           }
         });
       });
+    }
+
+    function _initLettermark() {
+      const offset = 60;
+      let scrollPosition = document.documentElement.scrollTop + offset;
+      lettermark.style.opacity = 0;
+
+      setTimeout(_buildLogoGradient, 200);
+
+      window.addEventListener("scroll", function (e) {
+        scrollPosition = document.documentElement.scrollTop;
+        logoBackground.style.transform = "translateY(-" + scrollPosition + "px)";
+      });
+
+    }
+
+    function _buildLogoGradient() {
+      let gradientPosition = 0;
+      let currentColor;
+
+      // Get sections with backgrounds to construct background-gradient
+      let sections = document.querySelectorAll(".section");
+
+      let docHeight = document.body.offsetHeight;
+      sections.forEach(function (section, i) {
+        const sectionH = section.offsetHeight;
+        let prevGradientPosition = gradientPosition;
+        gradientPosition += sectionH;
+        const sectionColor = section.getAttribute("data-lettermark");
+        let lettermarkColor = sectionColor === 'light' ? '#ede7de' : '#0f332a';
+
+        if (i === 0) {
+          currentColor = sectionColor;
+          logoGradient = "linear-gradient(" + lettermarkColor + ', ' + lettermarkColor + ' ' + gradientPosition + 'px';
+        }
+
+        if (i !== 0 && sectionColor !== currentColor) {
+          currentColor = sectionColor;
+          logoGradient =
+            logoGradient +
+            ", " +
+            lettermarkColor +
+            " " +
+            prevGradientPosition +
+            "px, " +
+            lettermarkColor +
+            " " +
+            gradientPosition +
+            "px";
+        }
+
+        if (i === sections.length - 1) {
+          logoGradient = logoGradient + ")";
+        }
+      });
+
+      logoBackground.style.height = docHeight + "px";
+      logoBackground.style.backgroundSize = "100% " + docHeight + "px";
+      logoBackground.style.backgroundImage = logoGradient;
+      lettermark.style.opacity = 1;
     }
 
     function _initSiteNav() {
@@ -624,6 +697,7 @@ export default {
       resizeTimer = setTimeout(function() {
         // Re-enable transitions
         _enableTransitions();
+        _buildLogoGradient();
       }, 250);
     }
     $(window).resize(_resize);

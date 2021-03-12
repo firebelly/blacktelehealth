@@ -4,8 +4,12 @@
   top: 0;
   left: 0;
   padding-top: 30px;
+  position: absolute;
   z-index: z(header);
   @include media-md {
+    top: 0;
+    left: 0;
+    width: 100%;
     padding-top: 60px;
   }
 
@@ -15,6 +19,36 @@
 
   .site-logo {
     display: flex;
+
+    .lettermark {
+      @include transition(opacity, 0.5s);
+      z-index: 1;
+      width: 30px;
+      height: 30px;
+      overflow: hidden;
+      clip-path: url(#logo-mask);
+      background-color: color('green-01');
+
+      .logo-background {
+        @include transition(background-image, 1s);
+        left: 0;
+        top: -60px;
+        width: 100%;
+        display: none;
+        position: absolute;
+        pointer-events: none;
+      }
+
+      @include media-md {
+        width: 60px;
+        height: 60px;
+        position: fixed;
+
+        .logo-background {
+          display: block;
+        }
+      }
+    }
 
     svg {
       fill: color('green-01');

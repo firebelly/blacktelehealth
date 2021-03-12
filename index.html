@@ -67,8 +67,13 @@
   </head>
   <body class="page-home" id="top">
     <div id="breakpoint-indicator"></div>
-    <svg class="b-mask" width="0" height="0">
+
+    <svg class="masks" width="0" height="0">
       <defs>
+        <clipPath id="logo-mask" clipPathUnits="objectBoundingBox">
+          <path
+            d="M0,0 h0.75 c0.138,0,0.25,0.112,0.25,0.25 s-0.112,0.25,-0.25,0.25 c0.138,0,0.25,0.112,0.25,0.25 s-0.112,0.25,-0.25,0.25 H0 V0.587 h0.117 v0.15 h0.178 v-0.15 h0.15 V0.5 v-0.087 h-0.15 v-0.15 H0.117 v0.15 H0 V0" />
+        </clipPath>
         <clipPath id="b-top-clip" clipPathUnits="objectBoundingBox" transform="scale(0.001639344, 0.003278689)">
           <path d="M457.5,0H0v251.9h71.2v-91.5h108.4v91.5h91.5V305h186.4c84.2,0,152.5-68.3,152.5-152.5 C610,68.3,541.7,0,457.5,0z" />
         </clipPath>
@@ -82,9 +87,9 @@
       <div class="sitewrapper">
         <h1>
           <div class="site-logo">
-            <a href="#top"><svg class="bt-lettermark" aria-hidden="true" role="presentation">
-              <use xlink:href="#black-telehealth-lettermark" />
-            </svg></a>
+            <a href="#top" id="lettermark" class="lettermark">
+              <div id="logo-background" class="logo-background"></div>
+            </a>
             <svg class="bt-wordmark" aria-hidden="true" role="presentation"><use xlink:href="#black-telehealth-wordmark"/></svg>
           </div>
         </h1>
@@ -111,7 +116,7 @@
     </header>
 
     <main class="site-main" role="main">
-      <div id="intro-section" class="section intro-section parallax-container background-taupe-02 color-green-01">
+      <div id="intro-section" class="section intro-section parallax-container background-taupe-02 color-green-01" data-lettermark="light">
 
         <div id="intro-animation" class="intro-animation">
           <div class="backdrop"></div>
@@ -168,7 +173,7 @@
         </div>
       </div><!-- #intro-section -->
 
-      <div id="welcome" class="welcome-section background-taupe-02 color-green-01">
+      <div id="welcome" class="welcome-section section background-taupe-02 color-green-01" data-lettermark="dark">
         <div class="sitewrapper">
           <h3 class="section-title h1 align-center">Welcome</h3>
         </div>
@@ -193,7 +198,7 @@
         </div><!-- .overlapping-image -->
       </div><!-- #welcome -->
 
-      <div id="our-calling" class="section our-calling-section background-taupe-01 color-green-01 padded-bottom-lg">
+      <div id="our-calling" class="section our-calling-section background-taupe-01 color-green-01 padded-bottom-lg" data-lettermark="dark">
         <div class="sitewrapper">
 
           <div class="grid spaced">
@@ -235,7 +240,7 @@
         </div>
       </div><!-- #our-calling -->
 
-      <div id="leadership" class="section leadership-section background-taupe-01">
+      <div id="leadership" class="section leadership-section background-taupe-01" data-lettermark="dark">
         <div class="sitewrapper">
           <div class="padded-top padded-bottom-lg">
 
@@ -404,7 +409,7 @@
         </div><!-- .sitewrapper-->
       </div><!-- #we-believe -->
 
-      <div class="pullquote-break background-taupe-01">
+      <div class="pullquote-break section background-taupe-01" data-lettermark="dark">
         <div class="background sitewrapper"></div>
         <div class="-inner">
           <div class="pullquote-image">
@@ -416,7 +421,7 @@
         </div>
       </div><!-- .pullquote-break -->
 
-      <div id="your-care-options" class="section your-care-options-section background-green-01 color-taupe-01 padded-top-lg">
+      <div id="your-care-options" class="section your-care-options-section background-green-01 color-taupe-01 padded-top-lg" data-lettermark="light">
         <div class="sitewrapper">
           <h2 class="section-title"><span class="title-icon">
             <svg aria-hidden="true" role="presentation"><use xlink:href="#icon-healthcare"/></svg>
@@ -496,7 +501,7 @@
         </div><!-- .sitewrapper -->
       </div><!-- #care-menu -->
 
-      <div id="care-team" class="care-team-section section background-green-01 color-taupe-01 padded-bottom-lg">
+      <div id="care-team" class="care-team-section section background-green-01 color-taupe-01 padded-bottom-lg" data-lettermark="light">
         <div class="sitewrapper">
           <h2 class="section-title"><span><span class="title-icon -after">
             <svg class="-after" aria-hidden="true" role="presentation"><use xlink:href="#icon-family"/></svg>
@@ -570,7 +575,7 @@
 
     </main><!-- .site-main -->
 
-    <footer id="get-in-touch" class="site-footer" role="contentinfo">
+    <footer id="get-in-touch" class="site-footer section" role="contentinfo" data-lettermark="light">
       <div class="sitewrapper">
         <div class="grid spaced">
 

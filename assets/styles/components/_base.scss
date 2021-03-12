@@ -5,13 +5,11 @@
 
 html {
   box-sizing: border-box;
-  scroll-behavior: smooth;
 }
 
 body {
   @include p;
   @include smooth;
-  scroll-behavior: smooth;
   color: color('green-01');
 	background-color: color('taupe-02');
 }
@@ -45,7 +43,7 @@ img {
 }
 
 // B Mask svg hidden, but present for masking
-.b-mask {
+.masks {
   position: absolute;
   pointer-events: none;
 }
