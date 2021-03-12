@@ -1,13 +1,16 @@
 // Intro Section
 
+.gs-dev-tools {
+  z-index: 10000;
+}
 .intro-animation {
   // opacity: 0;
 
   left: 0;
   right: 0;
   bottom: 0;
+  z-index: 2;
   top: -120px;
-  z-index: 1000;
   overflow: hidden;
   padding-top: 235px;
   position: absolute;
@@ -25,7 +28,6 @@
 
   .animation-text {
     position: relative;
-    transform: translateX(-200px);
 
     > div {
       @include type-intro;

@@ -19,11 +19,11 @@
   bottom: 0;
   width: 100%;
   display: none;
-  overflow: hidden;
+  overflow: auto;
   position: fixed;
   z-index: z(modal);
   padding: $padding-sm;
-  pointer-events: none;
+  -webkit-overflow-scrolling: touch;
 
   .modal-nav {
     --button-primary: #{color('orange-01')};
@@ -59,9 +59,8 @@
     left: 50%;
     width: 100%;
     overflow: hidden;
-    top: $padding-sm;
+    min-height: 600px;
     position: absolute;
-    bottom: $padding-sm;
     pointer-events: auto;
     transform: translateX(-50%);
     padding: 100px 160px 0 100px;
@@ -74,9 +73,12 @@
     left: 0;
     right: 0;
     bottom: 0;
-    display: flex;
     position: absolute;
     padding: 100px 160px 0 100px;
+
+    @include media-md {
+      display: flex;
+    }
   }
 
   .open-modal {

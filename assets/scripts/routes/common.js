@@ -2,7 +2,8 @@
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger.js";
 import { DrawSVGPlugin } from "../private/DrawSVGPlugin.js";
-gsap.registerPlugin(ScrollTrigger, DrawSVGPlugin);
+import { GSDevTools } from "../private/GSDevTools.min.js";
+gsap.registerPlugin(ScrollTrigger, DrawSVGPlugin, GSDevTools);
 
 // Common js
 import appState from '../util/appState';
@@ -40,24 +41,43 @@ export default {
 
     function _initIntroAnimation() {
       let animationText = document.getElementById('animation-text');
+      // GSDevTools.create();
 
-      gsap.set('.b-outline', { drawSVG: '50% 50%' })
+      let stagger = 0.1,
+          short = 0.5,
+          medium= 0.75,
+          long = 1,
+          small = 50,
+          large = 125,
+          easeIn = 'ease-in',
+          easeOut = 'ease-out';
 
-      gsap.timeline()
-        .from('#animation-text .-top span', {x:-200, opacity: 0, stagger:0.2, duration: 0.5, ease: 'ease-out'})
-        .from('#pair-one span',{ x:-200, opacity: 0, stagger: 0.2, duration: 0.5, ease: 'ease-out' })
-        .to('#pair-one span', { x:200, opacity: 0, stagger: 0.2, duration: 0.5, ease: 'ease-in', delay: 0.5 })
-        .from('#pair-two span', { x: -200, opacity: 0, stagger: 0.2, duration: 0.5, ease: 'ease-out' })
-        .to('#pair-two span', { x: 200, opacity: 0, stagger: 0.2, duration: 0.5, ease: 'ease-in', delay: 0.5 })
-        .from('#pair-three span', { x: -200, opacity: 0, stagger: 0.2, duration: 0.5, ease: 'ease-out' })
-        .to('#pair-three span', { x: 200, opacity: 0, stagger: 0.2, duration: 0.5, ease: 'ease-in', delay: 0.5})
-        .from('#pair-four span', { x: -200, opacity: 0, stagger: 0.2, duration: 0.5, ease: 'ease-out' })
-        .to('#intro-animation .backdrop', {opacity: 0, duration: 1, delay: 1})
-        .to('#animation-text', { x: 200, opacity: 0, duration: 1, ease: 'ease-in' }, '-=1')
-        .from('#intro-text', { x: -200, opacity: 0, duration: 1, ease: 'ease-in' }, '-=1')
-        .from('#b-outline path', { drawSVG: '0% 0%', duration: 1.5 }, '-=1')
-        .from('.big-b > div', { opacity: 0, duration: 2, ease: 'ease-out'}, '-=0.75')
-        .to('#b-outline', {opacity: 0, duration: 0.5, ease: 'ease-in'}, '-=0.75')
+      let tl = gsap.timeline({
+          id: "intro",
+          delay: 1,
+          paused: true,
+          defaults: {
+            duration: short,
+            ease: easeOut
+          }
+        })
+        .from('#animation-text .-top span', {x:-small, opacity: 0, stagger: stagger })
+        .from('#pair-one span',{ x:-small, opacity: 0, stagger: stagger}, '-=' + (short - stagger) )
+        .to('#pair-one span', { x:small, opacity: 0, stagger: stagger, ease: easeIn, delay: short })
+        .from('#pair-two span', { x: -small, opacity: 0, stagger: stagger })
+        .to('#pair-two span', { x: small, opacity: 0, stagger: stagger, ease: easeIn, delay: short })
+        .from('#pair-three span', { x: -small, opacity: 0, stagger: stagger })
+        .to('#pair-three span', { x: small, opacity: 0, stagger: stagger, ease: easeIn, delay: short})
+        .from('#pair-four span', { x: -small, opacity: 0, stagger: stagger })
+        .to('#intro-animation .backdrop', {opacity: 0, delay: medium })
+        .fromTo('#animation-text', { x: -large, opacity: 1 }, { x: 0, opacity: 0, duration: long }, '-=' + short)
+        .from('#intro-text', { x: -large, opacity: 0, duration: long }, '-=' + long)
+        .from('#b-outline path', { drawSVG: '0% 0%', duration: 1.25 }, '-=' + long)
+        .to('#b-outline', { opacity: 0, duration: 0.25, ease: easeIn, delay: 0.2 })
+        .from('.big-b > div', { opacity: 0, duration: long }, '-=0.3')
+      ;
+
+      tl.play();
     }
 
     function _initParallax() {

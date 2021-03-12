@@ -3,8 +3,8 @@
 .site-header {
   top: 0;
   left: 0;
-  z-index: 10;
   padding-top: 30px;
+  z-index: z(header);
   @include media-md {
     padding-top: 60px;
   }
