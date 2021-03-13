@@ -50,7 +50,8 @@ img {
 
 // Site Overlay
 // shown when nav is open
-.site-overlay {
+.site-overlay,
+.nav-overlay {
   top: 0;
   left: 0;
   right: 0;
@@ -63,9 +64,17 @@ img {
   transition: opacity 0.35s;
   background-color: rgba(color('black'), 0.75);
 }
-body.nav-open,
 body.modal-open {
   .site-overlay {
+    opacity: 1;
+    pointer-events: auto;
+  }
+}
+.nav-overlay {
+  z-index: z(navOverlay);
+}
+body.nav-open {
+  .nav-overlay {
     opacity: 1;
     pointer-events: auto;
   }

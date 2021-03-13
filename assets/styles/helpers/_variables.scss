@@ -32,11 +32,12 @@ $colors: (
 
 // Z-index maps
 $z-layers: (
-  header: 70,
+  header: 60,
+  navOverlay: 70,
   navToggle: 80,
-  overlay: 90,
   nav: 100,
-  modal: 150
+  overlay: 110,
+  modal: 120
 );
 @function z($key) {
   @return map-get($z-layers, $key);

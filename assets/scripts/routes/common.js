@@ -1,9 +1,10 @@
 // Dependencies
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger.js";
+import { ScrollToPlugin } from "gsap/ScrollToPlugin.js";
 import { DrawSVGPlugin } from "../private/DrawSVGPlugin.js";
 import { GSDevTools } from "../private/GSDevTools.min.js";
-gsap.registerPlugin(ScrollTrigger, DrawSVGPlugin, GSDevTools);
+gsap.registerPlugin(ScrollTrigger, ScrollToPlugin, DrawSVGPlugin, GSDevTools);
 
 // Common js
 import appState from '../util/appState';
@@ -220,13 +221,21 @@ export default {
     function _initSiteNav() {
       $document.on('click.siteNavOpen', '#nav-open', _openNav);
       $document.on('click.siteNavClose', '#nav-close', _closeNav);
-      $document.on('click.siteNavClose', '.site-overlay', _closeNav);
+      $document.on('click.siteNavClose', '.nav-overlay', _closeNav);
 
       $('.site-nav.-active').keydown(function(event) {
         trapTabKey($(this), event);
       });
 
       $siteNav.on('click', 'a', _closeNav);
+
+      document.querySelectorAll(".site-nav a").forEach((btn, index) => {
+        let destination = btn.getAttribute('href');
+        btn.addEventListener("click", (e) => {
+          e.preventDefault();
+          gsap.to(window, { duration: 1, scrollTo: { y: destination, autoKill: true } });
+        });
+      });
     }
 
     function _openNav() {
