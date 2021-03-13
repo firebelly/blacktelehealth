@@ -16,10 +16,13 @@ let $window = $(window),
     $document = $(document),
     $siteNav,
     transitionElements = [],
+    introTimeline,
+    timelineProgress = 0,
     introSection,
     lettermark,
     logoGradient,
     logoBackground,
+    introComplete = false,
     resizeTimer;
 
 // Accessibility/tab trap taken from https://github.com/gdkraus/accessible-modal-dialog
@@ -39,7 +42,7 @@ export default {
     transitionElements = [];
 
     // Init Functions
-    _initIntroAnimation();
+    _initIntroAnimation(timelineProgress);
     _initParallax();
     _initLettermark();
     _initSiteNav();
@@ -47,8 +50,7 @@ export default {
     _initBios();
     _initNewsletterForm();
 
-    function _initIntroAnimation() {
-      let animationText = document.getElementById('animation-text');
+    function _initIntroAnimation(progress) {
       // GSDevTools.create();
 
       let stagger = 0.1,
@@ -58,39 +60,88 @@ export default {
           small = 50,
           large = 125,
           easeIn = 'ease-in',
-          easeOut = 'ease-out';
+          easeOut = 'ease-out',
+          options = {
+            id: "introAnimation",
+            delay: 1,
+            pause: true,
+            defaults: {
+              duration: short,
+              ease: easeOut
+            },
+            onComplete: function() {
+              introComplete = true;
+            }
+          };
 
-      let tl = gsap.timeline({
-          id: "intro",
-          delay: 1,
-          paused: true,
-          defaults: {
-            duration: short,
-            ease: easeOut
-          }
-        })
-        .from('#animation-text .-top span', {x:-small, opacity: 0, stagger: stagger })
-        .from('#pair-one span',{ x:-small, opacity: 0, stagger: stagger}, '-=' + (short - stagger) )
-        .to('#pair-one span', { x:small, opacity: 0, stagger: stagger, ease: easeIn, delay: short })
-        .from('#pair-two span', { x: -small, opacity: 0, stagger: stagger })
-        .to('#pair-two span', { x: small, opacity: 0, stagger: stagger, ease: easeIn, delay: short })
-        .from('#pair-three span', { x: -small, opacity: 0, stagger: stagger })
-        .to('#pair-three span', { x: small, opacity: 0, stagger: stagger, ease: easeIn, delay: short})
-        .from('#pair-four span', { x: -small, opacity: 0, stagger: stagger })
-        .to('#intro-animation .backdrop', {opacity: 0, delay: medium })
-        .add(function() {
-          introSection.setAttribute('data-lettermark', 'dark');
-          _buildLogoGradient();
-        }, '-=' + short)
-        .fromTo('.bt-wordmark', { fill: '#ede7de' }, { fill: '#0f332a'}, '-=' + short)
-        .fromTo('#animation-text', { x: -large, opacity: 1 }, { x: 0, opacity: 0, duration: long }, '-=' + short)
-        .from('#intro-text', { x: -large, opacity: 0, duration: long }, '-=' + long)
-        .from('#b-outline path', { drawSVG: '0% 0%', duration: 1.25 }, '-=' + long)
-        .to('#b-outline', { opacity: 0, duration: 0.25, ease: easeIn, delay: 0.2 })
-        .from('.big-b > div', { opacity: 0, duration: long }, '-=0.3')
-      ;
+      // Kill the old timeline
+      if (introTimeline) {
+        introTimeline.set('#intro-animation *', {clearProps: "all"});
+        introTimeline.progress(0).kill();
+      }
 
-      tl.play();
+      // Create a new timeline
+      introTimeline = gsap.timeline(options);
+
+      if (appState.breakpoints.md) {
+        introTimeline
+          .set('#animation-text .-top span, #animation-text .pair span', { opacity: 0, x: -small })
+          .set('.bt-wordmark', { fill: '#ede7de' })
+          .set('#animation-text', { y: 0, x: -large, opacity: 1 })
+          .set('#intro-text', { y: 0, x: -large, opacity: 0, duration: long })
+          .set('#b-outline path', { drawSVG: '0%' })
+          .set('.big-b > div', { opacity: 0 })
+          // begin timeline
+          .to('#animation-text .-top span', { x: 0, opacity: 1, stagger: stagger })
+          .to('#pair-one span', { x: 0, opacity: 1, stagger: stagger }, '-=' + (short - stagger))
+          .to('#pair-one span', { x: small, opacity: 0, stagger: stagger, ease: easeIn, delay: short })
+          .to('#pair-two span', { x: 0, opacity: 1, stagger: stagger })
+          .to('#pair-two span', { x: small, opacity: 0, stagger: stagger, ease: easeIn, delay: short })
+          .to('#pair-three span', { x: 0, opacity: 1, stagger: stagger })
+          .to('#pair-three span', { x: small, opacity: 0, stagger: stagger, ease: easeIn, delay: short })
+          .to('#pair-four span', { x: 0, opacity: 1, stagger: stagger })
+          .to('#intro-animation .backdrop', { opacity: 0, delay: medium })
+          .add(function () {
+            introSection.setAttribute('data-lettermark', 'dark');
+            _buildLogoGradient();
+          }, '-=' + short)
+          .to('.bt-wordmark', { fill: '#0f332a' }, '-=' + short)
+          .to('#animation-text', { x: 0, opacity: 0, duration: long }, '-=' + short)
+          .to('#intro-text', { y: 0, x: 0, opacity: 1, duration: long }, '-=' + long)
+          .to('#b-outline path', { drawSVG: '100%', duration: 1.25 }, '-=' + long)
+          .to('#b-outline', { opacity: 0, duration: 0.25, ease: easeIn, delay: 0.2 })
+          .to('.big-b > div', { opacity: 1, duration: long }, '-=0.3')
+          ;
+        introTimeline.progress(progress).play();
+      } else {
+        introTimeline
+          .set('#animation-text .-top span, #animation-text .pair span', { opacity: 0, x: -small })
+          .set('#lettermark', { backgroundColor: '#ede7de' })
+          .set('.bt-wordmark', { fill: '#ede7de' })
+          .set('#animation-text', { x: 0, y: -large, opacity: 1 })
+          .set('#intro-text', { x: 0, y: -large, opacity: 0 })
+          .set('#b-outline path', { drawSVG: '0%' })
+          .set('.big-b > div', { opacity: 0 })
+          // begin timeline
+          .to('#animation-text .-top span', { x: 0, opacity: 1, stagger: stagger })
+          .to('#pair-one span', { x: 0, opacity: 1, stagger: stagger }, '-=' + (short - stagger))
+          .to('#pair-one span', { x: small, opacity: 0, stagger: stagger, ease: easeIn, delay: short })
+          .to('#pair-two span', { x: 0, opacity: 1, stagger: stagger })
+          .to('#pair-two span', { x: small, opacity: 0, stagger: stagger, ease: easeIn, delay: short })
+          .to('#pair-three span', { x: 0, opacity: 1, stagger: stagger })
+          .to('#pair-three span', { x: small, opacity: 0, stagger: stagger, ease: easeIn, delay: short })
+          .to('#pair-four span', { x: 0, opacity: 1, stagger: stagger })
+          .to('#intro-animation .backdrop', { opacity: 0, delay: medium })
+          .to('#lettermark', { backgroundColor: '#0f332a' }, '-=' + short)
+          .to('.bt-wordmark', { fill: '#0f332a' }, '-=' + short)
+          .to('#animation-text', { x: 0, y: 0, opacity: 0, duration: long }, '-=' + short)
+          .to('#intro-text', { x: 0, y: 0, opacity: 1, duration: long }, '-=' + long)
+          .to('#b-outline path', { drawSVG: '100%', duration: 1.25 }, '-=' + long)
+          .to('#b-outline', { opacity: 0, duration: 0.25, ease: easeIn, delay: 0.2 })
+          .to('.big-b > div', { opacity: 1, duration: long }, '-=0.3')
+          ;
+          introTimeline.progress(progress).play();
+      }
     }
 
     function _initParallax() {
@@ -691,6 +742,10 @@ export default {
     function _resize() {
       // Disable transitions when resizing
       _disableTransitions();
+      if (introTimeline && introTimeline.isActive()) {
+        introTimeline.pause();
+        timelineProgress = introTimeline.progress();
+      }
 
       // Functions to run on resize end
       clearTimeout(resizeTimer);
@@ -698,6 +753,11 @@ export default {
         // Re-enable transitions
         _enableTransitions();
         _buildLogoGradient();
+
+        // Resume intro animation
+        if (!introComplete) {
+          _initIntroAnimation(timelineProgress);
+        }
       }, 250);
     }
     $(window).resize(_resize);

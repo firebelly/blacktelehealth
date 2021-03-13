@@ -10,6 +10,10 @@
     padding-bottom: $padding-lg;
   }
 
+  h3 {
+    margin-bottom: $beat * 2;
+  }
+
   p {
     margin: 0 0 $beat;
   }
@@ -29,6 +33,10 @@
     --button-secondary: #{color('black')};
     margin: $padding-sm 0;
 
+    p:not(.required-legend) {
+      @include type-subtitle;
+    }
+
     // Successful submission
     ._form-content {
       @include transition(opacity);
@@ -42,10 +50,13 @@
 
   .email-link {
     @include h4;
-    font-size: 27px;
-    line-height: 30px;
     letter-spacing: 0.01em;
     margin-bottom: $padding-sm;
+
+    @include media-md {
+      font-size: 27px;
+      line-height: 30px;
+    }
   }
 
   .social {

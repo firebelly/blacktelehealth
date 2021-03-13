@@ -8,7 +8,7 @@ const appState = {
 
   init() {
     // Bind updateBreakpoints to domready and resize
-    window.addEventListener('load', appState.updateBreakpoints);
+    document.addEventListener('DOMContentLoaded', appState.updateBreakpoints);
     window.addEventListener('resize', appState.updateBreakpoints);
   },
 

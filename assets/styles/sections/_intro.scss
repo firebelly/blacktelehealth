@@ -10,7 +10,7 @@
   bottom: 0;
   z-index: 2;
   overflow: hidden;
-  padding-top: 235px;
+  padding-top: 85px;
   position: absolute;
   pointer-events: none;
   color: color('taupe-02');
@@ -24,8 +24,14 @@
     background-color: color("green-01");
   }
 
+  .b-placeholder {
+    width: 70%;
+    padding-bottom: 70%;
+  }
+
   .animation-text {
     position: relative;
+    margin-top: $beat * 2;
 
     > div {
       @include type-intro;
@@ -46,12 +52,19 @@
   }
 
   @include media-md {
+    padding-top: 235px;
+
     .animation-container {
       display: flex;
       flex-direction: row-reverse;
     }
 
+    .b-placeholder {
+      display: none;
+    }
+
     .animation-text {
+      margin-top: 0;
       flex-basis: calc(44.5455% - 90px);
     }
   }

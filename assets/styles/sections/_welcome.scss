@@ -15,7 +15,7 @@
 
   .offset-pill {
     display: flex;
-    padding-bottom: 150px;
+    padding-bottom: 85px;
 
     > div {
       height: 0;
@@ -40,15 +40,28 @@
     }
 
     .-left {
-      margin-top: 150px;
+      margin-top: 85px;
       align-self: flex-end;
       border-radius: 666px 0 0 666px;
     }
     .-right {
       position: sticky;
-      top: calc(50vh - 25%);
+      top: 50vh;
       align-self: flex-start;
       border-radius: 0 666px 666px 0;
+    }
+
+    @include media-md {
+      padding-bottom: 150px;
+
+      > div {
+        &.-left {
+          margin-top: 150px;
+        }
+        &.-right {
+          top: calc(50vh - 25%);
+        }
+      }
     }
   }
 }
