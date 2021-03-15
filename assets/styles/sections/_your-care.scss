@@ -21,14 +21,22 @@
     max-width: 880px;
     margin: $padding-md auto 0;
 
-    > .-inner {
+    > div {
       height: 0;
       position: relative;
       padding-bottom: 57.6923%;
+
+      .-inner {
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        position: absolute;
+      }
     }
 
     img {
-      left: 50%;
+      // left: 50%;
       top: -5%;
       height: 120%;
       max-width: none;
@@ -38,7 +46,7 @@
     @include media-md {
       margin-top: $padding-lg;
 
-      > .-inner {
+      > div {
         padding-bottom: 56.8181%;
       }
     }

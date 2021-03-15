@@ -110,6 +110,7 @@
   .toggle-icon {
     @include box-shadow(0);
     @include transition(box-shadow);
+    position: relative;
   }
 
   svg {

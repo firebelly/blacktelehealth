@@ -66,6 +66,7 @@
 .arch {
   overflow: hidden;
   border-radius: 666px 666px 0 0;
+  -webkit-mask-image: -webkit-radial-gradient(white, black);
 
   &.-flipped {
     border-radius: 0 0 666px 666px;
@@ -74,11 +75,13 @@
 .pill {
   overflow: hidden;
   border-radius: 999px;
+  -webkit-mask-image: -webkit-radial-gradient(white, black);
 }
 .circle {
   overflow: hidden;
   border-radius: 50%;
   transition: border-radius 0.25s ease-out;
+  -webkit-mask-image: -webkit-radial-gradient(white, black);
 }
 
 // Overlapping Section Images
