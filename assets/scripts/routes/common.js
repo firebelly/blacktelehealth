@@ -340,6 +340,14 @@ export default {
       let modalOverlay = document.querySelector('.site-overlay');
       modalClose.addEventListener('click', modals.closeModal);
       modalOverlay.addEventListener('click', modals.closeModal);
+      modal.addEventListener('click', function(e) {
+        const $target = $(e.target);
+        // close when clicking away
+
+        if (!$target.is('.-inner') && !$target.parents('.-inner').length) {
+          modals.closeModal();
+        }
+      });
 
       // Modal Navigation
       function nextBio(currentBio) {
