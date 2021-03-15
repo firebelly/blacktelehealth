@@ -1,10 +1,9 @@
 // Care Menu Section
 
 .your-care-options-section {
-  padding-top: $padding-sm;
-  padding-bottom: $padding-md;
+  padding: $padding-sm 0 #{$beat * 6};
   @include media-md {
-    padding-top: $padding-lg;
+    padding: $padding-lg 0 #{$padding-sm * 2};
   }
 
   .section-title {

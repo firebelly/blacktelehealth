@@ -1,6 +1,12 @@
 // We Believe Section
 
 .we-believe-section {
+  padding: 0 0 #{$padding-sm * 2};
+
+  @include media-md {
+    padding-bottom: 200px;
+  }
+
   .section-title {
     margin-bottom: $beat * 2;
 
@@ -22,13 +28,22 @@
   .belief {
     margin-bottom: 30px;
 
+    &:last-of-type {
+      margin-bottom: 0;
+    }
+
     p {
       font-size: 20px;
+      margin: $beat 0 0;
       line-height: 30px;
     }
 
     @include media-md {
       margin-bottom: $padding-sm;
+
+      p {
+        margin-top: $beat * 1.5;
+      }
     }
   }
 }

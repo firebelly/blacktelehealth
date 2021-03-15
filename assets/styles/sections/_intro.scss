@@ -72,7 +72,7 @@
 
 .intro-section {
   position: relative;
-  padding: $padding-md 0;
+  padding: $padding-md 0 $padding-sm;
   @include media-md {
     padding: 235px 0 #{$padding-sm * 2};
 

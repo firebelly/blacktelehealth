@@ -48,6 +48,7 @@ form {
     position: relative;
 
     label {
+      top: 15px;
       position: absolute;
       pointer-events: none;
       transform-origin: bottom left;
@@ -59,7 +60,12 @@ form {
 
     &.-focus {
       label {
-        transform: translateY(-1em) scale(0.63);
+        top: 0;
+        transform: translateY(-10px) scale(0.63);
+
+        @include media-md {
+          top: -10px;
+        }
       }
     }
 
@@ -105,10 +111,14 @@ form {
   }
 
   button[type=submit] {
-    margin-top: $beat * 3;
+    margin-top: $beat * 2;
 
     &:focus {
       outline: none
+    }
+
+    @include media-md {
+      margin-top: $beat * 3;
     }
   }
 

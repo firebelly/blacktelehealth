@@ -1,6 +1,11 @@
 // Leadership Section
 
 .leadership-section {
+  padding: 70px 0;
+  @include media-md {
+    padding: 200px 0;
+  }
+
   .section-title {
     br {
       display: none;

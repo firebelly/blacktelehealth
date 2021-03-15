@@ -1,6 +1,8 @@
 // Welcom Section
 
 .welcome-section {
+  padding-top: $padding-sm;
+
   @include media-md {
     padding-top: $padding-sm * 2;
 

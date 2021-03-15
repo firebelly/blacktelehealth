@@ -1,8 +1,11 @@
 // Care Team Section
 
 .care-team-section {
+  padding-bottom: $padding-sm * 2;
+
   .section-title {
     @include h1;
+    margin-bottom: $padding-sm;
 
     @include media-md {
       max-width: 50%;
@@ -11,11 +14,13 @@
 }
 
 .care-team-grid {
-  margin-top: $padding-md;
+  margin-top: $beat * 6;
 }
 
 .care-team-member {
-  margin-bottom: $padding-sm;
+  & + .care-team-member {
+    margin-top: $padding-sm;
+  }
 
   .person-image {
     @include transition(border-radius);
@@ -42,5 +47,9 @@
 
   @include media-md {
     margin-bottom: $padding-sm * 2;
+
+    & + .care-team-member {
+      margin-top: 0;
+    }
   }
 }

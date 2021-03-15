@@ -1,6 +1,7 @@
 // Pullquote Break
 
 .pullquote-break {
+  z-index: 1;
   overflow: hidden;
   position: relative;
 
@@ -34,6 +35,7 @@
 
     p {
       @include type-pullquote();
+      margin: 0;
     }
   }
 
@@ -97,7 +99,7 @@
 
       p {
         max-width: 370px;
-        margin: 0 0 $padding-sm;
+        margin-bottom: $padding-sm;
       }
     }
   }

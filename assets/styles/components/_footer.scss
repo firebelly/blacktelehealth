@@ -1,9 +1,9 @@
 // Footer
 
 .site-footer {
+  padding-top: $beat * 6;
   color: color('taupe-02');
-  padding-top: $padding-md;
-  padding-bottom: $padding-md;
+  padding-bottom: $padding-lg;
   background-color: color('black');
   @include media-md {
     padding-top: $padding-lg;
@@ -31,10 +31,11 @@
   .newsletter-signup {
     --button-primary: #{color('orange-01')};
     --button-secondary: #{color('black')};
-    margin: $padding-sm 0;
+    margin: #{$beat * 2} 0 #{$beat * 3};
 
     p:not(.required-legend) {
       @include type-subtitle;
+      margin: 0;
     }
 
     // Successful submission
@@ -51,11 +52,12 @@
   .email-link {
     @include h4;
     letter-spacing: 0.01em;
-    margin-bottom: $padding-sm;
+    margin-bottom: $beat * 3;
 
     @include media-md {
       font-size: 27px;
       line-height: 30px;
+      margin-bottom: $padding-sm;
     }
   }
 
