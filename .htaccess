@@ -12,6 +12,7 @@
     RewriteCond %{HTTP_HOST} !^www\.myblacktelehealth\.com [NC]
     RewriteCond %{HTTP_HOST} !^blacktelehealth\.firebelly\.co [NC]
     RewriteCond %{HTTP_HOST} !^blacktelehealth\.static [NC]
+    RewriteCond %{HTTP_HOST} !^localhost [NC]
     RewriteRule ^(.*)$ https://www.myblacktelehealth.com/$1 [R=301,L]
 
   # Force SSL
