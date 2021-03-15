@@ -2,8 +2,7 @@
 //
 // Animates native details element in accordion style
 // credit to https://css-tricks.com/how-to-animate-the-details-element-using-waapi/
-import gsap from 'gsap/gsap-core';
-import Velocity from 'velocity-animate';
+import gsap from 'gsap';
 
 export default class Accordion {
   constructor(el) {
