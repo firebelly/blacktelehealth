@@ -9,11 +9,8 @@ env.warn_only = True
 env.forward_agent = True
 
 def production():
-  env.hosts = ['starthere.com']
-  env.user = 'starthereuser'
-  env.remotepath = '/path/to/site'
-  env.git_branch = 'master'
-  env.remote_protocol = 'https'
+  env.remotepath = '/home/firebelly/apps/blacktelehealth_production'
+  env.git_branch = 'main'
 
 def deploy():
   update()
