@@ -87,6 +87,7 @@ export default {
 
       if (appState.breakpoints.md) {
         introTimeline
+          .set('#animation-text', { opacity: 1 })
           .set('#animation-text .-top span, #animation-text .pair span', { opacity: 0, x: -small })
           .set('.bt-wordmark', { fill: '#ede7de' })
           .set('#animation-text', { y: 0, x: -large, opacity: 1 })
@@ -117,6 +118,7 @@ export default {
         introTimeline.progress(progress).play();
       } else {
         introTimeline
+          .set('#animation-text', { opacity: 1 })
           .set('#animation-text .-top span, #animation-text .pair span', { opacity: 0, x: -small })
           .set('#lettermark', { backgroundColor: '#ede7de' })
           .set('.bt-wordmark', { fill: '#ede7de' })
