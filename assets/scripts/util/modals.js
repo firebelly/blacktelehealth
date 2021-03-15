@@ -2,13 +2,13 @@
 
 import appState from '../util/appState';
 import { disableBodyScroll, enableBodyScroll } from 'body-scroll-lock';
+import gsap from 'gsap';
 
 // Shared vars
 let $body = $('body'),
             $document = $(document),
             $html = $('html'),
             $modal,
-            $modalOverlay,
             $modalContainer,
             scrollableSelector,
             eventBinded = false,
@@ -42,7 +42,6 @@ const modals = {
     }
 
     $modal = $('.modal');
-    $modalOverlay = $('.modal-overlay');
     $modalContainer = $modal.find('.modal-content');
 
     // Selector of div that scrolls when bodylock is enabled
@@ -111,17 +110,19 @@ const modals = {
     appState.isAnimating = true;
     // Only animate opening if user doesn't prefer reduced motion
     if (!appState.reducedMotionMQ.matches) {
-      $modal.velocity('stop').velocity({
-          opacity: [1, 0],
-          translateY: [0, 15],
-        }, {
-          duration: 500,
-          display: 'block',
-          complete: function() {
-            modals.enableModal();
-          }
+      gsap.killTweensOf('.modal');
+      gsap.fromTo('.modal', {
+        opacity: 0,
+        y: '15%',
+        display: 'block'
+      }, {
+        opacity: 1,
+        y: 0,
+        duration: 0.5,
+        onComplete: function() {
+          modals.enableModal();
         }
-      );
+      })
     } else {
       $modal.css({
         'display': 'block',
@@ -130,7 +131,6 @@ const modals = {
       modals.enableModal();
     }
     appState.modalOpen = true;
-    modals.toggleOverlay();
 
     // attach a listener to redirect the tab to the modal window if the user somehow gets out of the modal window
     $('body').on('focusin', '.site-main', function() {
@@ -160,18 +160,15 @@ const modals = {
     }
     appState.modalOpen = false;
     if (!appState.reducedMotionMQ.matches) {
-      $('.modal').velocity({
-          opacity: [0, 1],
-          translateY: [15, 0],
-        }, {
-          duration: 250,
-          display: 'none',
-          complete: function() {
-            // appState.modalJustClosed = true;
-            modals.disableModal();
-          }
+      gsap.to('.modal', {
+        opacity: 0,
+        y: '15%',
+        display: 'none',
+        duration: 0.25,
+        onComplete: function() {
+          modals.disableModal();
         }
-      );
+      })
     } else {
       $modal.css({
         'opacity': 1,
@@ -179,7 +176,6 @@ const modals = {
       });
       modals.disableModal();
     }
-    modals.toggleOverlay();
     $body.removeClass('modal-open');
 
     // remove the listener which redirects tab keys in the main content area to the modal
@@ -194,16 +190,6 @@ const modals = {
   disableModal: function() {
     enableBodyScroll($(scrollableSelector)[0]);
     $html.css('overflow', '');
-  },
-
-  // Toggle modal overlay
-  toggleOverlay: function() {
-    $modalOverlay.velocity({
-        opacity: (appState.modalOpen ? 1 : 0)
-      }, {
-        duration: 50,
-        display: (appState.modalOpen ? 'block' : 'none')
-      });
   },
 
   // Remove events
