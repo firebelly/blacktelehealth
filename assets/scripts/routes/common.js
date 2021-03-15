@@ -50,6 +50,7 @@ export default {
     _initAccordions();
     _initBios();
     _initNewsletterForm();
+    _initSmoothScrolling();
 
     function _initIntroAnimation(progress) {
       // GSDevTools.create();
@@ -228,14 +229,6 @@ export default {
       });
 
       $siteNav.on('click', 'a', _closeNav);
-
-      document.querySelectorAll(".site-nav a").forEach((btn, index) => {
-        let destination = btn.getAttribute('href');
-        btn.addEventListener("click", (e) => {
-          e.preventDefault();
-          gsap.to(window, { duration: 1, scrollTo: { y: destination, autoKill: true } });
-        });
-      });
     }
 
     function _openNav() {
@@ -741,6 +734,41 @@ export default {
         };
         addEvent(form_to_submit, 'submit', form_submit);
       })();
+    }
+
+    function _initSmoothScrolling() {
+      // Detect if a link's href goes to the current page
+      function getSamePageAnchor(link) {
+        if (
+          link.protocol !== window.location.protocol ||
+          link.host !== window.location.host ||
+          link.pathname !== window.location.pathname ||
+          link.search !== window.location.search
+        ) {
+          return false;
+        }
+
+        return link.hash;
+      }
+
+      // Scroll to a given hash, preventing the event given if there is one
+      function scrollToHash(hash, e) {
+        const elem = hash ? document.querySelector(hash) : false;
+        if (elem) {
+          if (e) e.preventDefault();
+          gsap.to(window, { duration: 0.5, scrollTo: { y: elem, autoKill: true } });
+        }
+      }
+
+      // If a link's href is within the current page, scroll to it instead
+      document.querySelectorAll('a[href]').forEach(a => {
+        a.addEventListener('click', e => {
+          scrollToHash(getSamePageAnchor(a), e);
+        });
+      });
+
+      // Scroll to the element in the URL's hash on load
+      scrollToHash(window.location.hash);
     }
 
     // Disabling transitions on certain elements on resize
