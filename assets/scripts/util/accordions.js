@@ -2,6 +2,7 @@
 //
 // Animates native details element in accordion style
 // credit to https://css-tricks.com/how-to-animate-the-details-element-using-waapi/
+import gsap from 'gsap/gsap-core';
 import Velocity from 'velocity-animate';
 
 export default class Accordion {
@@ -49,6 +50,7 @@ export default class Accordion {
   shrink() {
     // Set the element as "being closed"
     this.isClosing = true;
+    this.el.classList.add('-is-closing');
     // Remove active class
     this.el.classList.remove('-is-open');
     // Store the current height of the element
@@ -60,21 +62,20 @@ export default class Accordion {
       const thisRef = this;
 
       if (this.el.classList.contains('long-accordion')) {
-        this.el.scrollIntoView();
+        gsap.to(window, { duration: 0.5, scrollTo: { y: this.el, autoKill: true, offsetY: 60 } });
       }
 
       // Start the animation
-      Velocity(this.el, {
-          height: endHeight
-        }, {
-          duration: 350,
-          easing: 'ease-in',
-          complete: function() {
-            // When the animation is complete, call onAnimationFinish()
-            thisRef.onAnimationFinish(false);
-          }
+      this.animation = true;
+      gsap.to(this.el, {
+        height: endHeight,
+        duration: .35,
+        ease: 'ease-in',
+        onComplete: function() {
+          thisRef.onAnimationFinish(false);
+          this.animation = false;
         }
-      );
+      });
     } else {
       this.onAnimationFinish(false);
     }
@@ -104,17 +105,16 @@ export default class Accordion {
       const thisRef = this;
 
       // Start the animation
-      Velocity(this.el, {
-          height: endHeight
-        }, {
-          duration: 250,
-          easing: 'ease',
-          complete: function () {
-            // When the animation is complete, call onAnimationFinish()
-            thisRef.onAnimationFinish(true);
-          }
+      this.animation = true;
+      gsap.to(this.el, {
+        height: endHeight,
+        duration: .25,
+        ease: 'ease',
+        onComplete: function () {
+          thisRef.onAnimationFinish(true);
+          this.animation = false;
         }
-      );
+      });
     } else {
       this.onAnimationFinish(true);
     }
@@ -127,6 +127,7 @@ export default class Accordion {
       this.el.setAttribute('open', 'open');
     } else {
       this.el.removeAttribute('open');
+      this.el.classList.remove('-is-closing');
     }
     // Clear the stored animation
     this.animation = null;

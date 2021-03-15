@@ -25,7 +25,17 @@ details {
       summary button {
         height: 0;
         opacity: 0;
-        point-events: none;
+        transition: none;
+        pointer-events: none;
+      }
+    }
+  }
+
+  &.-is-closing {
+    &.long-accordion {
+      summary button {
+        opacity: 0;
+        height: 30px;
       }
     }
   }
@@ -99,5 +109,13 @@ summary {
 
   button {
     @include button(simple, color('orange-01'));
+  }
+}
+
+.long-accordion {
+  summary button {
+    @include transition(opacity, 0.25s);
+    opacity: 1;
+    height: 30px;
   }
 }
