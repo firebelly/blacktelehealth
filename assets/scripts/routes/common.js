@@ -160,6 +160,19 @@ export default {
           }
         });
       });
+
+      gsap.utils.toArray('.image-shift').forEach((image, index) => {
+        const trigger = image.parentElement;
+        const img = image.querySelector('img');
+        gsap.fromTo(img, { y: '5%', x: '-50%' }, {
+          y: '-5%',
+          x: '-50%',
+          scrollTrigger: {
+            trigger: trigger,
+            scrub: 0.2
+          }
+        });
+      });
     }
 
     function _initLettermark() {

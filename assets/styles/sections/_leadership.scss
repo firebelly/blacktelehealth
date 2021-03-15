@@ -43,13 +43,21 @@
       z-index: 1;
       position: relative;
 
-      img {
-        margin: 0 auto;
-        display: block;
+      .-inner {
+        width: 100%;
+        // height: 94.8529%;
+        overflow: hidden;
+        position: relative;
+        background-color: color('orange-01');
       }
 
-      .-inner {
-        background-color: color('orange-01');
+      img {
+        // left: 50%;
+        bottom:  0;
+        width: 100%;
+        display: block;
+        max-width: none;
+        // position: absolute;
       }
     }
 
