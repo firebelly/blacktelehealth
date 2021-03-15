@@ -4,6 +4,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger.js";
 import { ScrollToPlugin } from "gsap/ScrollToPlugin.js";
 import { DrawSVGPlugin } from "../private/DrawSVGPlugin.js";
 import { GSDevTools } from "../private/GSDevTools.min.js";
+import { disableBodyScroll, enableBodyScroll } from 'body-scroll-lock';
 gsap.registerPlugin(ScrollTrigger, ScrollToPlugin, DrawSVGPlugin, GSDevTools);
 
 // Common js
@@ -237,6 +238,7 @@ export default {
       $body.addClass('nav-open');
       appState.navOpen = true;
       $siteNav.addClass('-active');
+      disableBodyScroll($siteNav);
 
       // attach a listener to redirect the tab to the modal window if the user somehow gets out of the modal window
       $('body').on('focusin', '.site-main', function() {
@@ -248,6 +250,7 @@ export default {
       if (!appState.navOpen) {
         return;
       }
+      enableBodyScroll($siteNav);
       appState.navOpen = false;
       $body.removeClass('nav-open');
       $siteNav.removeClass('-active');

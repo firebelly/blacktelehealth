@@ -1,7 +1,7 @@
 // Modals
 
 import appState from '../util/appState';
-import { disableBodyScroll, enableBodyScroll, clearAllBodyScrollLocks } from 'body-scroll-lock';
+import { disableBodyScroll, enableBodyScroll } from 'body-scroll-lock';
 
 // Shared vars
 let $body = $('body'),
