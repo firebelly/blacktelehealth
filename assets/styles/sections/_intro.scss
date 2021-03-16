@@ -18,8 +18,8 @@
   .backdrop {
     top: 0;
     left: 0;
-    right: 0;
     bottom: 0;
+    right: 95px;
     position: absolute;
     background-color: color("green-01");
   }
@@ -54,6 +54,10 @@
 
   @include media-md {
     padding-top: 235px;
+
+    .backdrop {
+      right: 150px;
+    }
 
     .animation-container {
       display: flex;

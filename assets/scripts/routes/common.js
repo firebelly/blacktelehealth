@@ -13,15 +13,14 @@ import Accordion from '../util/accordions';
 import modals from '../util/modals';
 
 // Shared vars
-let $window = $(window),
-    $body = $('body'),
+let $body = $('body'),
     $document = $(document),
     $siteNav,
     transitionElements = [],
     introTimeline,
     timelineProgress = 0,
     introSection,
-    lettermark,
+    siteLogo,
     logoGradient,
     logoBackground,
     introComplete = false,
@@ -38,13 +37,13 @@ export default {
     $siteNav = $('.site-nav');
     logoBackground = document.getElementById("logo-background");
     introSection = document.getElementById('intro-section');
-    lettermark = document.getElementById('lettermark');
+    siteLogo = document.getElementById('site-logo');
 
     // Transition elements to enable/disable on resize
     transitionElements = [];
 
     // Init Functions
-    _initIntroAnimation(timelineProgress);
+    _initIntroAnimation(timelineProgress, 0.5);
     _initParallax();
     _initLettermark();
     _initSiteNav();
@@ -53,8 +52,9 @@ export default {
     _initNewsletterForm();
     _initSmoothScrolling();
 
-    function _initIntroAnimation(progress) {
+    function _initIntroAnimation(progress, delay) {
       // GSDevTools.create();
+      delay = typeof delay == 'undefined' ? 0 : delay;
 
       let stagger = 0.1,
           short = 0.5,
@@ -66,7 +66,6 @@ export default {
           easeOut = 'ease-out',
           options = {
             id: "introAnimation",
-            delay: 1,
             pause: true,
             defaults: {
               duration: short,
@@ -79,7 +78,7 @@ export default {
 
       // Kill the old timeline
       if (introTimeline) {
-        introTimeline.set('#intro-animation *', {clearProps: "all"});
+        introTimeline.set('#nav-toggle-backdrop, #intro-animation *', {clearProps: "all"});
         introTimeline.progress(0).kill();
       }
 
@@ -96,7 +95,7 @@ export default {
           .set('#b-outline path', { drawSVG: '0%' })
           .set('.big-b > div', { opacity: 0 })
           // begin timeline
-          .to('#animation-text .-top span', { x: 0, opacity: 1, stagger: stagger })
+          .to('#animation-text .-top span', { x: 0, opacity: 1, stagger: stagger }, delay)
           .to('#pair-one span', { x: 0, opacity: 1, stagger: stagger }, '-=' + (short - stagger))
           .to('#pair-one span', { x: small, opacity: 0, stagger: stagger, ease: easeIn, delay: short })
           .to('#pair-two span', { x: 0, opacity: 1, stagger: stagger })
@@ -105,6 +104,7 @@ export default {
           .to('#pair-three span', { x: small, opacity: 0, stagger: stagger, ease: easeIn, delay: short })
           .to('#pair-four span', { x: 0, opacity: 1, stagger: stagger })
           .to('#intro-animation .backdrop', { opacity: 0, delay: medium })
+          .to('#nav-toggle-cover', { opacity: 0, pointerEvents: 'none' }, '-=' + short)
           .add(function () {
             introSection.setAttribute('data-lettermark', 'dark');
             _buildLogoGradient();
@@ -128,7 +128,7 @@ export default {
           .set('#b-outline path', { drawSVG: '0%' })
           .set('.big-b > div', { opacity: 0 })
           // begin timeline
-          .to('#animation-text .-top span', { x: 0, opacity: 1, stagger: stagger })
+          .to('#animation-text .-top span', { x: 0, opacity: 1, stagger: stagger }, delay)
           .to('#pair-one span', { x: 0, opacity: 1, stagger: stagger }, '-=' + (short - stagger))
           .to('#pair-one span', { x: small, opacity: 0, stagger: stagger, ease: easeIn, delay: short })
           .to('#pair-two span', { x: 0, opacity: 1, stagger: stagger })
@@ -137,6 +137,7 @@ export default {
           .to('#pair-three span', { x: small, opacity: 0, stagger: stagger, ease: easeIn, delay: short })
           .to('#pair-four span', { x: 0, opacity: 1, stagger: stagger })
           .to('#intro-animation .backdrop', { opacity: 0, delay: medium })
+          .to('#nav-toggle-cover', { opacity: 0, pointerEvents: 'none' }, '-=' + short)
           .to('#lettermark', { backgroundColor: '#0f332a' }, '-=' + short)
           .to('.bt-wordmark', { fill: '#0f332a' }, '-=' + short)
           .to('#animation-text', { x: 0, y: 0, opacity: 0, duration: long }, '-=' + short)
@@ -176,17 +177,17 @@ export default {
     }
 
     function _initLettermark() {
+      siteLogo.style.opacity = 0;
       const offset = 60;
       let scrollPosition = document.documentElement.scrollTop + offset;
-      lettermark.style.opacity = 0;
+      logoBackground.style.transform = "translateY(-" + scrollPosition + "px)";
 
-      setTimeout(_buildLogoGradient, 200);
+      setTimeout(_buildLogoGradient, 150);
 
       window.addEventListener("scroll", function (e) {
         scrollPosition = document.documentElement.scrollTop;
         logoBackground.style.transform = "translateY(-" + scrollPosition + "px)";
       });
-
     }
 
     function _buildLogoGradient() {
@@ -232,7 +233,9 @@ export default {
       logoBackground.style.height = docHeight + "px";
       logoBackground.style.backgroundSize = "100% " + docHeight + "px";
       logoBackground.style.backgroundImage = logoGradient;
-      lettermark.style.opacity = 1;
+      if (siteLogo.style.opacity == 0) {
+        gsap.to(siteLogo, { opacity: 1, duration: 1, ease: 'ease-out' });
+      }
     }
 
     function _initSiteNav() {

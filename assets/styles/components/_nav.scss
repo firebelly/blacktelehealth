@@ -178,3 +178,17 @@
     }
   }
 }
+// Nav Toggle Cover
+.nav-toggle-cover {
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 95px;
+  position: absolute;
+  z-index: z(navToggleCover);
+  background-color: color('green-01');
+
+  @include media-md {
+    width: 150px;
+  }
+}
