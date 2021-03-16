@@ -7,6 +7,7 @@
        url("../fonts/AkkuratLLWeb-Thin.woff2") format("woff2");
   font-weight: 200;
   font-style: normal;
+  font-display: swap;
 }
 
 @font-face {
@@ -15,6 +16,7 @@
        url("../fonts/AkkuratLLWeb-ThinItalic.woff2") format("woff2");
   font-weight: 200;
   font-style: italic;
+  font-display: swap;
 }
 
 @font-face {
@@ -23,6 +25,7 @@
        url("../fonts/AkkuratLLWeb-Light.woff2") format("woff2");
   font-weight: 300;
   font-style: normal;
+  font-display: swap;
 }
 
 @font-face {
@@ -31,6 +34,7 @@
        url("../fonts/AkkuratLLWeb-LightItalic.woff2") format("woff2");
   font-weight: 300;
   font-style: italic;
+  font-display: swap;
 }
 
 @font-face {
@@ -39,6 +43,7 @@
        url("../fonts/AkkuratLLWeb-Regular.woff2") format("woff2");
   font-weight: 500;
   font-style: normal;
+  font-display: swap;
 }
 
 @font-face {
@@ -47,6 +52,7 @@
        url("../fonts/AkkuratLLWeb-Italic.woff2") format("woff2");
   font-weight: normal;
   font-style: italic;
+  font-display: swap;
 }
 
 @font-face {
@@ -55,6 +61,7 @@
        url("../fonts/AkkuratLLWeb-Bold.woff2") format("woff2");
   font-weight: 700;
   font-style: normal;
+  font-display: swap;
 }
 
 @font-face {
@@ -63,6 +70,7 @@
        url("../fonts/AkkuratLLWeb-BoldItalic.woff2") format("woff2");
   font-weight: 700;
   font-style: italic;
+  font-display: swap;
 }
 
 @font-face {
@@ -71,6 +79,7 @@
        url("../fonts/AkkuratLLWeb-Black.woff2") format("woff2");
   font-weight: 900;
   font-style: normal;
+  font-display: swap;
 }
 
 @font-face {
@@ -79,6 +88,7 @@
        url("../fonts/AkkuratLLWeb-BlackItalic.woff2") format("woff2");
   font-weight: 900;
   font-style: italic;
+  font-display: swap;
 }
 
 // Tiempos
@@ -88,6 +98,7 @@
        url('../fonts/tiempos-text-web-regular.woff') format('woff');
   font-weight: 500;
   font-style: normal;
+  font-display: swap;
 }
 
 @font-face {
@@ -96,6 +107,7 @@
        url('../fonts/tiempos-text-web-regular-italic.woff') format('woff');
   font-weight: 500;
   font-style: italic;
+  font-display: swap;
 }
 
 @font-face {
@@ -104,4 +116,5 @@
        url('../fonts/tiempos-headline-web-light.woff') format('woff');
   font-weight: 500;
   font-style: normal;
+  font-display: swap;
 }
