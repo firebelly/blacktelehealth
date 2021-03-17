@@ -139,9 +139,10 @@ const modals = {
 
     // save current focus
     focusedElementBeforeModal = $(':focus');
+
     // If trigger is person modal
-    if (focusedElementBeforeModal.parents('.person').length) {
-      var person = focusedElementBeforeModal.parents('.person')
+    if (focusedElementBeforeModal.parents('.person-with-bio').length) {
+      var person = focusedElementBeforeModal.parents('.person-with-bio')
       appState.personModalTrigger = person.attr('data-person');
     }
   },
@@ -182,7 +183,7 @@ const modals = {
     $('body').off('focusin','.site-main');
 
     // set focus back to element that had it before the modal was opened
-    if (!appState.personModalTrigger) {
+    if (!appState.personModalTrigger && !focusedElementBeforeModal.parents('.modal').length) {
       focusedElementBeforeModal.focus();
     }
   },
