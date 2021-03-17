@@ -19,6 +19,7 @@ let $body = $('body'),
     transitionElements = [],
     introTimeline,
     timelineProgress = 0,
+    introAnimation,
     introSection,
     siteLogo,
     logoGradient,
@@ -37,6 +38,7 @@ export default {
     $siteNav = $('.site-nav');
     logoBackground = document.getElementById("logo-background");
     introSection = document.getElementById('intro-section');
+    introAnimation = document.getElementById('intro-animation');
     siteLogo = document.getElementById('site-logo');
 
     // Transition elements to enable/disable on resize
@@ -809,6 +811,7 @@ export default {
       // Disable transitions when resizing
       _disableTransitions();
       if (introTimeline && introTimeline.isActive()) {
+        introAnimation.classList.add('-paused');
         introTimeline.pause();
         timelineProgress = introTimeline.progress();
       }
@@ -822,6 +825,7 @@ export default {
 
         // Resume intro animation
         if (!introComplete) {
+          introAnimation.classList.remove('-paused');
           _initIntroAnimation(timelineProgress);
         }
       }, 250);

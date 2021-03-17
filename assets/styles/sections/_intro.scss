@@ -15,6 +15,12 @@
   pointer-events: none;
   color: color('taupe-02');
 
+  &.-paused {
+    .animation-container {
+      opacity: 0;
+    }
+  }
+
   .backdrop {
     top: 0;
     left: 0;
@@ -27,6 +33,11 @@
   .b-placeholder {
     width: 70%;
     padding-bottom: 70%;
+  }
+
+  .animation-container {
+    @include transition(opacity);
+    opacity: 1;
   }
 
   .animation-text {
